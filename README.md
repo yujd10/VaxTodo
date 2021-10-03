@@ -83,7 +83,7 @@
         2. Planifier un rendez-vous:
             - L'employé utilise le calendrier des rendez-vous pour choisir une date et heure avec la personne. (Heure pile, ex: 8h, 9h, 10h)
             - La personne peut prendre un rendez-vous pour un maximum de 2 personnes.
-            - Maximum de 15 rendez-vous par plage horaire  (? 15 personnes ou 30 personnes)
+            - Maximum de 15 rendez-vous 30 visiteurs planifiées par plage horaire 
 ## Suivi
     À la fin de la journée:
         1. L'employé envoie un courriel à tous les visiteurs ayant reçu le vaccin, le détail de sa visite et la preuve de vaccination sous forme de document PDF présentant son nom, sa    date de naissance, un code QR et la liste des vaccins administrés.
