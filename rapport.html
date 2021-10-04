@@ -344,34 +344,59 @@
                         <li>L'employé vérifie les visites planifiées prévus pour les prochianes 48 heures.</li>
                         <li>L'employé clique sur envoyer notification dans le système pour envoyer un courriel aux visiteurs</li>
                     </ol>
-                </div>  
+                </div>   
 
                 <div id="scenario" class="scenario">
-                    <p><b>Cas d'utilisation: </b> Gestions de rendez-vous</p>
+                    <p><b>Cas d'utilisation: </b> Gestion des rendez-vous</p>
                     <p><b>But: </b>l'employé peut ajouter ou annuler les rendez-vous</p>
-                    <p><b>Acteurs: </b>Employé (principal)</p>
+                    <p><b>Acteurs: </b>Employé (principal) Visiteur (Secondaire)</p>
                     <p><b>Sénario principal</b></p>
                     <ol>
                         <li>L'employé accède au système avec son numéro d'employé et sa mot de passe.</li>
                         <li>L'employé entre dans la page des rendez-vous.</li>
-                        <li>L'employé effectue la modification des rendez-vous.</li>
+                        <li>L'employé prend un rendez-vous avec le visiteur</li>
                     </ol>
-                </div>  
+                    <p><b>Sénario alternatifs</b></p>
+                    <p> &emsp; 3a. L'employé annule un rendez-vous pour un visiteur</p>
+                    <p> &emsp; &ensp; 3a.1 L'employé entre son mot de passe pour confirmer l'annulation d'un rendez-vous.</p>
+                </div>
 
                 <div id="scenario" class="scenario">
-                    <p><b>Cas d'utilisation: </b> Gestions</p>
-                    <p><b>But: </b>l'employé peut modifier la liste des rendez-vous, des comptes visiteurs et des bénévoles</p>
-                    <p><b>Acteurs: </b>Employé (principal)</p>
+                    <p><b>Cas d'utilisation: </b> Gestion des comptes visiteurs</p>
+                    <p><b>But: </b>l'employé peut ajouter, supprimer ou modifier les comptes visiteurs.</p>
+                    <p><b>Acteurs: </b>Employé (principal) Visiteur (Secondaire)</p>
                     <p><b>Sénario principal</b></p>
                     <ol>
                         <li>L'employé accède au système avec son numéro d'employé et sa mot de passe.</li>
-                        <li>L'employé entre dans la page des rendez-vous.</li>
-                        <li>L'employé effectue la modification des rendez-vous.</li>
+                        <li>L'employé entre dans la page des comptes visiteurs</li>
+                        <li>L'employé crée un compte pour les visiteurs qui sont venu pour la première fois.</li>
                     </ol>
-                    <p> &emsp; 2a. L'employé entre dans la page des comptes visiteurs.</p>
-                    <p> &emsp; &ensp; 2a.1 L'employé effectue la modification des comptes visiteurs.</p>
-                    <p> &emsp; 2b. L'employé entre dans la page des bénévoles.</p>
-                    <p> &emsp; &ensp; 2b.1 L'employé effectue la modification des bénévoles.</p>
+                    <p><b>Sénario alternatifs</b></p>
+                    <p> &emsp; 3a. L'employé modifie un compte visiteur.</p>
+                    <p> &emsp; &ensp; 3a.1 L'employé demande au visiteur l'information qu'il faut être modifié.</p>
+                    <p> &emsp; &ensp; 3a.2 L'employé faire la modification des informations personnelles du visiteur.</p>
+                    <p> &emsp; 3b. L'employé supprime un compte visiteur.</p>
+                    <p> &emsp; &ensp; 3b.1 L'employé entre son mot de passe pour confirmer la suppression d'un compte visiteur.</p>
+                </div>
+
+                <div id="scenario" class="scenario">
+                    <p><b>Cas d'utilisation: </b> Gestion des bénévoles</p>
+                    <p><b>But: </b>l'employé peut ajouter, supprimer ou modifier la liste des bénévoles</p>
+                    <p><b>Acteurs: </b>Employé (principal) Bénévoles (Secondaire)</p>
+                    <p><b>Sénario principal</b></p>
+                    <ol>
+                        <li>Un bénévole arrive devant l'employé</li>
+                        <li>L'employé accède au système avec son numéro d'employé et son mot de passe.</li>
+                        <li>L'employé entre dans la page des bénévoles</li>
+                        <li>L'employé demande au bénévole ses informations personnelles et ses disponibilités de venir au local.</li>
+                        <li>L'employé ajoute le bénévole dans la liste des bénévoles.</li>          
+                    </ol>
+                    <p><b>Sénario alternatifs</b></p>
+                    <p> &emsp; 3a. L'employé modifie les informations d'un bénévole.</p>
+                    <p> &emsp; &ensp; 3a.1 L'employé demande au bénévole l'information qu'il faut être modifié.</p>
+                    <p> &emsp; &ensp; 3a.2 L'employé faire la modification des informations du bénévole.</p>
+                    <p> &emsp; 3b. L'employé supprime un bénévole de la liste.</p>
+                    <p> &emsp; &ensp; 3b.1 L'employé entre son mot de passe pour confirmer la suppression d'un bénévole.</p>
                 </div>
             </section>
 
@@ -385,7 +410,7 @@
                         <li>Perdre des données sur le serveur</li>
                         <li>Violation des données sur l'Internet</li>
                         <li>Personne non autorisée accède au système</li>
-                        <li></li>
+                        <li>Difficile d'utiliser le système pour tous les employés</li>
                     </ol>
                 </div>
                 <div>
@@ -393,7 +418,7 @@
                     <ul class="nf-requirements">
                         <li>Langue, Francais et Anglais</li>
                         <li>Assurer la sécurité des informations privées des patients</li>
-                        <li>Plus grand police pour faciliter les lectures pour les âgé(e)s</li>
+                        <li>Conservation des données</li>
                         <li>Une interface plus conviviale</li>
                     </ul>
                 </div>
