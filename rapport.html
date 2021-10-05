@@ -100,6 +100,14 @@
         .glossary {
             font-size: 1.4em;
         }
+        .glossary-def{
+            margin-bottom: 20px;
+        }
+        
+        .scenario{
+            border:black 1px solid;
+            padding-left: 10%;
+        }
 
         .preview-img {
             width: 600px;
@@ -204,39 +212,169 @@
                 </p>
                 <h3>Glossaire</h3>
                 <dl class="glossary">
-                    <dt class="glossary-term">ONBL</dt>
-                    <dd class="glossary-def">Organisme à but non lucrative, compagnie qui n’ayant pas pour objectif principal le bénéfice financier.</dd>
-                    <dt class="glossary-term">Preuve de vaccination de première dose</dt>
-                    <dd class="glossary-def">Une pièce qui est pour prouver que la 1ère  dose a été fait et peut prendre la 2ième dose si les exigences sont bien fournies.</dd>
+                    <dt class="glossary-term">GoodPeople</dt>
+                    <dd class="glossary-def">Organisme à but non lucrative, en coordination avec le gouvernement pour prêter main-forte à la campagne de vaccination.</dd>
+                    <dt class="glossary-term">un rendez-vous</dt>
+                    <dd class="glossary-def">Un rendez-vous pour la vaccination</dd>
+                    <dt class="glossary-term">un local</dt>
+                    <dd class="glossary-def">Lieu dédié à la vaccination</dd>
+                    <dt class="glossary-term">Des professionnels de la santé</dt>
+                    <dd class="glossary-def">Les vaccinateurs, chargeurs et les injecteurs qui ses ont portés volontaires pour supporter l'initiative.</dd>
+                    <dt class="glossary-term">les employés</dt>
+                    <dd class="glossary-def">les employés de l'organisme de GoodPeople.</dd>
                     <dt class="glossary-term">Bénévole</dt>
-                    <dd class="glossary-def">Vu que le projet est fait pour le gouvernement, il a besoin des gens qui bénévoles à travailler dans les points de vaccination.</dd>
+                    <dd class="glossary-def">Les bénévoles qui aident le déroulement de la vaccination. Accueillir et acheminer les visiteurs aux employés.</dd>
+                    <dt class="glossary-term">visiteur</dt>
+                    <dd class="glossary-def">Une personne pour se faire vacciner</dd>
+                    <dt class="glossary-term">VaxTodo:re</dt>
+                    <dd class="glossary-def">Système pour prendre de rendez-vous et faire les suivis par rapport à la vaccination. </dd>
                     <dt class="glossary-term">1ere Dose de vaccin</dt>
                     <dd class="glossary-def">Le dosage est plus petit pour débuter la vaccination.</dd>
                     <dt class="glossary-term">2eme dose de vaccin</dt>
                     <dd class="glossary-def">À faire après la première dose de vaccin afin de compléter la vaccination.</dd>
                     <dt class="glossary-term">Le suivi</dt>
                     <dd class="glossary-def">Pour surveiller le nombre et type de dose qui est pris par le patient et les symptômes des patients après avoir fait le(s) vaccin(s).</dd>
-                    <dt class="glossary-term">COVID</dt>
-                    <dd class="glossary-def">La maladie à coronavirus (COVID19) est une maladie infectieuse due à un coronavirus qui a été découvert récemment.</dd>
-                    <dt class="glossary-term">Symptômes</dt>
-                    <dd class="glossary-def">En raison des effets secondaires des vaccins et du fait que chaque personne a un type de corps différent, il existe donc différents symptômes.</dd>
-                    <dt class="glossary-term">Type de vaccin</dt>
-                    <dd class="glossary-def">On a trois types de vaccin disponible a UA qui sont Moderna, Pfizer, AstraZeneca et Janssen.</dd>
-                    <dt class="glossary-term">Numéro unique (compteur visiteur</dt>
-                    <dd class="glossary-def">Numéro pour identifier les patients, chacun a un numéro diffèrent.</dd>
-                    <dt class="glossary-term">Visite</dt>
-                    <dd class="glossary-def">Une visite pour prendre la vaccination.</dd>
+                    <dt class="glossary-term">Preuve de vaccination</dt>
+                    <dd class="glossary-def">Une pièce qui est pour prouver la réalisation de la vaccination. Soit 1ère dose ou 2ième dose.</dd>
+                    <dt class="glossary-term">un numéro</dt>
+                    <dd class="glossary-def">Un numéro donné au visiteur par le bénévole dans le file d'attente.</dd>
+                    <dt class="glossary-term">Numéro de réservation unique</dt>
+                    <dd class="glossary-def">Une numéro unique envoyé par courrier au visiteur planifiée pour confirmer son rendez-vous lors de sa présence.</dd>
+                    <dt class="glossary-term">Numéro de compte du visiteur</dt>
+                    <dd class="glossary-def">Numéro unique à 12 chiffres rattaché à une adresse courriel unique pour identifier les visiteurs.</dd>
+                    <dt class="glossary-term">code d'employé</dt>
+                    <dd class="glossary-def">Un code à 9 chiffres utilisé avec un mot de passe afin d'identifier un employé.</dd>
+                    <dt class="glossary-term">un lot</dt>
+                    <dd class="glossary-def">Un lot pour identifier le type de vaccin utilisé</dd>
+                    <dt class="glossary-term">Prise de rendez-vous (téléphone)</dt>
+                    <dd class="glossary-def">Réservation pour une visite planifiée par le téléphone. </dd>
+                    <dt class="glossary-term">planier une visite</dt>
+                    <dd class="glossary-def">Faire la réservation une autre visite soit après la première dose ou lorsque le visiteur n'a pas sur lui sa carte d'assurance maladie ou que sa carte est expirée.</dd>
+                    <dt class="glossary-term">Créer un compte</dt>
+                    <dd class="glossary-def">Création d'un compte lors de la première visite du visiteur, ce qui rattache toutes ces activité: vaccins et réservations</dd>
+                    <dt class="glossary-term">Accéder à la liste des rendez-vous</dt>
+                    <dd class="glossary-def">Faire l'ajout ou l'annulation dans la liste des rendez-vous</dd>
+                    <dt class="glossary-term">Accéder à la liste des bénévoles</dt>
+                    <dd class="glossary-def">Faire l'ajout, la modification ou la suppression d'un bénévole </dd>
                 </dl>
             </section>
 
             <section>
                 <h2 id="model" class="section-title">Modélisation du domaine</h2>
                 <p>Cas d'utilisation</p>
-                <a href="lien-vers-fichier.vpp">
-                    <img src="url-du-cu.png" alt="">
+                <a href="CU/VaxTodo_re.vpp">
+                    <img src="CU/cuicon.PNG" alt="Cas d'utilisation">
                 </a>
 
                 <p>Scénarios</p>
+                <div id="scenario" class="scenario">
+                    <p><b>Cas d'utilisation: </b> prise de rendez-vous</p>
+                    <p><b>But: </b>Un employé planifie un rendez-vous pour un visiteur pour la vaccination</p>
+                    <p><b>Acteurs: </b>Employé (principal), Visiteur (secondaire)</p>
+                    <p><b>Sénario principal</b></p>
+                    <ol>
+                        <li>Le visiteur appel au local pour prendre un rendez-vous.</li>
+                        <li>L'employé utilise son numéro d'employé et mot de passe pour accéder au système</li>
+                        <li>L'employé utilise clique sur le calendrier et vérifier les diponibilités</li>
+                        <li>Le visiteur confirme le choix à l'employé.</li>
+                        <li>L'employé lui demande son nom au complet, son courriel et le type de dose qu'il désire</li>
+                        <li>L'employé effectue la réservation dans le système et mettre les détails du rendez-vous</li>
+                        <li>l'employé envoie le numéro de réservation par courriel au visiteur.</li>
+                    </ol>
+                    <p><b>Scénarios alternatifs</b></p>
+                    <p> &emsp; 1a. Le visiteur désire de prendre sa rendez-vous pour la deuxième dose sur place</p>
+                    <p> &emsp; 1b. Le visiteur n'a pas sa carte d'assurance maladie.</p>
+                    <p> &emsp; 1c. La carte d'assurance maladie du visiteur est expirée.</p>
+
+                </div>
+                <div id="scenario" class="scenario">
+                    <p><b>Cas d'utilisation: </b> créer un compte visiteur</p>
+                    <p><b>But: </b>Un employé crée un compte unique pour enregistrer les donnés du visiteur</p>
+                    <p><b>Acteurs: </b>Employé (principal), Visiteur (secondaire)</p>
+                    <p><b>Sénario principal</b></p>
+                    <ol>
+                        <li>Le visiteur arrive devant l'employé</li>
+                        <li>L'employé demande au visiteur ses informations personnelles.</li>
+                        <li>L'employé utilise son numéro d'employé et mot de passe pour accéder au système</li>
+                        <li>L'employé clique ajouter un compte visiteur.</li>
+                        <li>L'employé entre les informations personnelles dans le dossier du visiteur.</li>
+                        <li>Le compte du visiteur est créé avec succès.</li>
+                        <li>L'employé donne le numéro de compte au visiteur pour future utilisation</li>
+                    </ol>
+                </div>
+
+                <div id="scenario" class="scenario">
+                    <p><b>Cas d'utilisation: </b> Traitement d'un visiteur</p>
+                    <p><b>But: </b>Un employé confirme le rendez-vous du visiteur, créer un compte de visiteur, faire l'entrevue et planier un rendez-vous si besoin</p>
+                    <p><b>Acteurs: </b>Employé (principal), Visiteur(secondaire)</p>
+                    <p><b>Sénario principal</b></p>
+                    <ol>
+                        <li>Le visiteur dans la file d'attente est appelé par un employé et dirige vers se dernier</li>
+                        <li>L'employé demande au visiteur son numéro de réservation.</li>
+                        <li>L'employé récupère les informations personnelles du visiteur.</li>
+                        <li>L'employé confirme le but de la visite du visiteur.</li>
+                        <li>L'employé demande au visiteur sa carte d'assurance maladie</li>
+                        <li>L'employé remplit avec le visiteur un questionnaire dans le système</li>
+                        <li>L'employé donne au visiteur un billet avec un numéro pour une nouvelle file d'attente</li>
+                        <li>L'employé transmet le formulaire rempli et signé aux professionels de la santé.</li>
+                        <li></li>
+                        <li></li>
+                    </ol>
+                    <p><b>Scénarios alternatifs</b></p>
+                    <p> &emsp; 2a. Le visiteur n'a pas de réservation</p>
+                    <p> &emsp; 4a. Le visiteur est venu pour sa première dose</p>
+                    <p> &emsp; &ensp; 4a.1 L'employé crée un compte pour le visiteur.</p>
+                    <p> &emsp; &ensp; 4a.2 L'employé demande au visiteur s'il désire planifier une seconde dose.</p>
+                    <p> &emsp; 5a. Le visiteur n'a pas sa carte d'assurance maladie</p>
+                    <p> &emsp; &ensp; 5a.1 La visite est annulée</p>
+                    <p> &emsp; &ensp; 5a.2 l'employé l'invite à prendre un nouveau rendez-vous</p>
+                    <p> &emsp; 5b. La carte d'assurance maladie du visiteur est annulée.</p>
+                    <p> &emsp; &ensp; 5b.1 La visite est annulée</p>
+                    <p> &emsp; &ensp; 5b.2 l'employé l'invite à prendre un nouveau rendez-vous</p>
+                </div>  
+                
+                <div id="scenario" class="scenario">
+                    <p><b>Cas d'utilisation: </b> Suivi de la vaccination</p>
+                    <p><b>But: </b>l'employé envoie des courriels sur les détails de la vaccination au visiteurs déjà venu et pour la notification des prochaines visites.</p>
+                    <p><b>Acteurs: </b>Employé (principal)</p>
+                    <p><b>Sénario principal</b></p>
+                    <ol>
+                        <li>À la fin de la journée, l'employé accède au système avec son numéro d'employé et sa mot de passe </li>
+                        <li>L'employé clique sur le production du rapport de vaccination d'une visite.</li>
+                        <li>L'employé envoie un courriel aux visiteurs ayant reçu le vaccin leur rapport de vaccination</li>
+                        <li>L'employé clique sur le calendrier.</li>
+                        <li>L'employé vérifie les visites planifiées prévus pour les prochianes 48 heures.</li>
+                        <li>L'employé clique sur envoyer notification dans le système pour envoyer un courriel aux visiteurs</li>
+                    </ol>
+                </div>  
+
+                <div id="scenario" class="scenario">
+                    <p><b>Cas d'utilisation: </b> Gestions de rendez-vous</p>
+                    <p><b>But: </b>l'employé peut ajouter ou annuler les rendez-vous</p>
+                    <p><b>Acteurs: </b>Employé (principal)</p>
+                    <p><b>Sénario principal</b></p>
+                    <ol>
+                        <li>L'employé accède au système avec son numéro d'employé et sa mot de passe.</li>
+                        <li>L'employé entre dans la page des rendez-vous.</li>
+                        <li>L'employé effectue la modification des rendez-vous.</li>
+                    </ol>
+                </div>  
+
+                <div id="scenario" class="scenario">
+                    <p><b>Cas d'utilisation: </b> Gestions</p>
+                    <p><b>But: </b>l'employé peut modifier la liste des rendez-vous, des comptes visiteurs et des bénévoles</p>
+                    <p><b>Acteurs: </b>Employé (principal)</p>
+                    <p><b>Sénario principal</b></p>
+                    <ol>
+                        <li>L'employé accède au système avec son numéro d'employé et sa mot de passe.</li>
+                        <li>L'employé entre dans la page des rendez-vous.</li>
+                        <li>L'employé effectue la modification des rendez-vous.</li>
+                    </ol>
+                    <p> &emsp; 2a. L'employé entre dans la page des comptes visiteurs.</p>
+                    <p> &emsp; &ensp; 2a.1 L'employé effectue la modification des comptes visiteurs.</p>
+                    <p> &emsp; 2b. L'employé entre dans la page des bénévoles.</p>
+                    <p> &emsp; &ensp; 2b.1 L'employé effectue la modification des bénévoles.</p>
+                </div>
             </section>
 
             <section>
@@ -245,10 +383,10 @@
                 <div>
                     <h3>Risques</h3>
                     <ol class="risks">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li>Perdre des données sur les ordinateurs</li>
+                        <li>Perdre des données sur le serveur</li>
+                        <li>Violation des données sur l'Internet</li>
+                        <li>Personne non autorisée accède au système</li>
                         <li></li>
                     </ol>
                 </div>
@@ -256,7 +394,6 @@
                     <h3>Exigences non-fonctionnelles</h3>
                     <ul class="nf-requirements">
                         <li>Langue, Francais et Anglais</li>
-                        <li>Disponibles et fonctionnels sur smartphone, Pc, tablette</li>
                         <li>Assurer la sécurité des informations privées des patients</li>
                         <li>Plus grand police pour faciliter les lectures pour les âgé(e)s</li>
                         <li>Une interface plus conviviale</li>
@@ -285,9 +422,9 @@
     </main>
     <footer class="report-footer">
         <p>
-            <a class="link report-footer__link" href="bitbucket.com"> Lien vers compte Bitbucket</a></p>
+            <a class="link report-footer__link" href="https://github.com/yujd10/VaxTodo"> Lien vers répertoire Github</a></p>
         <p>
-           <a class="link report-footer__link" href="fichier-dm1.vpp">Lien vers ressource externe (fichiers VPP)</a></p>
+           <a class="link report-footer__link" href="CU/VaxTodo_re.vpp">Lien vers ressource externe (fichiers VPP)</a></p>
     </footer>
 </body>
 
