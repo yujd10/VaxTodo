@@ -109,6 +109,10 @@
             padding-left: 10%;
         }
 
+        .preview{
+            margin-bottom: 30px;
+        }
+
         .preview-img {
             width: 600px;
             height: 400px;
@@ -291,6 +295,7 @@
                     <p><b>Cas d'utilisation: </b> créer un compte visiteur</p>
                     <p><b>But: </b>Un employé crée un compte unique pour enregistrer les donnés du visiteur</p>
                     <p><b>Acteurs: </b>Employé (principal), Visiteur (secondaire)</p>
+                    <p><b>Préconditions: </b>Le visiteur est venu au local pour la première fois.</p>
                     <p><b>Sénario principal</b></p>
                     <ol>
                         <li>Le visiteur arrive devant l'employé</li>
@@ -353,8 +358,7 @@
                     <p><b>Sénario principal</b></p>
                     <ol>
                         <li>L'employé accède au système avec son numéro d'employé et sa mot de passe.</li>
-                        <li>L'employé entre dans la page des rendez-vous.</li>
-                        <li>L'employé prend un rendez-vous avec le visiteur</li>
+                        <li>Appel au cas <u>Prise de rendez-vous</u></li>
                     </ol>
                     <p><b>Sénario alternatifs</b></p>
                     <p> &emsp; 3a. L'employé annule un rendez-vous pour un visiteur</p>
@@ -368,8 +372,7 @@
                     <p><b>Sénario principal</b></p>
                     <ol>
                         <li>L'employé accède au système avec son numéro d'employé et sa mot de passe.</li>
-                        <li>L'employé entre dans la page des comptes visiteurs</li>
-                        <li>L'employé crée un compte pour les visiteurs qui sont venu pour la première fois.</li>
+                        <li>Appel au cas <u>créer un compte visiteur</u></li>
                     </ol>
                     <p><b>Sénario alternatifs</b></p>
                     <p> &emsp; 3a. L'employé modifie un compte visiteur.</p>
@@ -409,17 +412,17 @@
                         <li>Perdre des données sur les ordinateurs</li>
                         <li>Perdre des données sur le serveur</li>
                         <li>Violation des données sur l'Internet</li>
-                        <li>Personne non autorisée accède au système</li>
                         <li>Difficile d'utiliser le système pour tous les employés</li>
+                        <li>Personne non autorisée accède au système</li>
                     </ol>
                 </div>
                 <div>
                     <h3>Exigences non-fonctionnelles</h3>
                     <ul class="nf-requirements">
-                        <li>Langue, Francais et Anglais</li>
                         <li>Assurer la sécurité des informations privées des patients</li>
                         <li>Conservation des données</li>
                         <li>Une interface plus conviviale</li>
+                        <li>Vérification d'utilisateur</li>
                     </ul>
                 </div>
             </section>
@@ -428,16 +431,24 @@
                 <h2 id="prototype" class="section-title">Prototype</h2>
                 <ul class="bare-list previews">
                     <li class="preview">
-                        <img class="preview-img" src="url-du-prototype" alt="">
-                        Description du prototype.
+                        <img class="preview-img" src="Prototype/login.PNG" alt="Page de Login">
+                        <br/>Le menu principal du VaxToDo:re, une page de login.
                     </li>
                     <li class="preview">
-                        <img class="preview-img" src="url-du-prototype" alt="">
-                        Description du prototype.
+                        <img class="preview-img" src="Prototype/option_page.PNG" alt="Page d'option">
+                        <br/>La page pour choisir quelle page de gestion à consulter.
                     </li>
                     <li class="preview">
-                        <img class="preview-img" src="url-du-prototype" alt="">
-                        Description du prototype.
+                        <img class="preview-img" src="Prototype/calendrier.PNG" alt="Le calendrier">
+                        <br/>Page pour consulter le calendrier et la gestion des rendez-vous
+                    </li>
+                    <li class="preview">
+                        <img class="preview-img" src="Prototype/visiteurs.PNG" alt="La liste des visiteurs">
+                        <br/>La page pour consulter la liste de tous les visiteurs déjà venu et aussi pour la gestion et le suivi des visiteurs.
+                    </li>                    
+                    <li class="preview">
+                        <img class="preview-img" src="Prototype/benevoles.PNG" alt="La liste des bénévoles">
+                        <br/>La page pour consulter la liste des bénévoles et aussi pour la gestion des bénévoles.
                     </li>
                 </li>
             </section>
