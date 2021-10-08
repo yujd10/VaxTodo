@@ -281,25 +281,39 @@
 
                 <p>Scénarios</p>
                 <div id="scenario" class="scenario">
+                    <p><b>Cas d'utilisation: </b> login</p>
+                    <p><b>But: </b>Un employé authentifie son numéro d'employé et son mot de passe pour accéder au système</p>
+                    <p><b>Acteurs: </b>Employé (principal)</p>
+                    <p><b>Sénario principal</b></p>
+                    <ol>
+                        <li>L'employé ouvre le système VaxToDo:re.</li>
+                        <li>L'employé entre son numéro d'utilisateur.</li>
+                        <li>L'employé entre son mot de passe.</li>
+                        <li>Le système fait la validation du numéro d'utilisateur et du mot de passe entrés.</li>
+                        <li>Validation avec succès.</li>
+                        <li>Le système arrive sur le menu principal. </li>
+                    </ol>
+                    <p><b>Scénarios alternatifs</b></p>
+                    <p> &emsp; 5a. Validation échouée </p>
+                    <p> &emsp; &ensp; 5a.1 Le système demande au utilisateur d'entrer de nouveau le numéro d'utilisateur et le mot passe.</p>
+                </div>
+
+                <div id="scenario" class="scenario">
                     <p><b>Cas d'utilisation: </b> prise de rendez-vous</p>
                     <p><b>But: </b>Un employé planifie un rendez-vous pour un visiteur pour la vaccination</p>
                     <p><b>Acteurs: </b>Employé (principal), Visiteur (secondaire)</p>
                     <p><b>Sénario principal</b></p>
                     <ol>
-                        <li>Le visiteur appel au local pour prendre un rendez-vous.</li>
-                        <li>L'employé utilise son numéro d'employé et mot de passe pour accéder au système</li>
-                        <li>L'employé utilise clique sur le calendrier et vérifier les diponibilités</li>
+                        <li>Le visiteur désire de prendre un rendez-vous.</li>
+                        <li>Appel au cas <u>login</u></li>
+                        <li>L'employé clique sur le calendrier et vérifier les diponibilités</li>
                         <li>Le visiteur confirme le choix à l'employé.</li>
                         <li>L'employé lui demande son nom au complet, son courriel et le type de dose qu'il désire</li>
                         <li>L'employé effectue la réservation dans le système et mettre les détails du rendez-vous</li>
                         <li>l'employé envoie le numéro de réservation par courriel au visiteur.</li>
                     </ol>
-                    <p><b>Scénarios alternatifs</b></p>
-                    <p> &emsp; 1a. Le visiteur désire de prendre sa rendez-vous pour la deuxième dose sur place</p>
-                    <p> &emsp; 1b. Le visiteur n'a pas sa carte d'assurance maladie.</p>
-                    <p> &emsp; 1c. La carte d'assurance maladie du visiteur est expirée.</p>
-
                 </div>
+
                 <div id="scenario" class="scenario">
                     <p><b>Cas d'utilisation: </b> créer un compte visiteur</p>
                     <p><b>But: </b>Un employé crée un compte unique pour enregistrer les donnés du visiteur</p>
@@ -308,9 +322,10 @@
                     <p><b>Sénario principal</b></p>
                     <ol>
                         <li>Le visiteur arrive devant l'employé</li>
-                        <li>L'employé demande au visiteur ses informations personnelles.</li>
-                        <li>L'employé utilise son numéro d'employé et mot de passe pour accéder au système</li>
+                        <li>Appel au cas <u>login</u></li>
+                        <li>L'employé entre dans la page de la gestion des comptes d'utilisateurs</li>
                         <li>L'employé clique ajouter un compte visiteur.</li>
+                        <li>L'employé demande au visiteur ses informations personnelles.</li>
                         <li>L'employé entre les informations personnelles dans le dossier du visiteur.</li>
                         <li>Le compte du visiteur est créé avec succès.</li>
                         <li>L'employé donne le numéro de compte au visiteur pour future utilisation</li>
@@ -324,6 +339,8 @@
                     <p><b>Sénario principal</b></p>
                     <ol>
                         <li>Le visiteur dans la file d'attente est appelé par un employé et dirige vers se dernier</li>
+                        <li>Appel au cas <u>login</u></li>
+                        <li>L'employé clique sur la gestion des rendez-vous.</li>
                         <li>L'employé demande au visiteur son numéro de réservation.</li>
                         <li>L'employé récupère les informations personnelles du visiteur.</li>
                         <li>L'employé confirme le but de la visite du visiteur.</li>
@@ -334,6 +351,7 @@
                     </ol>
                     <p><b>Scénarios alternatifs</b></p>
                     <p> &emsp; 2a. Le visiteur n'a pas de réservation</p>
+                    <p> &emsp; &ensp; 2a.1 La vérification de rendez-vous est terminée. Le visiteur est considéré comme un visiteur spontané.</p>
                     <p> &emsp; 4a. Le visiteur est venu pour sa première dose</p>
                     <p> &emsp; &ensp; 4a.1 L'employé crée un compte pour le visiteur.</p>
                     <p> &emsp; &ensp; 4a.2 L'employé demande au visiteur s'il désire planifier une seconde dose.</p>
@@ -351,9 +369,11 @@
                     <p><b>Acteurs: </b>Employé (principal)</p>
                     <p><b>Sénario principal</b></p>
                     <ol>
-                        <li>À la fin de la journée, l'employé accède au système avec son numéro d'employé et sa mot de passe </li>
+                        <li>Appel au cas <u>login</u></li>
+                        <li>L'employé clique sur la gestion des comptes clients.</li>
                         <li>L'employé clique sur le production du rapport de vaccination d'une visite.</li>
                         <li>L'employé envoie un courriel aux visiteurs ayant reçu le vaccin leur rapport de vaccination</li>
+                        <li>L'employé retoure au menu principal</li>
                         <li>L'employé clique sur le calendrier.</li>
                         <li>L'employé vérifie les visites planifiées prévus pour les prochianes 48 heures.</li>
                         <li>L'employé clique sur envoyer notification dans le système pour envoyer un courriel aux visiteurs</li>
@@ -366,12 +386,13 @@
                     <p><b>Acteurs: </b>Employé (principal) Visiteur (Secondaire)</p>
                     <p><b>Sénario principal</b></p>
                     <ol>
-                        <li>L'employé accède au système avec son numéro d'employé et sa mot de passe.</li>
+                        <li>Appel au cas <u>login</u></li>
                         <li>Appel au cas <u>Prise de rendez-vous</u></li>
                     </ol>
                     <p><b>Sénario alternatifs</b></p>
                     <p> &emsp; 3a. L'employé annule un rendez-vous pour un visiteur</p>
-                    <p> &emsp; &ensp; 3a.1 L'employé entre son mot de passe pour confirmer l'annulation d'un rendez-vous.</p>
+                    <p> &emsp; &ensp; 3a.1 L'employé entre le numéro de rendez-vous.</p>
+                    <p> &emsp; &ensp; 3a.2 L'employé entre son mot de passe pour confirmer l'annulation d'un rendez-vous.</p>
                 </div>
 
                 <div id="scenario" class="scenario">
@@ -380,15 +401,17 @@
                     <p><b>Acteurs: </b>Employé (principal) Visiteur (Secondaire)</p>
                     <p><b>Sénario principal</b></p>
                     <ol>
-                        <li>L'employé accède au système avec son numéro d'employé et sa mot de passe.</li>
+                        <li>Appel au cas <u>login</u></li>
                         <li>Appel au cas <u>créer un compte visiteur</u></li>
                     </ol>
                     <p><b>Sénario alternatifs</b></p>
                     <p> &emsp; 3a. L'employé modifie un compte visiteur.</p>
-                    <p> &emsp; &ensp; 3a.1 L'employé demande au visiteur l'information qu'il faut être modifié.</p>
-                    <p> &emsp; &ensp; 3a.2 L'employé faire la modification des informations personnelles du visiteur.</p>
+                    <p> &emsp; &ensp; 3a.1 L'employé entre le numéro du compte visiteur.</p>
+                    <p> &emsp; &ensp; 3a.2 L'employé demande au visiteur l'information qu'il faut être modifié.</p>
+                    <p> &emsp; &ensp; 3a.3 L'employé fait la modification des informations personnelles du visiteur.</p>
                     <p> &emsp; 3b. L'employé supprime un compte visiteur.</p>
-                    <p> &emsp; &ensp; 3b.1 L'employé entre son mot de passe pour confirmer la suppression d'un compte visiteur.</p>
+                    <p> &emsp; &ensp; 3b.1 L'employé entre le numéro du compte visiteur.</p>
+                    <p> &emsp; &ensp; 3b.2 L'employé entre son mot de passe pour confirmer la suppression d'un compte visiteur.</p>
                 </div>
 
                 <div id="scenario" class="scenario">
@@ -398,17 +421,19 @@
                     <p><b>Sénario principal</b></p>
                     <ol>
                         <li>Un bénévole arrive devant l'employé</li>
-                        <li>L'employé accède au système avec son numéro d'employé et son mot de passe.</li>
+                        <li>Appel au cas <u>login</u></li>
                         <li>L'employé entre dans la page des bénévoles</li>
                         <li>L'employé demande au bénévole ses informations personnelles et ses disponibilités de venir au local.</li>
                         <li>L'employé ajoute le bénévole dans la liste des bénévoles.</li>          
                     </ol>
                     <p><b>Sénario alternatifs</b></p>
                     <p> &emsp; 3a. L'employé modifie les informations d'un bénévole.</p>
-                    <p> &emsp; &ensp; 3a.1 L'employé demande au bénévole l'information qu'il faut être modifié.</p>
-                    <p> &emsp; &ensp; 3a.2 L'employé faire la modification des informations du bénévole.</p>
+                    <p> &emsp; &ensp; 3a.1 L'employé entre le nom du bénévole.</p>
+                    <p> &emsp; &ensp; 3a.2 L'employé demande au bénévole l'information qu'il faut être modifié.</p>
+                    <p> &emsp; &ensp; 3a.3 L'employé fait la modification des informations du bénévole.</p>
                     <p> &emsp; 3b. L'employé supprime un bénévole de la liste.</p>
-                    <p> &emsp; &ensp; 3b.1 L'employé entre son mot de passe pour confirmer la suppression d'un bénévole.</p>
+                    <p> &emsp; &ensp; 3b.1 L'employé entre le nom du bénévole.</p>
+                    <p> &emsp; &ensp; 3b.2 L'employé entre son mot de passe pour confirmer la suppression d'un bénévole.</p>
                 </div>
             </section>
 
