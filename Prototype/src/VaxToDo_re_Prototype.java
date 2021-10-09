@@ -13,7 +13,7 @@ public class VaxToDo_re_Prototype {
 //        main_menu();
 //        calendrier();
 //        showCalendar();
-        liste_visiteur();
+          liste_visiteur();
 //        liste_benevole();
 //        takeAppointment();
 //        cancelAppointment();
