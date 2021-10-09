@@ -7,11 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IFT2255 | Rapport DM1</title>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/base.css?v=02">
+    
     <style>
         body {
-            font-family:Arial, Helvetica, sans-serif, Courier, monospace;
+            font:normal 14px 'Segoe UI', 'Droid Sans', Ubuntu, 'Lucida Grande', Arial, Helvetica, sans-serif;
         }
         .report-header {
             padding-top: 24px; padding-bottom: 24px;
@@ -21,6 +20,7 @@
         .title-section {
             padding-left: 5vw;
             padding-right: 5vw;
+            
         }
 
         .report-title {
@@ -30,13 +30,13 @@
 
         .report-summary {
             max-width: 800px;
-            font-size: 1.4em;
+            font-size: 1.1em;
             color: #555;
         }
         .section-title {
             margin-bottom: 6px;
             text-transform: uppercase;
-            font-size: 2.4em; font-weight: 300;
+         font-weight: 300;
         }
 
         .team-section {
@@ -51,31 +51,36 @@
             }
 
             .members {
-                display: flex; flex-direction: row;
+                display: flex; flex-direction: row;margin-left: -40px;
             }
 
             .member {
-                display: inline-block; flex-direction: column;text-align: center;
+                display: inline-block; flex-direction: column;text-align: center;width: 30%;border-bottom: 6px solid #3573DD;
+    background-color: #3573DD11;
             }
                 .member-identification {
                     display: grid;
                 }
                 .member:not(:last-child) {
-                    margin-right: 12px;
+                    margin-right: 40px;
                 }
 
                 .member-pic {
                     display: block;
-                    width: 120px;
-                    height: 120px;
+                    width: 180px;
+                    height: 180px;
                     border-radius: 50%;
                     margin-left: auto;
                     margin-right: auto;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
                 }
 
                 .member-role {
                     font-size: 0.9em; font-weight: 500;
                     color: #555;
+                    margin-bottom: 10px;
+                    margin-top: 3px;
                 }
 
         .report-body {
@@ -84,15 +89,16 @@
 
         .report-aside {
             padding-top: 24px;
-            padding-right: 12px;
-            padding-left: 5vw;
-            box-shadow: 1px 0 1px #999;
+    padding-right: 12px;
+    padding-left: 3vw;
+    box-shadow: 1px 0 1px #999;
+    background-color: cornflowerblue;
         }
 
         .report-main {
             padding-left: 12px;
             padding-right: 5vw;
-            padding-top: 24px;
+            background-color: #3573DD11;
         }
 
         .nav {
@@ -103,13 +109,15 @@
             display: block;
             padding: 6px;
             text-decoration: none;
+            color: aliceblue;
+            font-size: 16px;
         }
 
         .glossary {
-            font-size: 1.4em;
+            
         }
         .glossary-def{
-            margin-bottom: 20px;
+            margin-bottom: 13px;
         }
         
         .scenario{
@@ -146,9 +154,10 @@
         <div class="title-section">
             <h1 class="report-title">Rapport du livrable 1</h1>
             <p class="report-summary">
-                Ce livrable se concentre sur...
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia distinctio tempora quam nulla quod enim. 
-                Odit eius dolores repellendus incidunt doloribus delectus at ex sunt error, iste dicta, maiores blanditiis.
+                VaxTodo:re est un logiciel conçu pour les travailleurs médicaux employés par l’organisation bénévole GoodPeople, afin de faciliter la gestion des rendez-vous pour les prise de vaccin contre la COVID-19.
+            </p>
+            <p class="report-summary">
+                Il s’agit principalement de permettre aux employés et bénévoles de prendre et enregistrer les demandes de rendez-vous de patients, et de gérer toutes les demandes qui en découlent, telles que le suivi des clients, ou générer des preuves de vaccination. Le tout prenant en compte les limites de l’association en termes de nombre d'employés, de capacité d'accueil physique. Le système VaxTodo:re devra aussi considérer la sécurité des informations personnelles des clients. 
             </p>
         </div>
 
@@ -156,14 +165,23 @@
             <h2 class="team-title">Kanye East</h2>
             <ul class="bare-list members">
                 <li class="member">
+                    <img class="member-pic" src="./Notre équipe/Xianglong.jpg" alt="" >
+                    <div class="member-identification">
+                        <span class="member-name">Xianglong GAO</span>
+                        <span class="member-id">1246973</span>
+                    </div> 
+                    <a href="mailto:prenom.nom@umontreal.ca">Envoyer un courriel</a>
+                    <div class="member-role">Chargé des Clients</div>
+                </li>
+                <li class="member">
                     <img class="member-pic" src="./Notre équipe/Jiadi.jpg" alt="Jiadi Yu" >
                     <div class="member-identification">
                         <span class="member-name">Jiadi YU</span>
                         
                         <span class="member-id">20189854</span>
                     </div> 
-                    <a href="mailto:prenom.nom@umontreal.ca">jiadi.yu@umontreal.ca</a>
-                    <div class="member-role">Chargé de...</div>
+                    <a href="mailto:prenom.nom@umontreal.ca">Envoyer un courriel</a>
+                    <div class="member-role">Chargé de l'Implementation</div>
                 </li>
                 <li class="member">
                     <img class="member-pic" src="./Notre équipe/Florient.png" alt="Florient" >
@@ -171,17 +189,8 @@
                         <span class="member-name">Florient GADEDJRO</span>
                         <span class="member-id">20225447</span>
                     </div> 
-                    <a href="mailto:prenom.nom@umontreal.ca">yaovi.florient.gadedjro.abagha@umontreal.ca</a>
-                    <div class="member-role">Chargé de...</div>
-                </li>
-                <li class="member">
-                    <img class="member-pic" src="" alt="" >
-                    <div class="member-identification">
-                        <span class="member-name">Xianglong GAO</span>
-                        <span class="member-id">1246973</span>
-                    </div> 
-                    <a href="mailto:prenom.nom@umontreal.ca">xianglong.gao@umontreal.ca</a>
-                    <div class="member-role">Chargé de...</div>
+                    <a href="mailto:prenom.nom@umontreal.ca">Envoyer un courriel</a>
+                    <div class="member-role">Chargé de Maintenance</div>
                 </li>
             </ul>
         </div>
@@ -191,7 +200,7 @@
             <nav>
                 <ul class="bare-list nav">
                     <li class="nav-item">
-                        <a class="nav-item__link" href="#plan">Plannification</a> 
+                        <a class="nav-item__link" href="#plan">Planification</a> 
                     </li>
                     <li class="nav-item">
                         <a class="nav-item__link" href="#domain">Compréhension du domaine</a> 
@@ -224,52 +233,52 @@
                     rassemblant les termes et expressions clés caractérisant l'environnement.
                 </p>
                 <h3>Glossaire</h3>
-                <dl class="glossary">
-                    <dt class="glossary-term">GoodPeople</dt>
+                <ul class="glossary">
+                    <li class="glossary-term">GoodPeople</li>
                     <dd class="glossary-def">Organisme à but non lucrative, en coordination avec le gouvernement pour prêter main-forte à la campagne de vaccination.</dd>
-                    <dt class="glossary-term">un rendez-vous</dt>
+                    <li class="glossary-term">un rendez-vous</li>
                     <dd class="glossary-def">Un rendez-vous pour la vaccination</dd>
-                    <dt class="glossary-term">un local</dt>
+                    <li class="glossary-term">un local</li>
                     <dd class="glossary-def">Lieu dédié à la vaccination</dd>
-                    <dt class="glossary-term">Des professionnels de la santé</dt>
-                    <dd class="glossary-def">Les vaccinateurs, chargeurs et les injecteurs qui ses ont portés volontaires pour supporter l'initiative.</dd>
-                    <dt class="glossary-term">les employés</dt>
+                    <li class="glossary-term">Des professionnels de la santé</li>
+                    <dd class="glossary-def">Les vaccinateurs, chargeurs et les injecteurs qui se sont portés volontaires pour supporter l'initiative.</dd>
+                    <li class="glossary-term">les employés</li>
                     <dd class="glossary-def">les employés de l'organisme de GoodPeople.</dd>
-                    <dt class="glossary-term">Bénévole</dt>
+                    <li class="glossary-term">Bénévole</li>
                     <dd class="glossary-def">Les bénévoles qui aident le déroulement de la vaccination. Accueillir et acheminer les visiteurs aux employés.</dd>
-                    <dt class="glossary-term">visiteur</dt>
+                    <li class="glossary-term">visiteur</li>
                     <dd class="glossary-def">Une personne pour se faire vacciner</dd>
-                    <dt class="glossary-term">VaxTodo:re</dt>
+                    <li class="glossary-term">VaxTodo:re</li>
                     <dd class="glossary-def">Système pour prendre de rendez-vous et faire les suivis par rapport à la vaccination. </dd>
-                    <dt class="glossary-term">1ere Dose de vaccin</dt>
+                    <li class="glossary-term">1ere Dose de vaccin</li>
                     <dd class="glossary-def">Le dosage est plus petit pour débuter la vaccination.</dd>
-                    <dt class="glossary-term">2eme dose de vaccin</dt>
+                    <li class="glossary-term">2eme dose de vaccin</li>
                     <dd class="glossary-def">À faire après la première dose de vaccin afin de compléter la vaccination.</dd>
-                    <dt class="glossary-term">Le suivi</dt>
+                    <li class="glossary-term">Le suivi</li>
                     <dd class="glossary-def">Pour surveiller le nombre et type de dose qui est pris par le patient et les symptômes des patients après avoir fait le(s) vaccin(s).</dd>
-                    <dt class="glossary-term">Preuve de vaccination</dt>
+                    <li class="glossary-term">Preuve de vaccination</li>
                     <dd class="glossary-def">Une pièce qui est pour prouver la réalisation de la vaccination. Soit 1ère dose ou 2ième dose.</dd>
-                    <dt class="glossary-term">un numéro</dt>
+                    <li class="glossary-term">un numéro</li>
                     <dd class="glossary-def">Un numéro donné au visiteur par le bénévole dans le file d'attente.</dd>
-                    <dt class="glossary-term">Numéro de réservation unique</dt>
-                    <dd class="glossary-def">Une numéro unique envoyé par courrier au visiteur planifiée pour confirmer son rendez-vous lors de sa présence.</dd>
-                    <dt class="glossary-term">Numéro de compte du visiteur</dt>
+                    <li class="glossary-term">Numéro de réservation unique</li>
+                    <dd class="glossary-def">Un numéro unique envoyé par courrier au visiteur planifiée pour confirmer son rendez-vous lors de sa présence.</dd>
+                    <li class="glossary-term">Numéro de compte du visiteur</li>
                     <dd class="glossary-def">Numéro unique à 12 chiffres rattaché à une adresse courriel unique pour identifier les visiteurs.</dd>
-                    <dt class="glossary-term">code d'employé</dt>
+                    <li class="glossary-term">code d'employé</li>
                     <dd class="glossary-def">Un code à 9 chiffres utilisé avec un mot de passe afin d'identifier un employé.</dd>
-                    <dt class="glossary-term">un lot</dt>
+                    <li class="glossary-term">un lot</li>
                     <dd class="glossary-def">Un lot pour identifier le type de vaccin utilisé</dd>
-                    <dt class="glossary-term">Prise de rendez-vous (téléphone)</dt>
+                    <li class="glossary-term">Prise de rendez-vous (téléphone)</li>
                     <dd class="glossary-def">Réservation pour une visite planifiée par le téléphone. </dd>
-                    <dt class="glossary-term">planier une visite</dt>
+                    <li class="glossary-term">planifier une visite</li>
                     <dd class="glossary-def">Faire la réservation une autre visite soit après la première dose ou lorsque le visiteur n'a pas sur lui sa carte d'assurance maladie ou que sa carte est expirée.</dd>
-                    <dt class="glossary-term">Créer un compte</dt>
-                    <dd class="glossary-def">Création d'un compte lors de la première visite du visiteur, ce qui rattache toutes ces activité: vaccins et réservations</dd>
-                    <dt class="glossary-term">Accéder à la liste des rendez-vous</dt>
+                    <li class="glossary-term">Créer un compte</li>
+                    <dd class="glossary-def">Création d'un compte lors de la première visite du visiteur, ce qui rattache toutes ces activités: vaccins et réservations</dd>
+                    <li class="glossary-term">Accéder à la liste des rendez-vous</li>
                     <dd class="glossary-def">Faire l'ajout ou l'annulation dans la liste des rendez-vous</dd>
-                    <dt class="glossary-term">Accéder à la liste des bénévoles</dt>
+                    <li class="glossary-term">Accéder à la liste des bénévoles</li>
                     <dd class="glossary-def">Faire l'ajout, la modification ou la suppression d'un bénévole </dd>
-                </dl>
+                </ul>
             </section>
 
             <section>
@@ -284,7 +293,7 @@
                     <p><b>Cas d'utilisation: </b> login</p>
                     <p><b>But: </b>Un employé authentifie son numéro d'employé et son mot de passe pour accéder au système</p>
                     <p><b>Acteurs: </b>Employé (principal)</p>
-                    <p><b>Sénario principal</b></p>
+                    <p><b>Scénario principal</b></p>
                     <ol>
                         <li>L'employé ouvre le système VaxToDo:re.</li>
                         <li>L'employé entre son numéro d'utilisateur.</li>
@@ -336,9 +345,9 @@
                     <p><b>Cas d'utilisation: </b> Traitement d'un visiteur</p>
                     <p><b>But: </b>Un employé confirme le rendez-vous du visiteur, créer un compte de visiteur, faire l'entrevue et planier un rendez-vous si besoin</p>
                     <p><b>Acteurs: </b>Employé (principal), Visiteur(secondaire)</p>
-                    <p><b>Sénario principal</b></p>
+                    <p><b>Scénario principal</b></p>
                     <ol>
-                        <li>Le visiteur dans la file d'attente est appelé par un employé et dirige vers se dernier</li>
+                        <li>Le visiteur dans la file d'attente est appelé par un employé et dirige vers ce dernier</li>
                         <li>Appel au cas <u>login</u></li>
                         <li>L'employé clique sur la gestion des rendez-vous.</li>
                         <li>L'employé demande au visiteur son numéro de réservation.</li>
@@ -384,12 +393,12 @@
                     <p><b>Cas d'utilisation: </b> Gestion des rendez-vous</p>
                     <p><b>But: </b>l'employé peut ajouter ou annuler les rendez-vous</p>
                     <p><b>Acteurs: </b>Employé (principal) Visiteur (Secondaire)</p>
-                    <p><b>Sénario principal</b></p>
+                    <p><b>Scénario principal</b></p>
                     <ol>
                         <li>Appel au cas <u>login</u></li>
                         <li>Appel au cas <u>Prise de rendez-vous</u></li>
                     </ol>
-                    <p><b>Sénario alternatifs</b></p>
+                    <p><b>Scénario alternatifs</b></p>
                     <p> &emsp; 3a. L'employé annule un rendez-vous pour un visiteur</p>
                     <p> &emsp; &ensp; 3a.1 L'employé entre le numéro de rendez-vous.</p>
                     <p> &emsp; &ensp; 3a.2 L'employé entre son mot de passe pour confirmer l'annulation d'un rendez-vous.</p>
@@ -399,12 +408,12 @@
                     <p><b>Cas d'utilisation: </b> Gestion des comptes visiteurs</p>
                     <p><b>But: </b>l'employé peut ajouter, supprimer ou modifier les comptes visiteurs.</p>
                     <p><b>Acteurs: </b>Employé (principal) Visiteur (Secondaire)</p>
-                    <p><b>Sénario principal</b></p>
+                    <p><b>Scénario principal</b></p>
                     <ol>
                         <li>Appel au cas <u>login</u></li>
                         <li>Appel au cas <u>créer un compte visiteur</u></li>
                     </ol>
-                    <p><b>Sénario alternatifs</b></p>
+                    <p><b>Scénario alternatifs</b></p>
                     <p> &emsp; 3a. L'employé modifie un compte visiteur.</p>
                     <p> &emsp; &ensp; 3a.1 L'employé entre le numéro du compte visiteur.</p>
                     <p> &emsp; &ensp; 3a.2 L'employé demande au visiteur l'information qu'il faut être modifié.</p>
@@ -418,7 +427,7 @@
                     <p><b>Cas d'utilisation: </b> Gestion des bénévoles</p>
                     <p><b>But: </b>l'employé peut ajouter, supprimer ou modifier la liste des bénévoles</p>
                     <p><b>Acteurs: </b>Employé (principal) Bénévoles (Secondaire)</p>
-                    <p><b>Sénario principal</b></p>
+                    <p><b>Scénario principal</b></p>
                     <ol>
                         <li>Un bénévole arrive devant l'employé</li>
                         <li>Appel au cas <u>login</u></li>
@@ -478,7 +487,7 @@
                     </li>
                     <li class="preview">
                         <img class="preview-img" src="Prototype/visiteurs.PNG" alt="La liste des visiteurs">
-                        <br/>La page pour consulter la liste de tous les visiteurs déjà venu et aussi pour la gestion et le suivi des visiteurs.
+                        <br/>La page pour consulter la liste de tous les visiteurs déjà venus et aussi pour la gestion et le suivi des visiteurs.
                     </li>                    
                     <li class="preview">
                         <img class="preview-img" src="Prototype/benevoles.PNG" alt="La liste des bénévoles">
