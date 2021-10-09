@@ -9,11 +9,11 @@ public class VaxToDo_re_Prototype {
     static Scanner scanner = new Scanner(System.in);
     static Random random = new Random();
     public static void main(String[] args) {
-//        login();
+        login();
 //        main_menu();
 //        calendrier();
 //        showCalendar();
-          liste_visiteur();
+//          liste_visiteur();
 //        liste_benevole();
 //        takeAppointment();
 //        cancelAppointment();
@@ -137,6 +137,8 @@ public class VaxToDo_re_Prototype {
                 liste_benevole();
         }
     }
+
+
     public static void showCalendar(){
         System.out.println("+++++++++++++++++++++++++++++++++");
         System.out.println("+\t\tAnnée 2021\t\t\t\t+");
@@ -179,22 +181,6 @@ public class VaxToDo_re_Prototype {
                 }
                 showCalendar_day(choice, day);
                 break;
-            case 2:
-                System.out.println();
-                for(int i = 1; i <= 28; i++){
-                    System.out.printf("%d ",i);
-                    if(i%5==0){
-                        System.out.println();
-                    }
-                }
-                System.out.printf("\nChoisir une date: ");
-                day = scanner.nextByte();
-                if(day < 0 || day > 28){
-                    System.out.println("date invalide! retourner au calendrier.");
-                    showCalendar();
-                }
-                showCalendar_day(choice, day);
-                break;
             case 4:
             case 6:
             case 9:
@@ -209,6 +195,22 @@ public class VaxToDo_re_Prototype {
                 System.out.printf("\nChoisir une date: ");
                 day = scanner.nextByte();
                 if(day < 0 || day > 30){
+                    System.out.println("date invalide! retourner au calendrier.");
+                    showCalendar();
+                }
+                showCalendar_day(choice, day);
+                break;
+            case 2:
+                System.out.println();
+                for(int i = 1; i <= 28; i++){
+                    System.out.printf("%d ",i);
+                    if(i%5==0){
+                        System.out.println();
+                    }
+                }
+                System.out.printf("\nChoisir une date: ");
+                day = scanner.nextByte();
+                if(day < 0 || day > 28){
                     System.out.println("date invalide! retourner au calendrier.");
                     showCalendar();
                 }
@@ -270,4 +272,7 @@ public class VaxToDo_re_Prototype {
         String password = scanner.nextLine();
         System.out.println("Réservation a été annulé avec succès!");
     }
+
+
+
 }

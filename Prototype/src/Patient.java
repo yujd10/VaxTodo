@@ -22,10 +22,12 @@ public class Patient {
         else if(this.getAge()>=18 && this.getFirstDose()==null){
             this.firstDose = firstDose;}
     }
-//
-//    public void setSecondDose() {
-//        this.secondDose = this.getFirstDose();
-//    }
+
+    public void setSecondDose() {
+        if(this.getFirstDose()!=null){
+            this.secondDose = this.firstDose;
+        }
+    }
 
     //Getters
     public String getName() {

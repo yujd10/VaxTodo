@@ -5,6 +5,4 @@ public class Vaccine {
     public Vaccine(String name) {
         this.name = name;
     }
-
-
 }
