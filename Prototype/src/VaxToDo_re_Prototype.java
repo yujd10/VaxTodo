@@ -98,10 +98,15 @@ public class VaxToDo_re_Prototype {
         byte choice = scanner.nextByte();
         switch (choice){
             case 1:
+                listDesComptesVisiteur();
             case 2:
+                createCompteVisiteur();
             case 3:
+                modifierCompteVisiteur();
             case 4:
+                supprimerCompteVisiteur();
             case 5:
+                profilComptesVisiteur();
             case 6:
                 main_menu();
             case 7:
@@ -125,9 +130,13 @@ public class VaxToDo_re_Prototype {
         byte choice = scanner.nextByte();
         switch (choice){
             case 1:
+                listDesComptesBene();
             case 2:
+                createCompteBene();
             case 3:
+                modifierCompteBene();
             case 4:
+                supprimerCompteBene();
             case 5:
                 main_menu();
             case 6:
@@ -248,7 +257,7 @@ public class VaxToDo_re_Prototype {
         }
     }
     static void takeAppointment(){
-        System.out.println("Nouveau rendez-vous\n");
+        System.out.printf("Nouveau rendez-vous\n");
         System.out.printf("Prénom du visiteur: ");
         String firstName = scanner.nextLine();
         System.out.printf("Nom du visiteur: ");
@@ -273,6 +282,210 @@ public class VaxToDo_re_Prototype {
         System.out.println("Réservation a été annulé avec succès!");
     }
 
+    static void listDesComptesVisiteur(){
+        System.out.println("++++++++++++++List+++++++++++++");
+        System.out.println("Lebron James                  +");
+        System.out.println("James Harden                  +");
+        System.out.println("Larry Johnson                 +");
+        System.out.println("Yao Min                       +");
+        System.out.println("Yi Jianlian                   +");
+        System.out.println("Dave Mustain                  +");
+        System.out.println("Jim Morrison                  +");
+        System.out.println("Axl Rose                      +");
+        System.out.println("Cliff Burton                  +");
+        System.out.println("++++++++++++++End++++++++++++++");
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("+\t\t1. Retour à la page précédente\t\t\t\t+");
+        System.out.println("+\t\t2. Retour à la page principal\t\t\t\t+");
+        System.out.println("+\t\t3. Quitter\t\t\t\t\t\t\t\t\t+");
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        System.out.printf("Choisir votre option: ");
+        byte choice = scanner.nextByte();
+        switch (choice) {
+            case 1:
+                liste_visiteur();
+            case 2:
+                main_menu();
+            case 3:
+                System.exit(0);
+            default:
+                System.out.println("option non valide!");
+                listDesComptesVisiteur();
+        }
+    }
 
+    static void createCompteVisiteur(){
+        System.out.printf("Nouveau compte de visiteur\n");
+        System.out.printf("Prénom du visiteur: ");
+        String firstName = scanner.next();
+        System.out.printf("Nom du visiteur: ");
+        String LastName = scanner.next();
+        System.out.printf("Date de naissance de visiteur (YYYY-MM-DD): ");
+        String visitDay = scanner.next();
+        System.out.printf("Sex de visiteur (Homme/Femme): ");
+        String visitTime = scanner.next();
+        System.out.println("Un compte est créé avec succès!");
+        liste_visiteur();
+    }
 
+    static void supprimerCompteVisiteur(){
+        System.out.println("Supprimer un compte de visiteur\n");
+        System.out.printf("Entrer le numéro de compte de visiteur: ");
+        String reservationNumber = scanner.next();
+        System.out.printf("Entrer votre numéro d'employé: ");
+        String username = scanner.next();
+        System.out.printf("Entrer votre mot de passe: ");
+        String password = scanner.next();
+        System.out.println("Un compte a été supprimé avec succès!");
+        liste_visiteur();
+    }
+
+    static void modifierCompteVisiteur(){
+        System.out.println("Modifier un compte de visiteur\n");
+        System.out.println("Entrer le numéro de compte de visiteur: ");
+        scanner.next();
+        System.out.println("Entrer ce que va être changer: ");
+        scanner.next();
+        System.out.println("1.Nom ");
+        System.out.println("2.Date de naissance ");
+        System.out.println("3.Sex ");
+        byte choice = scanner.nextByte();
+        switch (choice) {
+            case 1:
+                System.out.println("Entrer un nouveau nom");
+                String newName = scanner.next();
+                break;
+            case 2:
+                System.out.println("Entrer un date de naissance");
+                String newDateofBirth = scanner.next();
+                break;
+            case 3:
+                System.out.println("Entrer un sexe");
+                String newSex = scanner.next();
+                break;
+            default:
+                System.out.println("SVP choose a valid option");
+
+        }
+        System.out.println("Un compte a été modifié avec succès!");
+        liste_visiteur();
+    }
+    static void profilComptesVisiteur() {
+        System.out.println("++++++++++++++List+++++++++++++");
+        System.out.println("1.Lebron James                +");
+        System.out.println("2.James Harden                +");
+        System.out.println("3.Larry Johnson               +");
+        System.out.println("4.Yao Min                     +");
+        System.out.println("5.Yi Jianlian                 +");
+        System.out.println("6.Dave Mustain                +");
+        System.out.println("7.Jim Morrison                +");
+        System.out.println("8.Axl Rose                    +");
+        System.out.println("9.Cliff Burton                +");
+        System.out.println("++++++++++++++End++++++++++++++");
+        System.out.println("Choisir un compte:");
+        byte choice = scanner.nextByte();
+        switch (choice) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+                System.out.println("+++++++++++++++++++++++++++++++++");
+                System.out.println("Nom:Cliff Burton                +");
+                System.out.println("Date de naissance:1966-06-06    +");
+                System.out.println("Sex:Homme                       +");
+                System.out.println("Vaccin type:Pfizer              +");
+                System.out.println("Symptôme:Pfizer                 +");
+                System.out.println("+++++++++++++++++++++++++++++++++");
+
+        }
+        liste_visiteur();
+    }
+    static void listDesComptesBene(){
+        System.out.println("++++++++++++++List+++++++++++++");
+        System.out.println("Kobe Bryant                   +");
+        System.out.println("Niko Belic                    +");
+        System.out.println("Carl Johnson                  +");
+        System.out.println("Ryder Chamberlain             +");
+        System.out.println("Big Smoke                     +");
+        System.out.println("Jackie Chan                   +");
+        System.out.println("Alexi Laiho                   +");
+        System.out.println("++++++++++++++End+++++++++++++++");
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("+\t\t1. Retour à la page précédente\t\t\t\t+");
+        System.out.println("+\t\t2. Retour à la page principal\t\t\t\t+");
+        System.out.println("+\t\t3. Quitter\t\t\t\t\t\t\t\t\t+");
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        System.out.printf("Choisir votre option: ");
+        byte choice = scanner.nextByte();
+        switch (choice) {
+            case 1:
+                liste_benevole();
+            case 2:
+                main_menu();
+            case 3:
+                System.exit(0);
+            default:
+                System.out.println("option non valide!");
+                listDesComptesVisiteur();
+        }
+    }
+    static void createCompteBene(){
+        System.out.printf("Nouveau compte de bénévole\n");
+        System.out.printf("Prénom du bénévole: ");
+        String firstName = scanner.next();
+        System.out.printf("Nom du bénévole: ");
+        String LastName = scanner.nextLine();
+        System.out.printf("Date de naissance de bénévole (YYYY-MM-DD): ");
+        String visitDay = scanner.nextLine();
+        System.out.printf("Sex de bénévole (Homme/Femme): ");
+        String visitTime = scanner.nextLine();
+        System.out.println("Un compte est créé avec succès!");
+        liste_benevole();
+    }
+    static void modifierCompteBene(){
+        System.out.println("Modifier un compte de bénévole\n");
+        System.out.println("Entrer le numéro de compte de bénévole: ");
+        String numeroCompte =scanner.next();
+        System.out.println("Entrer ce que va être changer: ");
+        String item =scanner.next();
+        System.out.println("1.Nom ");
+        System.out.println("2.Date de naissance ");
+        System.out.println("3.Sex ");
+        byte choice = scanner.nextByte();
+        switch (choice) {
+            case 1:
+                System.out.println("Entrer un nouveau nom");
+                String newName = scanner.next();
+                break;
+            case 2:
+                System.out.println("Entrer un date de naissance");
+                String newDateofBirth = scanner.next();
+                break;
+            case 3:
+                System.out.println("Entrer un sexe");
+                String newSex = scanner.next();
+                break;
+            default:
+                System.out.println("SVP choose a valid option");
+
+        }
+        System.out.println("Un compte de bénévole a été modifié avec succès!");
+        liste_benevole();
+    }
+    static void supprimerCompteBene(){
+        System.out.println("Supprimer un compte de bénévole\n");
+        System.out.printf("Entrer le numéro de compte de bénévole: ");
+        String reservationNumber = scanner.nextLine();
+        System.out.printf("Entrer votre numéro d'employé: ");
+        String username = scanner.next();
+        System.out.printf("Entrer votre mot de passe: ");
+        String password = scanner.nextLine();
+        System.out.println("Un compte de bénévole a été supprimé avec succès!");
+        liste_benevole();
+    }
 }
