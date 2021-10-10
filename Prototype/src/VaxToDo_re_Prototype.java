@@ -80,8 +80,9 @@ public class VaxToDo_re_Prototype {
         System.out.println("+\t\t3. Modifier un compte visiteur\t\t\t\t+");
         System.out.println("+\t\t4. Supprimer un compte visiteur\t\t\t\t+");
         System.out.println("+\t\t5. Consulter le profil de vaccination\t\t+");
-        System.out.println("+\t\t6. Retour à la page principal\t\t\t\t+");
-        System.out.println("+\t\t7. Quitter\t\t\t\t\t\t\t\t\t+");
+        System.out.println("+\t\t6. Envoyer le preuve de vaccination\t\t+");
+        System.out.println("+\t\t7. Retour à la page principal\t\t\t\t+");
+        System.out.println("+\t\t8. Quitter\t\t\t\t\t\t\t\t\t+");
         System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++");
         System.out.printf("Choisir votre option: ");
         byte choice = scanner.nextByte();
@@ -97,8 +98,10 @@ public class VaxToDo_re_Prototype {
             case 5:
                 profilComptesVisiteur();
             case 6:
-                main_menu();
+                sendProof();
             case 7:
+                main_menu();
+            case 8:
                 System.exit(0);
             default:
                 System.out.println("option non valide!");
@@ -259,6 +262,8 @@ public class VaxToDo_re_Prototype {
         String LastName = scanner.nextLine();
         System.out.printf("Date de visite (YYYY-MM-DD): ");
         String visitDay = scanner.nextLine();
+        System.out.printf("Email (YYYY-MM-DD): ");
+        String email = scanner.nextLine();
         System.out.printf("Heure de la visite (HH:MM): ");
         String visitTime = scanner.nextLine();
         System.out.printf("Type de dose (1,2): ");
@@ -317,6 +322,8 @@ public class VaxToDo_re_Prototype {
         String LastName = scanner.next();
         System.out.printf("Date de naissance de visiteur (YYYY-MM-DD): ");
         String visitDay = scanner.next();
+        System.out.printf("Email (YYYY-MM-DD): ");
+        String email = scanner.next();
         System.out.printf("Sex de visiteur (Homme/Femme): ");
         String visitTime = scanner.next();
         System.out.println("Un compte est créé avec succès!");
@@ -344,6 +351,7 @@ public class VaxToDo_re_Prototype {
         System.out.println("1.Nom ");
         System.out.println("2.Date de naissance ");
         System.out.println("3.Sex ");
+        System.out.println("4.Email ");
         byte choice = scanner.nextByte();
         switch (choice) {
             case 1:
@@ -357,6 +365,10 @@ public class VaxToDo_re_Prototype {
             case 3:
                 System.out.println("Entrer un sexe");
                 String newSex = scanner.next();
+                break;
+            case 4:
+                System.out.println("Entrer un email");
+                String newEmail = scanner.next();
                 break;
             default:
                 System.out.println("SVP choose a valid option");
@@ -393,8 +405,9 @@ public class VaxToDo_re_Prototype {
                 System.out.println("Nom:Cliff Burton                +");
                 System.out.println("Date de naissance:1966-06-06    +");
                 System.out.println("Sex:Homme                       +");
+                System.out.println("Email:Metallica@qq.com          +");
                 System.out.println("Vaccin type:Pfizer              +");
-                System.out.println("Symptôme:Pfizer                 +");
+                System.out.println("Symptôme:Non                    +");
                 System.out.println("+++++++++++++++++++++++++++++++++");
 
         }
@@ -482,5 +495,42 @@ public class VaxToDo_re_Prototype {
         String password = scanner.nextLine();
         System.out.println("Un compte de bénévole a été supprimé avec succès!");
         liste_benevole();
+    }
+    static void sendProof(){
+        System.out.println("Envoyer le preuve de vaccination");
+        System.out.println("++++++++++++++List+++++++++++++");
+        System.out.println("1.Lebron James                +");
+        System.out.println("2.James Harden                +");
+        System.out.println("3.Larry Johnson               +");
+        System.out.println("4.Yao Min                     +");
+        System.out.println("5.Yi Jianlian                 +");
+        System.out.println("6.Dave Mustain                +");
+        System.out.println("7.Jim Morrison                +");
+        System.out.println("8.Axl Rose                    +");
+        System.out.println("9.Cliff Burton                +");
+        System.out.println("++++++++++++++End++++++++++++++");
+        System.out.println("Choisir un patient:");
+        byte choice = scanner.nextByte();
+        switch (choice) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+                System.out.println("+++++++++++++++++++++++++++++++++");
+                System.out.println("Nom:Cliff Burton                +");
+                System.out.println("Date de naissance:1966-06-06    +");
+                System.out.println("Sex:Homme                       +");
+                System.out.println("Email:Metallica@qq.com          +");
+                System.out.println("Vaccin type:Pfizer              +");
+                System.out.println("Symptôme:Non                    +");
+                System.out.println("+++++++++++++++++++++++++++++++++");
+                System.out.println("La preuve est envoye par email !");
+    }
+        liste_visiteur();
     }
 }
