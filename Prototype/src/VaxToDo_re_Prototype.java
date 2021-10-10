@@ -433,10 +433,13 @@ public class VaxToDo_re_Prototype {
         switch (choice) {
             case 1:
                 liste_benevole();
+                break;
             case 2:
                 main_menu();
+                break;
             case 3:
                 System.exit(0);
+                break;
             default:
                 System.out.println("option non valide!");
                 listDesComptesVisiteur();
