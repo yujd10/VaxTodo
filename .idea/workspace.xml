@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9879a728-60d0-464d-b5f7-266a972051e7" name="Changes" comment="">
+    <list default="true" id="9879a728-60d0-464d-b5f7-266a972051e7" name="Changes" comment="Changes">
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rapport.html" beforeDir="false" afterPath="$PROJECT_DIR$/rapport.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype/src/VaxToDo_re_Prototype.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prototype/src/VaxToDo_re_Prototype.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +30,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
   </component>
-  <component name="RunManager" selected="Application.VaxToDo_re_Prototype">
+  <component name="RunManager" selected="应用程序.VaxToDo_re_Prototype">
     <configuration name="VaxToDo_re_Prototype" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="VaxToDo_re_Prototype" />
       <module name="VaxTodo" />
@@ -45,10 +47,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.VaxToDo_re_Prototype" />
-        <item itemvalue="Application.test" />
+        <item itemvalue="应用程序.VaxToDo_re_Prototype" />
       </list>
     </recent_temporary>
   </component>
@@ -63,6 +75,7 @@
       <workItem from="1633459500466" duration="78000" />
       <workItem from="1633797228916" duration="8836000" />
       <workItem from="1633830393072" duration="767000" />
+      <workItem from="1633878392316" duration="468000" />
     </task>
     <servers />
   </component>
