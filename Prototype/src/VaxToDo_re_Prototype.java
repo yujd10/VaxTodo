@@ -1,7 +1,3 @@
-import java.io.Console;
-import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -10,13 +6,6 @@ public class VaxToDo_re_Prototype {
     static Random random = new Random();
     public static void main(String[] args) {
         login();
-//        main_menu();
-//        calendrier();
-//        showCalendar();
-//          liste_visiteur();
-//        liste_benevole();
-//        takeAppointment();
-//        cancelAppointment();
     }
 
     public static void login(){
@@ -131,16 +120,22 @@ public class VaxToDo_re_Prototype {
         switch (choice){
             case 1:
                 listDesComptesBene();
+                break;
             case 2:
                 createCompteBene();
+                break;
             case 3:
                 modifierCompteBene();
+                break;
             case 4:
                 supprimerCompteBene();
+                break;
             case 5:
                 main_menu();
+                break;
             case 6:
                 System.exit(0);
+                break;
             default:
                 System.out.println("option non valide!");
                 liste_benevole();
