@@ -390,12 +390,17 @@
                         <li>Le visiteur désire de prendre un rendez-vous.</li>
                         <li>Appel au cas <u>login</u></li>
                         <li>L'employé clique sur le calendrier et consulter les diponibilités</li>
-                        <li>L'employé choisit une disponibilité</li>
+                        <li>L'employé choisit un jour et heure pour rendez-vous</li>
                         <li>Le visiteur confirme le choix à l'employé.</li>
                         <li>L'employé lui demande son nom au complet, son courriel et le type de dose qu'il désire</li>
                         <li>L'employé effectue la réservation dans le système et mettre les détails du rendez-vous</li>
                         <li>l'employé envoie le numéro de réservation par courriel au visiteur.</li>
                     </ol>
+                    <p><b>Scénarios alternatifs</b></p>
+                    <p> &emsp; 4a. Temps choisi n'est pas disponible </p>
+                    <p> &emsp; &ensp; 4a.1 Le système demande au utilisateur de choisir un autre jour disponible.</p>
+                    <p> &emsp; 4a. Temps choisi n'est pas disponible </p>
+                    <p> &emsp; &ensp; 4a.1 Le système demande au utilisateur de choisir un autre jour disponible.</p>
                 </div>
 
                 <div id="scenario" class="scenario">
@@ -417,8 +422,35 @@
                 </div>
 
                 <div id="scenario" class="scenario">
-                    <p><b>Cas d'utilisation: </b> Traitement d'un visiteur</p>
-                    <p><b>But: </b>Un employé confirme le rendez-vous du visiteur, créer un compte de visiteur, faire l'entrevue et planier un rendez-vous si besoin</p>
+                    <p><b>Cas d'utilisation: </b> L'accueil d'un visiteur</p>
+                    <p><b>But: </b>Un bénévole acceuillir un visiteur, confirmation de son rendez-vous, départition aux files differentes.</p>
+                    <p><b>Acteurs: </b>Bénévole (principal), Visiteur(secondaire)</p>
+                    <p><b>Scénario principal</b></p>
+                    <ol>
+                        <li>Le visiteur arrivé est appelé par un bénévole.</li>
+                        <li>Appel au cas <u>login</u></li>
+                        <li>Le bénévole clique sur la gestion des rendez-vous.</li>
+                        <li>Le bénévole demande au visiteur si il a un rendez-vous et son numéro de réservation.</li>
+                        <li>Le système valide le nom et l'heure de rendez-vous du visiteur.</li>
+                        <li>Le système affiche "rendez-vous validé".</li>
+                        <li>Le bénévole envoie une requête au système en précisant le nombre de visiteurs.</li>
+                        <li>Le système envoie les périodes disponibles pour la journée.</li>
+                        <li>Le bénévole confirme la période avec le visiteur.</li>
+                        <li>Le bénévole ajoute le visiteur dans le calendrier à la période choisie.</li>
+                        <li>Le bénévole remplit avec le visiteur les informations personnelles dans le système.</li>
+                    </ol>
+                    <p><b>Scénarios alternatifs</b></p>
+                    <p> &emsp; 4a. Le visiteur n'a pas de numéro de réservation</p>
+                    <p> &emsp; &ensp; 4a.1 La vérification de rendez-vous est terminée. Le visiteur est considéré comme un visiteur spontané.</p>
+                    <p> &emsp; &ensp; 4a.2 Le bénévole vérifie dans le calendrier les périodes disponibles.</p>
+                    <p> &emsp; 5a. Le visiteur est en retard pour plus de 15 mins.</p>
+                    <p> &emsp; &ensp; 5a.1 Le système affiche "rendez-vous supprimé".</p>
+                    <p> &emsp; &ensp; 5a.2 Le visiteur est considéré comme un visiteur spontané.</p>
+                </div>  
+                
+                <div id="scenario" class="scenario">
+                    <p><b>Cas d'utilisation: </b> La confirmation d'un visiteur</p>
+                    <p><b>But: </b>Un employé confirme le rendez-vous du visiteur, créer un compte de visiteur, demande de faire questionnaire .</p>
                     <p><b>Acteurs: </b>Employé (principal), Visiteur(secondaire)</p>
                     <p><b>Scénario principal</b></p>
                     <ol>
@@ -426,27 +458,24 @@
                         <li>Appel au cas <u>login</u></li>
                         <li>L'employé clique sur la gestion des rendez-vous.</li>
                         <li>L'employé demande au visiteur son numéro de réservation.</li>
-                        <li>L'employé récupère les informations personnelles du visiteur.</li>
-                        <li>L'employé confirme le but de la visite du visiteur.</li>
-                        <li>L'employé demande au visiteur sa carte d'assurance maladie</li>
-                        <li>L'employé remplit avec le visiteur un questionnaire dans le système</li>
-                        <li>L'employé donne au visiteur un billet avec un numéro pour une nouvelle file d'attente</li>
-                        <li>L'employé transmet le formulaire rempli et signé aux professionels de la santé.</li>
+                        <li>L'employé vérifie que son nom et numéro de téléphone sont présents dans le calendrier à l'heure de passage. </li>
+                        <li>Le bénévole demande au visiteur son numéro de compte.</li>
+                        <li>Le bénévole demande au visiteur son numéro de carte d'assurance maladie .</li>
+                        <li>Le visiteur fournit le questionnaire dans le système.</li>
                     </ol>
                     <p><b>Scénarios alternatifs</b></p>
-                    <p> &emsp; 2a. Le visiteur n'a pas de réservation</p>
-                    <p> &emsp; &ensp; 2a.1 La vérification de rendez-vous est terminée. Le visiteur est considéré comme un visiteur spontané.</p>
-                    <p> &emsp; 4a. Le visiteur est venu pour sa première dose</p>
-                    <p> &emsp; &ensp; 4a.1 L'employé crée un compte pour le visiteur.</p>
-                    <p> &emsp; &ensp; 4a.2 L'employé demande au visiteur s'il désire planifier une seconde dose.</p>
-                    <p> &emsp; 5a. Le visiteur n'a pas sa carte d'assurance maladie</p>
+                    <p> &emsp; 5a. Le informations ne sont pas dans le système.</p>
+                    <p> &emsp; &ensp; 5a.1 Le visite est terminée. </p>
+                    <p> &emsp; 6a. Le visiteur n'a pas son numéro de compte</p>
+                    <p> &emsp; &ensp; 6a.1 L'employé fournit son adresse courriel et sa date de naissance pour le retrouver.</p>
+                    <p> &emsp; 7a. Le visiteur n'a pas sa carte d'assurance maladie</p>
                     <p> &emsp; &ensp; 5a.1 La visite est annulée</p>
                     <p> &emsp; &ensp; 5a.2 l'employé l'invite à prendre un nouveau rendez-vous</p>
-                    <p> &emsp; 5b. La carte d'assurance maladie du visiteur est annulée.</p>
-                    <p> &emsp; &ensp; 5b.1 La visite est annulée</p>
-                    <p> &emsp; &ensp; 5b.2 l'employé l'invite à prendre un nouveau rendez-vous</p>
-                </div>  
-                
+                    <p> &emsp; 7b. La carte d'assurance maladie du visiteur est annulée.</p>
+                    <p> &emsp; &ensp; 7b.1 La visite est annulée</p>
+                    <p> &emsp; &ensp; 7b.2 l'employé l'invite à prendre un nouveau rendez-vous</p>
+                </div> 
+
                 <div id="scenario" class="scenario">
                     <p><b>Cas d'utilisation: </b> Suivi de la vaccination</p>
                     <p><b>But: </b>l'employé envoie des courriels sur les détails de la vaccination au visiteurs déjà venu et pour la notification des prochaines visites.</p>
