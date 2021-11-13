@@ -1,0 +1,11 @@
+package package1;
+
+public enum Page {
+	MAIN,
+	MANAGE_VISITORS,
+	SEND_FOLLOWUP,
+	CALENDAR,
+	APPOINTMENT,
+	SURVEY,
+	VISITOR_LIST
+}

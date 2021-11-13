@@ -80,7 +80,6 @@ Suivez les instructions à l'écran pour compléter la tache
 
 - [1] Consulter le calendrier
 - [2] Consulter le nombre de personnes présents
-- [3] Chercher un rendez-vous
 - [0] Retour au menu principal
 
 ### Menu principal (Bénévole)
@@ -90,4 +89,5 @@ En tout tant vous pouvez taper 0 pour revenir au menu principal.
 
 - [1] Consultation du calendrier: Accédez au calendrier et cherchez les rendez-vous à venir
 - [2] Consulation de la liste des visiteurs: Accédez à la liste des visiteurs.
+- [3] Réserver un rendez-vous: faire une réservation pour un visiteur
 - [0] Retour au menu principal
