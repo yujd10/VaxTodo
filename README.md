@@ -25,10 +25,15 @@ au menu principal propre au rôle.
 - Rendez-vous
   - 000001;foret;aura;2021-11-05;10:00;1
   - 000002;buisson;paul;2021-12-02;14:00;2
+  - 000003;duquet;laurie;2021-11-05;10;00;2
+  - 000004;legault;catherine;2021-12-02;14:00;1
+  - 000005;mini;cooper;2021-11-05;11:00;1
+  - 000006;cortez;juan;2021-12-02;14:00;2
 - Visiteur
   - 202010250001;cortez;juan;1990-01-13;juan.cortez@gmail.com;5147836802
   - 202004280010;hannoune;isabelle;1994-10-06;isa.hannoune@gmail.com;4382835821
-- ...
+- Questionnaire
+  - 202010250001;cortez;juan;1990-01-13;123456789;2020-12-02;Oui;Non;Non;Non;Pfizer
 
 ### Connexion
 

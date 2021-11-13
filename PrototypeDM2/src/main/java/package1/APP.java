@@ -37,7 +37,9 @@ public class APP {
 					case SURVEY:
 						surveyPage();
 						break;
-
+					case VISITOR_LIST:
+						showVisitorList();
+						break;
 
 				}
 			} else {
@@ -75,6 +77,9 @@ public class APP {
 					case SURVEY:
 						surveyPage();
 						break;
+					case VISITOR_LIST:
+						showVisitorList();
+						break;
 				}
 			}
 		}
@@ -107,6 +112,9 @@ public class APP {
 			}
 			else if(input.trim().equals("2")){
 				currentPage = Page.VISITOR_LIST;
+			}
+			else if(input.trim().equals("3")){
+				currentPage = Page.APPOINTMENT;
 			}
 			else{
 				currentPage = Page.MAIN;
@@ -365,6 +373,12 @@ public class APP {
 		}
 		else if (input.trim().equals("0")) {
 			currentPage = Page.MAIN;
+		}
+	}
+	private static void showVisitorList(){
+		List<Visitor> visitorList = VisitorRespiratory.read();
+		for (Visitor visitor : visitorList) {
+			System.out.println(visitor.accountNumber+";"+visitor.lastName+";"+visitor.firstName+";"+visitor.email+visitor.telephone);
 		}
 	}
 	private static void manageLogin(String input) {

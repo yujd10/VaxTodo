@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Visitor {
+	public String accountNumber;
 	public String lastName;
 	public String firstName;
-	public String accountNumber;
 	public String birthday;
 	public String email;
 	public String telephone;
