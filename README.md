@@ -1,139 +1,98 @@
-# VaxTodo:re
- vaxtodo:re for ift-2255
+# README
 
-## Objectif: 
-    - permet à tout personne majeure agée de 18 ans et plus de prendre un rendez-vous avec GoodPeople pour se faire vacciner (première dose ou deuxième dose)
-    - le suivi pour les futures doses et autres requêtes liées à la vaccination:
-        + une demande de preuve de vaccination
-        + une demande de changement
-        + une annulation d'un rendez-vous
+Cette application est un prototype de VaxTodo permettant de prendre un rendez à toute personne majeure agée de 18 et plus pour se faire vacciner avec GoodPeople.
+Elle permet aussi de créer et gérer les comptes des visiteurs et des bénévoles. De plus, cette application est utilisé pour faire du suivi de la vaccination 
+ainsi qu'envoyer le profil de vaccination au visiteur.
 
-    -  garantir les périodes réservées
-    -  faciliter le suivi pour toute question liée à la preuve de vaccination
-    -  planifier une nouvelle dose
-    - éviter tout mauvais usage des données personnelles.
+## Fonctionnalités
 
-## Horaire: 
-    Lundi au Vendredi, excluant les jours fériés
-    8h00 à 18h00
+- Réserver une période de vaccination
+- Gérer les comptes des visiteurs, bénévoles
+- Enovyer courriel de suivi
+- Consulter et modifier le calendrier
+- Envoyer rapport de vaccination
+- Remplir formulaire
 
-## Nombre limite de clients: 40 personnes.
+## Manuel d'utilisation
 
-## Personnels: 
-    une équipe composée d'employés et bénévoles
-    Les professionnels ne sont pas sous notre charge
-    Les professionels apportent tout l'équipement nécessaire pour la vaccination.
+Pour utiliser l'application, il vous faut exécuter la commande suivante: `java App` (ou autre commande).
+Étant un prototype, nous avons inclus un jeu de données afin de tester l'application.
+À l'ouverture, vous devez vous connecter en tant qu'employé ou bénévole. Ceci vous donnera accès
+au menu principal propre au rôle.
 
+### Données incluses dans l'application
 
-    ### Tâches:
-        Les bénévoles: 
-            accueillir une personne et les acheminer aux employés qui font le traitement du dossier et le choix du vaccin avec la personne
-        Les professionels de la santé:
-            Donner le vaccin
-            Gérer tout problème de santé (malaise ou réaction virulente suite au vaccin)
-        GoodPeople (Nous): 
-            réserver un espace dans le local pour les professionels
-            Récolter les informations nécessaires pour procéder à la vaccination
+- Rendez-vous
+  - 000001;foret;aura;2021-11-05;10:00;1
+  - 000002;buisson;paul;2021-12-02;14:00;2
+  - 000003;duquet;laurie;2021-11-05;10;00;2
+  - 000004;legault;catherine;2021-12-02;14:00;1
+  - 000005;mini;cooper;2021-11-05;11:00;1
+  - 000006;cortez;juan;2021-12-02;14:00;2
+- Visiteur
+  - 202010250001;cortez;juan;1990-01-13;juan.cortez@gmail.com;5147836802
+  - 202004280010;hannoune;isabelle;1994-10-06;isa.hannoune@gmail.com;4382835821
+- Questionnaire
+  - 202010250001;cortez;juan;1990-01-13;123456789;2020-12-02;Oui;Non;Non;Non;Pfizer
 
-## Accueil d'un visiteur:
-    1. Bénévole vérifie son rendez-vous. 
-        - confirmer nom et l'heure de rdv.
-        - else: vérifier quantité de rendez-vous prévus dans une heure et ajouter au nombre de visiteur présents.
-            a. if ( somme < capacité du local): ajouter à la plage horaire correspondant à l'heure de la visite.
-            b. else (son nom est ajouté à la rpochaine plage horaire disponible )
-    2. visiteur est dirigée vers une file d'attente divisée entre les visites planifiées (avec rdv) et lers visites spontannées (sans rdv).
-        If( visiteur avec rdv en retard >= 15minutes ): rendez-vous est annulé && considérée comme visite spontanée.
-    3. La file d'attente est gérée en premier arrivé, premier servi, en priorisant les visites planifiées.
+### Connexion
 
-## Traitement d'un visiteur:
-    1. Appele personne en file
-    2. Diriger vers un employé.
-    3. Employé confirme son rendez-vous:
-        a. Demander son nom
-        b. Demander son heure de rendez-vous (avec rdv) || Demander heure de visite (sans rdv)
-    4. Employé récupère les informations personnelles
-    5. Confirmer première dose ou deuxième dose.
-    6. Employé demande la carte d'assurance maladie.
-        a. if( sans carte d'assurance maladie || carte expirée): La visite est annulée && L'employé l'invite à prendre un nouveau rendez-vous.
-    7. Employé remplit avec visiteur un questionnaire papier.
-        ### Questionnaire
-            Nom:
-            Prénom:
-            Date de naissance:
-            Numéro carte assurance maladie:
-            Date de la visite:
-            Avez-vous déjà reçu une première dose?
-            Avez-vous déjà contracté la COVID?
-            Avez-vous des symptômes de la COVID?
-            Avez-vous des allergies?
-            Quel type de vaccin souhaitez-vous recevoir?
-                a. if(première dose): Employé demande si le visiteur désire de planifier une seconde dose
-                    1. if(true): Employé utilise le calendrier de rendez-vous pour choisir avec le visiteur une date qu'il le convient (delais de date >= 3mois)
-                        if(date trouvée): L'employé note son numéro de téléphone, son nom complet, le jour et l'heure du rendez-vous.
-    8. Employé donne un billet avec un numéro au visiteur qui est dirigé vers une nouvelle file d'attente et transmet le formulaire rempli et signé aux professionnels de la santé.
-    9. Numéro du visiteur est appelé, il dirige vers un professionnel de la santé qui procède avec lui à la vaccination
-        Tout ce qui a trait à la santé du visiteur est traité par un professionnel de la santé.
+Pour se connecter à l'application, veuillez utiliser un des identifiants suivants:
 
-## Prise de rendez-vous
-    Par téléphone:
-        1.la personne peut demander des questions sur:
-          - pièces requises
-          - des heures d'ouverture
-          - planifier un rendez-vous
-        2. Planifier un rendez-vous:
-            - L'employé utilise le calendrier des rendez-vous pour choisir une date et heure avec la personne. (Heure pile, ex: 8h, 9h, 10h)
-            - La personne peut prendre un rendez-vous pour un maximum de 2 personnes.
-            - Maximum de 15 rendez-vous 30 visiteurs planifiées par plage horaire 
-## Suivi
-    À la fin de la journée:
-        1. L'employé envoie un courriel à tous les visiteurs ayant reçu le vaccin, le détail de sa visite et la preuve de vaccination sous forme de document PDF présentant son nom, sa    date de naissance, un code QR et la liste des vaccins administrés.
-        2. L'employé consulte le calendrier pour vérifier les visites plannifiées pour les prochains jours.
-            If(visite prévu pour les prochaines 48heures): L'employé appelle le visiteur pour confirmer sa visite.
+- Rôle de l'employé
+  - username: argo | password: argopass
+  - username: anna | password: annapass
+- Rôle du bénévole
+  - username: benoit | password: benoitpass
+  - username: viola | password: violapass
 
-## Liste de souhaits VaxToDo:re
-    - Intégrer un système d'information VaxTodo:re qui sera manipulé uniquement par *les employés*.
-    - Les bénévoles récupèrerent en début de journée, une version imprimée du calendrier présentant le nom complet des visiteurs planifiés.
-    - Estimer 30-45 minutes par personne (incluant le temps d'observation de 15 minutes suivant la vaccination) 5 traitements en parallèle.
-    - 12 ordinateurs Windows à la dispostion pour être dédiés au nouveau système.
-    - Les données seront préservées en cas de future dose ou pour demander une preuve de vaccination. Nous ne prévoyons pas partagées ces données avec aucune autre instance.
-## Activités a faire avec le système VaxTodo:re
-    1. Prise de rendez-vous par téléphone:
-        - l'employé utilise le système pour accéder au calendrier et vérifier les disponibilités.
-        - un rendez-vous doit être pris au minimum 72 heures à l'avance. 
-        - lorsque le choix est confirmé, l'employé effectue la réservation dans le système.
-        - Le système produit un numéro de réservation unique et les détails de chaque rendez-vous pris ((prénom et nom du visiteur, date et heure de la visite, type de dose)
-        - Le numéro de réservation est envoyé par courriel au visiteur
-        - Le visiteur utilise le numéro de réservation pour confirmer son rendez-vous lors de sa visite.
-    2. Lors d'une première visite: 
-        - employé doit créer un compte pour le visiteur qui sera rattaché à toutes ces activités: vaccins et réservations.
-        - Pour toute prochaine visite, le numéro de compte du visiteur sera utilisé pour identifier le visiteur.
-        - Numéro de compte: numéro unique à douze chiffres et sera rattaché à une adresse courriel unique.
-            Il présentera aussi les informations personnelles du visiteur: nom, prénom, date de naissance adresse et numéro de téléphone
-        - Afin d'éviter d'avoir des comptes fantomes, nous attendons la visite pour créer un compte.
-    3. L'employé utilise le système pour:
-        - la confirmation
-        - l'entrevue (questionnaire)
-        - la planification d'une autre visite
-    4. Faire le suivi dans le système:
-        - produire sur demande le rapport de vaccination d'une visite. 
-        - Envoyer le rapport de vaccination par courriel au visiteur concerné (option)
-        - Employé utilise le système pour enovyer une notification par courriel, rappelant à un visiteur son rendez-vous prochain.
-    5. Faire la gestion:
-        - L'employé peut accéder à la liste des rendez-vous pour ajouter et les annuler.
-        - L'employé peut accéder à la liste des bénévoles et des comptes visiteurs pour ajouter, modifier ou supprimer.
-        - Chaqcun de ces éléments peut être visualisé individuellement.
-    6. Identification: 
-        - Un bénévole: 
-            Il est identifié par son nom, prénom, adresse, numéro de téléphone et adresse courriel.
-            Il présente aussi une liste de jours où il est disponible pour venir au local.
-        - Un employé:
-            Il est identifié avec les mêmes attributs, mais possède en plus un code d'employé à 9 chiffres et un mot de passe qui seront utilisés pour accéder au système.à
-            Le mot de passe devra être composé d'au moins 8 caractères contenant au moins 1 chiffre, 1 majuscule, 1 minuscule et 1 caractère spécial.
-        - Un visiteur:
-            Le système doit avoir un profil de vaccination pour chaque compte visiteur qui regroupe les informations liées aux vaccins reçus: type de dose, identification du vaccin, date et heure de vaccination.
-        - Un vaccin:
-            Un vaccin est identifié par un nom, un code et un lot.
-    7. La sécurité:
-        - Nous utiliserons un de nos ordinateurs comme serveur pour y stocker nos données, conservant ainsi toutes les données chez nous.
-        - Ce serveur sera mis en réseau pour y être accédé par les autres ordinateurs, utilisés par les employés.
-        - Notre budget étant présentement limité, les enregistrements seront stockés sur disque en fichier texte. Par la suite, nous pourrons migrer vers une solution plus robuste.
+### Menu principal (Employé)
+
+À partir du menu principal, dans le rôle de l'employé, vous pouvez choisir l'une des options suivantes en tapant le chiffre correspondant.
+En tout tant vous pouvez taper 0 pour revenir au menu principal.
+
+- [1] Gestion des visiteurs: Accédez à la liste des visiteurs et ajouter, modifier ou supprimer un visiteur.
+- [2] Envoi courriel de suivi: Envoyez un courriel de suivi à un visiteur pour lui rappeler
+- [3] Consultation du calendrier: Accédez au calendrier et cherchez les rendez-vous à venir
+- [4] Réserver un rendez-vous: Faire la réservation d'un rendez vous
+- [5] Remplir questionnaire: Remplir le questionnaire pour avoir les informations personnelles du visiteur
+- [0] Retour au menu principal
+
+#### Gestion des visiteurs
+
+Dans cette section, vous pouvez effectuer les actions suivantes en tapant le chiffre correspondant.
+Suivez les instructions à l'écran pour compléter la tache
+
+- [1] Créer un compte
+- [2] Modifier un compte
+- [3] Supprimer un compte
+- [4] Chercher un compte
+- [0] Retour au menu principal
+
+#### Envoi courriel de suivi:
+
+Dans cette section, vous pouvez effectuer les actions suivantes en tapant le chiffre correspondant.
+Suivez les instructions à l'écran pour compléter la tache
+
+- [1] Enovyer un rappel
+- [2] Enovyer un rapport de vaccination
+- [0] Retour au menu principal
+
+#### Consultation du calendrier:
+
+Dans cette section, vous pouvez effectuer les actions suivantes en tapant le chiffre correspondant.
+Suivez les instructions à l'écran pour compléter la tache
+
+- [1] Consulter le calendrier
+- [2] Consulter le nombre de personnes présents
+- [0] Retour au menu principal
+
+### Menu principal (Bénévole)
+
+À partir du menu principal, dans le rôle du bénévole, vous pouvez choisir l'une des options suivantes en tapant le chiffre correspondant.
+En tout tant vous pouvez taper 0 pour revenir au menu principal.
+
+- [1] Consultation du calendrier: Accédez au calendrier et cherchez les rendez-vous à venir
+- [2] Consulation de la liste des visiteurs: Accédez à la liste des visiteurs.
+- [3] Réserver un rendez-vous: faire une réservation pour un visiteur
+- [0] Retour au menu principal
