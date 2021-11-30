@@ -176,7 +176,7 @@
 	 
             <ul class="bare-list members">
                 <li class="member">
-                    <img class="member-pic" src="./Notre équipe/Xianglong.jpg" alt="" >
+                    <img class="member-pic" src="./images/Xianglong.jpg" alt="" >
                     <div class="member-identification">
                         <span class="member-name">Xianglong GAO</span>
                         <span class="member-id">1246973</span>
@@ -185,7 +185,7 @@
                     <div class="member-role">Chargé des Clients</div>
                 </li>
                 <li class="member">
-                    <img class="member-pic" src="./Notre équipe/Jiadi.jpg" alt="Jiadi Yu" >
+                    <img class="member-pic" src="./images/Jiadi.jpg" alt="Jiadi Yu" >
                     <div class="member-identification">
                         <span class="member-name">Jiadi YU</span>
                         
@@ -195,7 +195,7 @@
                     <div class="member-role">Chargé de l'Implementation</div>
                 </li>
                 <li class="member">
-                    <img class="member-pic" src="./Notre équipe/Florient.png" alt="Florient" >
+                    <img class="member-pic" src="./images/Florient.png" alt="Florient" >
                     <div class="member-identification">
                         <span class="member-name">Florient GADEDJRO</span>
                         <span class="member-id">20225447</span>
@@ -279,7 +279,7 @@
                 <li>Lister le glossaire.</li>
             </ul>
             <h2 id="taches" class="section-title">Ehéancier</h2>
-            <img class="echeancier" src="./Echeancier.jpg" alt="Echeancier" style="width: 100%;" >
+            <img class="echeancier" src="./images/Echeancier.jpg" alt="Echeancier" style="width: 80%;" >
                 <h2 id="questions" class="section-title">Qusetions posées</h2>
                 <h3>Session 1:</h3>
                 <ul class="question">Quelle est la limite du nombre de personnes qui peuvent prendre une réservation, en fonction de vos capacités (personnel disponible, nombre de vaccins disponible, ...)?
@@ -352,14 +352,38 @@
                     <dd class="glossary-def">Faire l'ajout ou l'annulation dans la liste des rendez-vous.</dd>
                     <li class="glossary-term">Accéder à la liste des bénévoles</li>
                     <dd class="glossary-def">Faire l'ajout, la modification ou la suppression d'un bénévole.</dd>
+
+                    <li class="glossary-term">professionels de sante</li>
+                    <dd class="glossary-def">Professionnels medicale administrant les vaccins</dd>
+
+                    <li class="glossary-term">vaccin</li>
+                    <dd class="glossary-def">vaccin contre la COVID-19</dd>
+
+                    <li class="glossary-term">local</li>
+                    <dd class="glossary-def">Lieu de vaccination</dd>
+
+                    <li class="glossary-term">Accueil du visiteur</li>
+                    <dd class="glossary-def">reception d'une personne prevoyant de se faire vacciner</dd>
+
+                    <li class="glossary-term">calendrier</li>
+                    <dd class="glossary-def">Page affichant les plages horaires et les rendez-vous prevus</dd>
+
+                    <li class="glossary-term">questionnaire</li>
+                    <dd class="glossary-def">Ensemble d'informations personnels relative a la vaccination</dd>
+
+                    <li class="glossary-term">visite plannifiee</li>
+                    <dd class="glossary-def">Visite prevue au moins 72h au paravant</dd>
+
+                    <li class="glossary-term">Visite spontané</li>
+                    <dd class="glossary-def">visite imprevue au local</dd>
                 </ul>
             </section>
 
             <section>
                 <h2 id="model" class="section-title">Modélisation du domaine</h2>
                 <p>Cas d'utilisation</p>
-                <a href="CU/VaxTodo_re.vpp">
-                    <img src="CU/cuicon.PNG" alt="Cas d'utilisation">
+                <a href="VPP/VaxTodo_re.vpp">
+                    <img src="./images/CU-Model.png" alt="Cas d'utilisation">
                 </a>
 
                 <p>Scénarios</p>
@@ -553,6 +577,145 @@
                         <li>Une interface plus conviviale</li>
                         <li>Vérification d'utilisateur</li>
                     </ul>
+                </div>
+                <div>
+                    <h3>Besoins matériels</h3>
+                    <ul>
+                        <li style="font-weight: bold;">Mode Interactif.</li>
+                        <li>Au moins 12 Ordinateurs sur Windows.</li>
+                        <li>Disque dur de au moins 250GB pour chaque ordinateur.</li>
+                        <li>Imprimantes pour imprimer la preuve de vaccination et la questionnaire.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Parties à informatiser</h3>
+                    <ul>
+                        <li>La liste des visiteur et bénévoles.</li>
+                        <li>Les information des visiteur,bénévoles et employés.</li>
+                        <li>Le profil de vaccination des visiteur.</li>
+                        <li>Le calendrier.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Contraintes physiques</h3>
+                    <ul>
+                        <li>Base de données: Fichier excel,Tables (colonnes), données (rangées)</li>
+                        <li>Puissance de calcul: CPU, mémoire, réseau.</li>
+                        <li>Disques durs internes.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Contraintes conceptuelles</h3>
+                    <ul>
+                        <li>Modèle de données: Tableau.</li>
+                        <li>Format choisi: xls</li>
+                        <li>Langage de programmation: JAVA</li>
+    
+                    </ul>
+                </div>
+                <div>
+                    <h3>Modèle dynamique</h3>
+                    <ul>Diagrammes d'activités:</ul>
+                    <li>Login
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_login.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Menu des bénévoles
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_menu_bene.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Menu des employés
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_menu_employe.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Prise de RDV
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_prise_RDV.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Annuler RDV
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_annuler_RDV.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Consulter le calendrier
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_consulter_calendrier.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Consulter le profil
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_consulter_profil.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Gestion visiteur
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_gestion_visi.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Gestion bénévole
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_gestion_bene.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Traitement des visiteur
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_traitement visi.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                
+                    <li>Suivi
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_suivi.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Profil de vaccination
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_profil_vax.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                </div>
+                <div>
+                    <h3>Diagramme de class:</h3>
+                    <li>
+                        <a href="VPP/Diagramme_de_Classe(final).vpp">
+                            <img src="./images/Diagramme de classe.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                </div>
+                <div>
+                    <h3>Diagrammes de sequence:</h3>
+                    <ul>
+                    <li>Ajouter visiteur
+                        <a href="VPP/diagramme de sequence.vpp">
+                            <img src="./images/DS_ajouter_visi.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Mise à jour du profil de vaccination
+                        <a href="VPP/diagramme de sequence.vpp">
+                            <img src="./images/DS_MAJ_profil.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Modifier visiteur 
+                        <a href="VPP/diagramme de sequence.vpp">
+                            <img src="./images/DS_modifi_visi.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Réservation d'une période
+                        <a href="VPP/diagramme de sequence.vpp">
+                            <img src="./images/DS_RSERV_PERIOD.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Supprimer visiteur
+                        <a href="VPP/diagramme de sequence.vpp">
+                            <img src="./images/DS_sup_visi.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+
+                </ul>
                 </div>
             </section>
 
