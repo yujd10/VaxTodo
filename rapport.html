@@ -176,7 +176,7 @@
 	 
             <ul class="bare-list members">
                 <li class="member">
-                    <img class="member-pic" src="./Notre équipe/Xianglong.jpg" alt="" >
+                    <img class="member-pic" src="./images/Xianglong.jpg" alt="" >
                     <div class="member-identification">
                         <span class="member-name">Xianglong GAO</span>
                         <span class="member-id">1246973</span>
@@ -185,7 +185,7 @@
                     <div class="member-role">Chargé des Clients</div>
                 </li>
                 <li class="member">
-                    <img class="member-pic" src="./Notre équipe/Jiadi.jpg" alt="Jiadi Yu" >
+                    <img class="member-pic" src="./images/Jiadi.jpg" alt="Jiadi Yu" >
                     <div class="member-identification">
                         <span class="member-name">Jiadi YU</span>
                         
@@ -195,7 +195,7 @@
                     <div class="member-role">Chargé de l'Implementation</div>
                 </li>
                 <li class="member">
-                    <img class="member-pic" src="./Notre équipe/Florient.png" alt="Florient" >
+                    <img class="member-pic" src="./images/Florient.png" alt="Florient" >
                     <div class="member-identification">
                         <span class="member-name">Florient GADEDJRO</span>
                         <span class="member-id">20225447</span>
@@ -279,7 +279,7 @@
                 <li>Lister le glossaire.</li>
             </ul>
             <h2 id="taches" class="section-title">Ehéancier</h2>
-            <img class="echeancier" src="./Echeancier.jpg" alt="Echeancier" style="width: 100%;" >
+            <img class="echeancier" src="./images/Echeancier.jpg" alt="Echeancier" style="width: 80%;" >
                 <h2 id="questions" class="section-title">Qusetions posées</h2>
                 <h3>Session 1:</h3>
                 <ul class="question">Quelle est la limite du nombre de personnes qui peuvent prendre une réservation, en fonction de vos capacités (personnel disponible, nombre de vaccins disponible, ...)?
@@ -352,14 +352,38 @@
                     <dd class="glossary-def">Faire l'ajout ou l'annulation dans la liste des rendez-vous.</dd>
                     <li class="glossary-term">Accéder à la liste des bénévoles</li>
                     <dd class="glossary-def">Faire l'ajout, la modification ou la suppression d'un bénévole.</dd>
+
+                    <li class="glossary-term">professionels de sante</li>
+                    <dd class="glossary-def">Professionnels medicale administrant les vaccins</dd>
+
+                    <li class="glossary-term">vaccin</li>
+                    <dd class="glossary-def">vaccin contre la COVID-19</dd>
+
+                    <li class="glossary-term">local</li>
+                    <dd class="glossary-def">Lieu de vaccination</dd>
+
+                    <li class="glossary-term">Accueil du visiteur</li>
+                    <dd class="glossary-def">reception d'une personne prevoyant de se faire vacciner</dd>
+
+                    <li class="glossary-term">calendrier</li>
+                    <dd class="glossary-def">Page affichant les plages horaires et les rendez-vous prevus</dd>
+
+                    <li class="glossary-term">questionnaire</li>
+                    <dd class="glossary-def">Ensemble d'informations personnels relative a la vaccination</dd>
+
+                    <li class="glossary-term">visite plannifiee</li>
+                    <dd class="glossary-def">Visite prevue au moins 72h au paravant</dd>
+
+                    <li class="glossary-term">Visite spontané</li>
+                    <dd class="glossary-def">visite imprevue au local</dd>
                 </ul>
             </section>
 
             <section>
                 <h2 id="model" class="section-title">Modélisation du domaine</h2>
                 <p>Cas d'utilisation</p>
-                <a href="CU/VaxTodo_re.vpp">
-                    <img src="CU/cuicon.PNG" alt="Cas d'utilisation" style="width: 1100px;">
+                <a href="VPP/VaxTodo_re.vpp">
+                    <img src="./images/CU-Model.png" alt="Cas d'utilisation">
                 </a>
 
                 <p>Scénarios</p>
@@ -389,18 +413,12 @@
                     <ol>
                         <li>Le visiteur désire de prendre un rendez-vous.</li>
                         <li>Appel au cas <u>login</u></li>
-                        <li>L'employé clique sur le calendrier et consulter les diponibilités</li>
-                        <li>L'employé choisit un jour et heure pour rendez-vous</li>
+                        <li>L'employé clique sur le calendrier et vérifier les diponibilités</li>
                         <li>Le visiteur confirme le choix à l'employé.</li>
                         <li>L'employé lui demande son nom au complet, son courriel et le type de dose qu'il désire</li>
                         <li>L'employé effectue la réservation dans le système et mettre les détails du rendez-vous</li>
                         <li>l'employé envoie le numéro de réservation par courriel au visiteur.</li>
                     </ol>
-                    <p><b>Scénarios alternatifs</b></p>
-                    <p> &emsp; 4a. Temps choisi n'est pas disponible </p>
-                    <p> &emsp; &ensp; 4a.1 Le système demande au utilisateur de choisir un autre jour disponible.</p>
-                    <p> &emsp; 4a. Temps choisi n'est pas disponible </p>
-                    <p> &emsp; &ensp; 4a.1 Le système demande au utilisateur de choisir un autre jour disponible.</p>
                 </div>
 
                 <div id="scenario" class="scenario">
@@ -422,55 +440,8 @@
                 </div>
 
                 <div id="scenario" class="scenario">
-                    <p><b>Cas d'utilisation: </b> Supprimer un compte visiteur</p>
-                    <p><b>But: </b>l'employé peut supprimer un comptes visiteur.</p>
-                    <p><b>Acteurs: </b>Employé (principal) Visiteur (Secondaire)</p>
-                    <p><b>Scénario principal</b></p>
-                    <ol>
-                        <li>Appel au cas <u>login</u></li>
-                        <li>L'employé entre dans la page de la liste des comptes visiteur.</li>
-                        <li>L'employé clique Supprimer un compte visiteur.</li>
-                        <li>L'employé entre le numéro de compte de visiteur.</li>
-                        <li>L'employé entre son mot de passe.</li>
-                        <li>L'employé confirme la suppression d'un compte visiteur.</li>
-                    </ol>
-                    <p><b>Scénario alternatifs</b></p>
-                    <p> &emsp; 4a. Le numéro de compte n'est pas valide.</p>
-                    <p> &emsp; &ensp; 4a.1 L'employé réentre le numéro du compte correctement.</p>
-                    <p> &emsp; 5b. Le mot de passe est incorrecte.</p>
-                    <p> &emsp; &ensp; 5b.1 L'employé réentre le mot de passe correctement.</p>
-                </div>
-
-                <div id="scenario" class="scenario">
-                    <p><b>Cas d'utilisation: </b> L'accueil d'un visiteur</p>
-                    <p><b>But: </b>Un bénévole acceuillir un visiteur, confirmation de son rendez-vous, départition aux files differentes.</p>
-                    <p><b>Acteurs: </b>Bénévole (principal), Visiteur(secondaire)</p>
-                    <p><b>Scénario principal</b></p>
-                    <ol>
-                        <li>Le visiteur arrivé est appelé par un bénévole.</li>
-                        <li>Appel au cas <u>login</u></li>
-                        <li>Le bénévole clique sur la gestion des rendez-vous.</li>
-                        <li>Le bénévole demande au visiteur si il a un rendez-vous et son numéro de réservation.</li>
-                        <li>Le système valide le nom et l'heure de rendez-vous du visiteur.</li>
-                        <li>Le système affiche "rendez-vous validé".</li>
-                        <li>Le bénévole envoie une requête au système en précisant le nombre de visiteurs.</li>
-                        <li>Le système envoie les périodes disponibles pour la journée.</li>
-                        <li>Le bénévole confirme la période avec le visiteur.</li>
-                        <li>Le bénévole ajoute le visiteur dans le calendrier à la période choisie.</li>
-                        <li>Le bénévole remplit avec le visiteur les informations personnelles dans le système.</li>
-                    </ol>
-                    <p><b>Scénarios alternatifs</b></p>
-                    <p> &emsp; 4a. Le visiteur n'a pas de numéro de réservation</p>
-                    <p> &emsp; &ensp; 4a.1 La vérification de rendez-vous est terminée. Le visiteur est considéré comme un visiteur spontané.</p>
-                    <p> &emsp; &ensp; 4a.2 Le bénévole vérifie dans le calendrier les périodes disponibles.</p>
-                    <p> &emsp; 5a. Le visiteur est en retard pour plus de 15 mins.</p>
-                    <p> &emsp; &ensp; 5a.1 Le système affiche "rendez-vous supprimé".</p>
-                    <p> &emsp; &ensp; 5a.2 Le visiteur est considéré comme un visiteur spontané.</p>
-                </div>  
-                
-                <div id="scenario" class="scenario">
-                    <p><b>Cas d'utilisation: </b> La confirmation d'un visiteur</p>
-                    <p><b>But: </b>Un employé confirme le rendez-vous du visiteur, créer un compte de visiteur, demande de faire questionnaire .</p>
+                    <p><b>Cas d'utilisation: </b> Traitement d'un visiteur</p>
+                    <p><b>But: </b>Un employé confirme le rendez-vous du visiteur, créer un compte de visiteur, faire l'entrevue et planier un rendez-vous si besoin</p>
                     <p><b>Acteurs: </b>Employé (principal), Visiteur(secondaire)</p>
                     <p><b>Scénario principal</b></p>
                     <ol>
@@ -478,31 +449,31 @@
                         <li>Appel au cas <u>login</u></li>
                         <li>L'employé clique sur la gestion des rendez-vous.</li>
                         <li>L'employé demande au visiteur son numéro de réservation.</li>
-                        <li>L'employé vérifie que son nom et numéro de téléphone sont présents dans le calendrier à l'heure de passage. </li>
-                        <li>Le bénévole demande au visiteur son numéro de compte.</li>
-                        <li>Le bénévole entre le numéro de compte.</li>
-                        <li>Le bénévole demande au visiteur son numéro de carte d'assurance maladie .</li>
-                        <li>Le bénévole entre le numéro de carte d'assurance maladie .</li>
-                        <li>Le visiteur fournit le questionnaire dans le système.</li>
+                        <li>L'employé récupère les informations personnelles du visiteur.</li>
+                        <li>L'employé confirme le but de la visite du visiteur.</li>
+                        <li>L'employé demande au visiteur sa carte d'assurance maladie</li>
+                        <li>L'employé remplit avec le visiteur un questionnaire dans le système</li>
+                        <li>L'employé donne au visiteur un billet avec un numéro pour une nouvelle file d'attente</li>
+                        <li>L'employé transmet le formulaire rempli et signé aux professionels de la santé.</li>
                     </ol>
                     <p><b>Scénarios alternatifs</b></p>
-                    <p> &emsp; 5a. Le informations ne sont pas dans le système.</p>
-                    <p> &emsp; &ensp; 5a.1 Le visite est terminée. </p>
-                    <p> &emsp; 6a. Le visiteur n'a pas son numéro de compte</p>
-                    <p> &emsp; &ensp; 6a.1 L'employé fournit son adresse courriel et sa date de naissance pour le retrouver.</p>
-                    <p> &emsp; 7a. Le visiteur n'a pas sa carte d'assurance maladie</p>
+                    <p> &emsp; 2a. Le visiteur n'a pas de réservation</p>
+                    <p> &emsp; &ensp; 2a.1 La vérification de rendez-vous est terminée. Le visiteur est considéré comme un visiteur spontané.</p>
+                    <p> &emsp; 4a. Le visiteur est venu pour sa première dose</p>
+                    <p> &emsp; &ensp; 4a.1 L'employé crée un compte pour le visiteur.</p>
+                    <p> &emsp; &ensp; 4a.2 L'employé demande au visiteur s'il désire planifier une seconde dose.</p>
+                    <p> &emsp; 5a. Le visiteur n'a pas sa carte d'assurance maladie</p>
                     <p> &emsp; &ensp; 5a.1 La visite est annulée</p>
                     <p> &emsp; &ensp; 5a.2 l'employé l'invite à prendre un nouveau rendez-vous</p>
-                    <p> &emsp; 7b. La carte d'assurance maladie du visiteur est annulée.</p>
-                    <p> &emsp; &ensp; 7b.1 La visite est annulée</p>
-                    <p> &emsp; &ensp; 7b.2 l'employé l'invite à prendre un nouveau rendez-vous</p>
-                </div> 
-
+                    <p> &emsp; 5b. La carte d'assurance maladie du visiteur est annulée.</p>
+                    <p> &emsp; &ensp; 5b.1 La visite est annulée</p>
+                    <p> &emsp; &ensp; 5b.2 l'employé l'invite à prendre un nouveau rendez-vous</p>
+                </div>  
+                
                 <div id="scenario" class="scenario">
                     <p><b>Cas d'utilisation: </b> Suivi de la vaccination</p>
                     <p><b>But: </b>l'employé envoie des courriels sur les détails de la vaccination au visiteurs déjà venu et pour la notification des prochaines visites.</p>
                     <p><b>Acteurs: </b>Employé (principal)</p>
-                    <p><b>Pré-condition: </b>Le patient a déjà fait un dose ou deux doses de vaccine.</p>
                     <p><b>Sénario principal</b></p>
                     <ol>
                         <li>Appel au cas <u>login</u></li>
@@ -549,8 +520,6 @@
                     <p> &emsp; &ensp; 3b.1 L'employé entre le numéro du compte visiteur.</p>
                     <p> &emsp; &ensp; 3b.2 L'employé entre son mot de passe pour confirmer la suppression d'un compte visiteur.</p>
                 </div>
-
-                
 
                 <div id="scenario" class="scenario">
                     <p><b>Cas d'utilisation: </b> Gestion des bénévoles</p>
@@ -646,9 +615,107 @@
                 </div>
                 <div>
                     <h3>Modèle dynamique</h3>
+                    <ul>Diagrammes d'activités:</ul>
+                    <li>Login
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_login.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Menu des bénévoles
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_menu_bene.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Menu des employés
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_menu_employe.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Prise de RDV
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_prise_RDV.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Annuler RDV
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_annuler_RDV.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Consulter le calendrier
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_consulter_calendrier.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Consulter le profil
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_consulter_profil.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Gestion visiteur
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_gestion_visi.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Gestion bénévole
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_gestion_bene.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Traitement des visiteur
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_traitement visi.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                
+                    <li>Suivi
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_suivi.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Profil de vaccination
+                        <a href="VPP/Diagramme d'activité Menu.vpp">
+                            <img src="./images/DA_profil_vax.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
                 </div>
                 <div>
-                    <h3>Modèle d'objets</h3>
+                    <h3>Diagramme de class:</h3>
+                    <li>
+                        <a href="VPP/Diagramme_de_Classe(final).vpp">
+                            <img src="./images/Diagramme de classe.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                </div>
+                <div>
+                    <h3>Diagrammes de sequence:</h3>
+                    <ul>
+                    <li>Ajouter visiteur
+                        <a href="VPP/diagramme de sequence.vpp">
+                            <img src="./images/DS_ajouter_visi.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Mise à jour du profil de vaccination
+                        <a href="VPP/diagramme de sequence.vpp">
+                            <img src="./images/DS_MAJ_profil.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Modifier visiteur 
+                        <a href="VPP/diagramme de sequence.vpp">
+                            <img src="./images/DS_modifi_visi.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Réservation d'une période
+                        <a href="VPP/diagramme de sequence.vpp">
+                            <img src="./images/DS_RSERV_PERIOD.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+                    <li>Supprimer visiteur
+                        <a href="VPP/diagramme de sequence.vpp">
+                            <img src="./images/DS_sup_visi.png" alt="Cas d'utilisation">
+                        </a>
+                    </li>
+
+                </ul>
                 </div>
             </section>
 
