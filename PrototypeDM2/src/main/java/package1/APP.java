@@ -15,8 +15,7 @@ public class APP {
 	private static Page currentPage = Page.MAIN;
 
 	public static void main(String[] args) throws ParseException {
-
-		LoginController.login("argo","argopass");
+//		LoginController.login("argo","argopass");
 //		AppointmentRespiratory.addAppointment(new Appointment("appointment1", new Date(), "status1"));
 		while(true) {
 			if (LoginController.loggedInUser != null) {
@@ -45,7 +44,7 @@ public class APP {
 
 				}
 			} else {
-				System.out.println("Please log in this format: name password");
+				System.out.println("Please log in this format: Username Password");
 			}
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
