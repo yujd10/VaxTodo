@@ -16,6 +16,7 @@ public class APP {
 
 	public static void main(String[] args) throws ParseException {
 //		AppointmentRespiratory.addAppointment(new Appointment("appointment1", new Date(), "status1"));
+
 		while(true) {
 			if (LoginController.loggedInUser != null) {
 				switch (currentPage) {

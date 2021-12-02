@@ -3,9 +3,9 @@ package Model;
 import java.time.Period;
 
 public class Calendar {
-    private Calendar instance;
+    private static Calendar instance;
 
-    public Calendar getInstance(){
+    public static Calendar getInstance(){
         return null;
     }
 

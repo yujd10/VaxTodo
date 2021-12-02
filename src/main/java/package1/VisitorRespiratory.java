@@ -20,6 +20,9 @@ public class VisitorRespiratory {
 		System.out.println("Visitor " + user.firstName+" "+user.lastName + " added");
 	}
 
+	/**
+	 * @param currentUsers
+	 */
 	private static void save(List<Visitor> currentUsers) {
 		JSONArray visitorList = new JSONArray();
 		for (Visitor u : currentUsers) {
@@ -67,6 +70,14 @@ public class VisitorRespiratory {
 		return results;
 	}
 
+	/**
+	 *
+	 * asd
+	 * asdasd
+	 * asd
+	 * @param visitor
+	 * @return return the
+	 */
 	private static Visitor parseVisitorObject(JSONObject visitor) {
 		Visitor user = new Visitor();
 		user.accountNumber = ((String) visitor.get("account number"));

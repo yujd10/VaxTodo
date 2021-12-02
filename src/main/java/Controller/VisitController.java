@@ -1,7 +1,11 @@
 package Controller;
 
+import Model.Visit;
+
 public class VisitController extends Controller{
-    public void addVisit(){
+
+
+    public void addVisit(Visit visit){
 
     }
 
