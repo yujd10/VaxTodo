@@ -3,7 +3,6 @@ package package1;
 import java.util.List;
 
 public class LoginController {
-
 	public static User loggedInUser = null;
 
 	public static void login(String username, String pass) {
@@ -15,6 +14,8 @@ public class LoginController {
 				return;
 			}
 		}
+			System.out.println("Username or Password is not valide, pleas retry !");
+
 	}
 
 	public static void logout() {

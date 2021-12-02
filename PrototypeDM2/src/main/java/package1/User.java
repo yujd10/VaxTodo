@@ -4,8 +4,11 @@ import java.util.UUID;
 
 public class User {
 	private String id;
-	private String password;
+	private String firstName;
+	private String lastName;
 	private String username;
+	private String password;
+
 	private String birthday;
 	private String telephone;
 	private String address;
@@ -16,10 +19,11 @@ public class User {
 	public User() {
 	}
 
-	public User(UserRole role,String id, String password, String username, String birthday, String telephone, String address, String postalCode, String city) {
-		this.id = id;
+	public User(UserRole role, String password, String username, String firstName, String lastName, String birthday, String telephone, String address, String postalCode, String city) {
 		this.password = password;
 		this.username = username;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.birthday = birthday;
 		this.telephone = telephone;
 		this.address = address;
@@ -28,13 +32,28 @@ public class User {
 		this.role = role;
 	}
 
-
 	public String getId() {
 		return id;
 	}
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getPassword() {
