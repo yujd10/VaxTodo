@@ -11,7 +11,7 @@ public class LoginController {
 		for (User user : currentUsers) {
 			if (user.getUsername().equals(username) && user.getPassword().equals(pass)) {
 				loggedInUser = user;
-				System.out.println("Login successfully!");
+				System.out.println("Login successfully as a "+ user.getRole() + "!");
 				return;
 			}
 		}
