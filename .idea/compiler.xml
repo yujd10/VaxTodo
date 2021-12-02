@@ -6,13 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="testprototype2 (1)" />
         <module name="testprototype2" />
+        <module name="VaxTodo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="testprototype2" target="8" />
       <module name="testprototype2 (1)" target="8" />
+      <module name="testprototype2 (2)" target="8" />
+      <module name="VaxTodo" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/VaxTodo.iml" filepath="$PROJECT_DIR$/.idea/VaxTodo.iml" />
       <module fileurl="file://$PROJECT_DIR$/Prototype/PrototypeDM2/testprototype2.iml" filepath="$PROJECT_DIR$/Prototype/PrototypeDM2/testprototype2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/PrototypeDM2/testprototype2 (1).iml" filepath="$PROJECT_DIR$/PrototypeDM2/testprototype2 (1).iml" />
     </modules>
   </component>
 </project>

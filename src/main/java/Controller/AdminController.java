@@ -1,5 +1,8 @@
 package Controller;
 
+
+import Model.Form;
+
 public class AdminController extends Controller{
     public Form getForm(int id){
         return null;
