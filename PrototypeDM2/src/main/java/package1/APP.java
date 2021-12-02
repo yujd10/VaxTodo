@@ -15,6 +15,7 @@ public class APP {
 	private static Page currentPage = Page.MAIN;
 
 	public static void main(String[] args) throws ParseException {
+//		LoginController.login("argo","argopass");
 //		AppointmentRespiratory.addAppointment(new Appointment("appointment1", new Date(), "status1"));
 		while(true) {
 			if (LoginController.loggedInUser != null) {
@@ -43,7 +44,7 @@ public class APP {
 
 				}
 			} else {
-				System.out.println("Please log in this format: name password");
+				System.out.println("Please log in this format: Username Password");
 			}
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -122,12 +123,12 @@ public class APP {
 		}
 	}
 
-	private static void initAccounts() {
-		UserRespiratory.addAccount(new User(EMPLOYEE, "argo", "argopass"));
-		UserRespiratory.addAccount(new User(EMPLOYEE, "anna", "annapass"));
-		UserRespiratory.addAccount(new User(BENEVOLE, "benoit", "benoitpass"));
-		UserRespiratory.addAccount(new User(BENEVOLE, "viola", "violapass"));
-	}
+//	private static void initAccounts() {
+//		UserRespiratory.addAccount(new User(EMPLOYEE, "argo", "argopass"));
+//		UserRespiratory.addAccount(new User(EMPLOYEE, "anna", "annapass"));
+//		UserRespiratory.addAccount(new User(BENEVOLE, "benoit", "benoitpass"));
+//		UserRespiratory.addAccount(new User(BENEVOLE, "viola", "violapass"));
+//	}
 
 	private static void mainPage() {
 		if (LoginController.loggedInUser.getRole().equals(UserRole.EMPLOYEE)) {
@@ -160,7 +161,7 @@ public class APP {
 				e.printStackTrace();
 			}
 			String[] visitorInfo = input.split(";");
-			VisitorRespiratory.addAccount(new Visitor(visitorInfo[0], visitorInfo[1], visitorInfo[2], visitorInfo[3],visitorInfo[4],visitorInfo[5] ));
+			VisitorRespiratory.addAccount(new Visitor(visitorInfo[0], visitorInfo[1], visitorInfo[2], visitorInfo[3],visitorInfo[4],visitorInfo[5],visitorInfo[6],visitorInfo[7],visitorInfo[8]));
 			currentPage = Page.MAIN;
 		} else if (input.trim().equals("2")) {
 			System.out.println("change name in this format: x y; where x name will be changed to y.");
@@ -225,11 +226,11 @@ public class APP {
 			}
 			List<Visitor> visitorList = VisitorRespiratory.read();
 			for (Visitor visitor : visitorList) {
-				if(visitor.email.equals(input)){
+				if(visitor.getEmail().equals(input)){
 					List<Appointment> list = visitor.getAppointment();
 					if(list.size() != 0){
 						Appointment appointment = list.get(list.size()-1);
-					System.out.println("Un rappel est envoyé à "+visitor.firstName+" "+visitor.lastName+" pour son " +
+					System.out.println("Un rappel est envoyé à "+visitor.getFirstName()+" "+visitor.getLastName()+" pour son " +
 							"prochain rendez-vous à "+appointment.date+" "+appointment.hour+ " pour la dose "+appointment.dose+"\n");
 					}else{
 						System.out.println("Pas de rendez-vous trouvé");
@@ -250,11 +251,11 @@ public class APP {
 			}
 			List<Visitor> visitorList = VisitorRespiratory.read();
 			for (Visitor visitor : visitorList) {
-				if(visitor.email.equals(input)){
+				if(visitor.getEmail().equals(input)){
 					List<Appointment> list = visitor.getAppointment();
 					if(list.size() != 0){
 						Appointment appointment = list.get(list.size()-1);
-						System.out.println("Un preuve de vaccination est envoyé à "+visitor.firstName+" "+visitor.lastName);
+						System.out.println("Un preuve de vaccination est envoyé à "+visitor.getFirstName()+" "+visitor.getLastName());
 						appointment.getVaccinProof();
 					}else{
 						System.out.println("Pas de rendez-vous trouvé");
@@ -317,7 +318,7 @@ public class APP {
 				String doseType = reader.readLine();
 				Survey survey = new Survey(visitor,medicalCardNumber,date,isSecondDose,isCovid,hasSymptome,hasAllergy,doseType);
 				SurveyRespiratory.addSurvey(survey);
-				visitor.survey = survey;
+				visitor.setSurvey(survey);
 				System.out.println("Questionnaire enregistré");
 				System.out.println("Entrer [0] pour retourner au menu principal.");
 				currentPage = Page.MAIN;
@@ -378,7 +379,7 @@ public class APP {
 	private static void showVisitorList(){
 		List<Visitor> visitorList = VisitorRespiratory.read();
 		for (Visitor visitor : visitorList) {
-			System.out.println(visitor.accountNumber+";"+visitor.lastName+";"+visitor.firstName+";"+visitor.email+visitor.telephone);
+			System.out.println(visitor.getAccountNumber()+";"+visitor.getLastName()+";"+visitor.getFirstName()+";"+visitor.getEmail()+visitor.getTelephone());
 		}
 	}
 	private static void manageLogin(String input) {

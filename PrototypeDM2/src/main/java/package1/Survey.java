@@ -22,10 +22,10 @@ public class Survey {
     }
 
     public Survey(Visitor visitor, String medicalCardNumber, String visiteDate, String isSecondDose, String isCovid, String hasSymptome, String hasAllergy, String doseType) throws ParseException {
-        this.accountNumber = visitor.accountNumber;
-        this.lastName = visitor.lastName;
-        this.firstName = visitor.firstName;
-        this.birthday = visitor.birthday;
+        this.accountNumber = visitor.getAccountNumber();
+        this.lastName = visitor.getLastName();
+        this.firstName = visitor.getFirstName();
+        this.birthday = visitor.getBirthday();
         this.medicalCardNumber = medicalCardNumber;
         this.visiteDate = visiteDate;
         this.isSecondDose = isSecondDose;

@@ -17,19 +17,19 @@ public class VisitorRespiratory {
 		List<Visitor> currentUsers = read();
 		currentUsers.add(user);
 		save(currentUsers);
-		System.out.println("Visitor " + user.firstName+" "+user.lastName + " added");
+		System.out.println("Visitor " + user.getFirstName()+" "+user.getLastName()+ " added");
 	}
 
 	private static void save(List<Visitor> currentUsers) {
 		JSONArray visitorList = new JSONArray();
 		for (Visitor u : currentUsers) {
 			JSONObject visitorDetails = new JSONObject();
-			visitorDetails.put("account number", u.accountNumber);
-			visitorDetails.put("last name", u.lastName);
-			visitorDetails.put("first name", u.firstName);
-			visitorDetails.put("birthday", u.birthday);
-			visitorDetails.put("email", u.email);
-			visitorDetails.put("telephone number", u.telephone);
+			visitorDetails.put("account number", u.getAccountNumber());
+			visitorDetails.put("last name", u.getLastName());
+			visitorDetails.put("first name", u.getFirstName());
+			visitorDetails.put("birthday", u.getBirthday());
+			visitorDetails.put("email", u.getEmail());
+			visitorDetails.put("telephone number", u.getTelephone());
 			visitorList.add(visitorDetails);
 		}
 
@@ -69,12 +69,12 @@ public class VisitorRespiratory {
 
 	private static Visitor parseVisitorObject(JSONObject visitor) {
 		Visitor user = new Visitor();
-		user.accountNumber = ((String) visitor.get("account number"));
-		user.lastName = ((String) visitor.get("last name"));
-		user.firstName = ((String) visitor.get("first name"));
-		user.birthday = ((String) visitor.get("birthday"));
-		user.email = ((String) visitor.get("email"));
-		user.telephone = ((String) visitor.get("telephone number"));
+		user.setAccountNumber(((String) visitor.get("account number")));
+		user.setLastName(((String) visitor.get("last name")));
+		user.setFirstName(((String) visitor.get("first name")));
+		user.setBirthday(((String) visitor.get("birthday")));
+		user.setEmail(((String) visitor.get("email")));
+		user.setTelephone(((String) visitor.get("telephone number")));
 		return user;
 	}
 
@@ -83,38 +83,38 @@ public class VisitorRespiratory {
 		for (Visitor v : currentUsers) {
 			switch(type) {
 				case "1":
-					if (v.accountNumber == oldinfo) {
-						v.accountNumber = newInfo;
+					if (v.getAccountNumber() == oldinfo) {
+						v.setAccountNumber(newInfo);
 						System.out.println(oldinfo + " modified to " + newInfo+"\n");
 					}
 					break;
 				case "2":
-					if (v.lastName.equals(oldinfo)) {
-						v.lastName = newInfo;
+					if (v.getLastName().equals(oldinfo)) {
+						v.setLastName(newInfo);
 						System.out.println(oldinfo + " modified to " + newInfo+"\n");
 					}
 					break;
 				case "3":
-					if (v.firstName.equals((oldinfo))) {
-						v.firstName = newInfo;
+					if (v.getFirstName().equals((oldinfo))) {
+						v.setFirstName(newInfo);
 						System.out.println(oldinfo + " modified to " + newInfo+"\n");
 					}
 					break;
 				case "4":
-					if (v.birthday.equals(oldinfo)) {
-						v.birthday = newInfo;
+					if (v.getBirthday().equals(oldinfo)) {
+						v.setBirthday(newInfo);
 						System.out.println(oldinfo + " modified to " + newInfo+"\n");
 					}
 					break;
 				case "5":
-					if (v.email.equals(oldinfo)) {
-						v.email = newInfo;
+					if (v.getEmail().equals(oldinfo)) {
+						v.setEmail(newInfo) ;
 						System.out.println(oldinfo + " modified to " + newInfo+"\n");
 					}
 					break;
 				case "6":
-					if(v.telephone.equals((oldinfo))){
-						v.telephone = newInfo;
+					if(v.getTelephone().equals((oldinfo))){
+						v.setTelephone(newInfo);
 						System.out.println(oldinfo + " modified to " + newInfo+"\n");
 					}
 					break;
@@ -127,8 +127,8 @@ public class VisitorRespiratory {
 		List<Visitor> currentUsers = read();
 		List<Visitor> newList = new ArrayList<>();
 		for (Visitor v : currentUsers) {
-			if (v.accountNumber.equals(accountNumber)) {
-				System.out.println("Visitor " + v.firstName+ " "+v.lastName + " removed\n");
+			if (v.getAccountNumber().equals(accountNumber)) {
+				System.out.println("Visitor " + v.getFirstName()+ " "+v.getLastName() + " removed\n");
 			} else {
 				newList.add(v);
 			}
@@ -140,13 +140,13 @@ public class VisitorRespiratory {
 		Visitor found = null;
 		String[] split = info.split(";");
 		for (Visitor v : currentUsers) {
-			if (v.email.equals(info)) {
+			if (v.getEmail().equals(info)) {
 				found = v;
 			}
-			else if (v.accountNumber.equals(info)) {
+			else if (v.getAccountNumber().equals(info)) {
 				found = v;
 			}
-			else if(split[0].equals(v.lastName) && split[1].equals(v.firstName)){
+			else if(split[0].equals(v.getLastName()) && split[1].equals(v.getFirstName())){
 				found = v;
 			}
 		}
@@ -154,7 +154,7 @@ public class VisitorRespiratory {
 		if (found == null) {
 			System.out.println("Visitor not found");
 		} else {
-			System.out.println("name " + found.lastName+" "+found.firstName+"\n");
+			System.out.println("name " + found.getLastName()+" "+found.getFirstName()+"\n");
 		}
 		return found;
 	}
