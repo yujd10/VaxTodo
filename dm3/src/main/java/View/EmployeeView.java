@@ -9,34 +9,38 @@ import Model.User;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 
 public class EmployeeView extends View{
     public void showEmployeeMenu(Router router){
         System.out.println(
                 "- [1] Gestion des visiteurs: Accédez à la liste des visiteurs et ajouter, modifier ou supprimer un visiteur.\n" +
-                        "- [2] Envoi courriel de suivi: Envoyez un courriel de suivi à un visiteur pour lui rappeler\n" +
-                        "- [3] Consultation du calendrier: Accédez au calendrier et cherchez les rendez-vous à venir\n" +
-                        "- [4] Réserver un rendez-vous: Faire la réservation d'un rendez vous\n" +
-                        "- [5] Remplir questionnaire: Remplir le questionnaire pour avoir les informations personnelles du visiteur\n" +
+                "- [2] Gestion des bénévoles: Accédez à la liste des bénévoles et ajouter, modifier ou supprimer un bénévole.\n" +
+                        "- [3] Envoi courriel de suivi: Envoyez un courriel de suivi à un visiteur pour lui rappeler\n" +
+                        "- [4] Consultation du calendrier: Accédez au calendrier et cherchez les rendez-vous à venir\n" +
+                        "- [5] Réserver un rendez-vous: Faire la réservation d'un rendez vous\n" +
+                        "- [6] Remplir questionnaire: Remplir le questionnaire pour avoir les informations personnelles du visiteur\n" +
                         "- [0] Quitter l'application");
         try {
             input = reader.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if (input.trim().equals("1")) {
-            router.manageVisitor(router);
-        }
-        else if (input.trim().equals("2")){
-            router.followUpPage();
+        if (input.trim().equals("1") || input.trim().equals("2")) {
+            String role = (input.trim().equals("1")) ? "visiteurs" : "bénévoles";
+            System.out.println("current role is "+ role);
+            router.managePerson(router, role);
         }
         else if (input.trim().equals("3")){
-            router.calendarPage();
+            router.followUpPage();
         }
         else if (input.trim().equals("4")){
-            router.makeAppointment();
+            router.calendarPage();
         }
         else if (input.trim().equals("5")){
+            router.makeAppointment();
+        }
+        else if (input.trim().equals("6")){
             router.surveyPage();
         }
         else if(input.trim().equals(("0"))){
@@ -48,11 +52,13 @@ public class EmployeeView extends View{
         }
     }
 
-    public void showManageVisitorMenu(Router router) {
+    public void showManagePersonMenu(Router router, String role) {
+        boolean isVolunteer = (role.equals("bénévoles")) ? true : false;
         System.out.println(
-                "- [1] Créer un compte\n" +
-                        "- [2] Modifier un compte\n" +
-                        "- [3] Supprimer un compte\n" +
+                        "- [1] Consulter la liste des "+role+"\n" +
+                        "- [2] Créer un compte\n" +
+                        "- [3] Modifier un compte\n" +
+                        "- [4] Supprimer un compte\n" +
                         "- [0] Retour au menu principal");
         PersonController personController = new PersonController();
         try {
@@ -60,8 +66,11 @@ public class EmployeeView extends View{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if (input.trim().equals("1")) {
-            System.out.println("Entrer les informations du visiteurs en format de \n" +
+        if (input.trim().equals("1")){
+            personController.printPersonList(isVolunteer);
+            router.managePerson(router,role);
+        } else if (input.trim().equals("2")) {
+            System.out.println("Entrer les informations du " + role + " en format de \n" +
                     "numéro de compte; nom de famille; prénom ; date de naissance YYYY-MM-DD ; courriel ; numéro de téléphone");
 
             try {
@@ -69,11 +78,11 @@ public class EmployeeView extends View{
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            String[] visitorInfo = input.split(";");
-            personController.createPerson(visitorInfo, false);
-            router.manageVisitor(router);
-        } else if (input.trim().equals("2")) {
-            System.out.printf("Entrer le numéro de compte du visiteur ou son nom au complet (prénom:Nom de famille) ou son courriel: ");
+            String[] personInfo = input.split(";");
+            personController.createPerson(personInfo,isVolunteer);
+            router.managePerson(router,role);
+        } else if (input.trim().equals("3")) {
+            System.out.printf("Entrer le numéro de compte du "+role+" ou son nom au complet (prénom:Nom de famille) ou son courriel: ");
             try {
                 input = reader.readLine();
             } catch (IOException e) {
@@ -81,7 +90,7 @@ public class EmployeeView extends View{
             }
             Person person = personController.search(input);
             if(person == null){
-                router.manageVisitor(router);
+                router.managePerson(router, role);
             }
             System.out.println("Veuillez choisir l'option que vous désirez modifier: ");
             System.out.println(
@@ -128,9 +137,9 @@ public class EmployeeView extends View{
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            router.manageVisitor(router);
+            router.managePerson(router,role);
         }
-        else if (input.trim().equals("3")) {
+        else if (input.trim().equals("4")) {
             System.out.println("Entrer le numéro de compte du visiteur pour supprimer: ");
             try {
                 input = reader.readLine();
@@ -138,7 +147,7 @@ public class EmployeeView extends View{
                 e.printStackTrace();
             }
             personController.deletePerson(input);
-            router.manageVisitor(router);
+            router.managePerson(router,role);
         }
         else {
             router.employeeMain(router);

@@ -215,4 +215,13 @@ public class Person {
         person.isVolunteer = ((boolean) person1.get("isVolunteer"));
         return person;
     }
+
+    public void printPersonList(boolean isVolunteer) {
+        List<Person> personList = readData();
+        for(Person p : personList){
+            if(p.isVolunteer == isVolunteer){
+                System.out.println(p.id+";"+p.lastName+";"+p.firstName+";"+p.emailAddress+p.phoneNumber);
+            }
+        }
+    }
 }

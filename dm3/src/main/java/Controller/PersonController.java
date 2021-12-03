@@ -23,6 +23,9 @@ public class PersonController extends Controller{
         person.delete(id);
     }
 
+    public void printPersonList(boolean isVolunteer){
+        person.printPersonList(isVolunteer);
+    }
     public Person search(String info){
         return person.search(info);
     }

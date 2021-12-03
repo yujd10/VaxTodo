@@ -1,13 +1,8 @@
 package Model;
 
-import Controller.Controller;
 import View.LoginView;
 import View.EmployeeView;
 import View.VolunteerView;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.Arrays;
 
 public class Router {
     private Router instance;
@@ -44,8 +39,8 @@ public class Router {
         volunteerView.showVolunteerMenu(router);
     }
 
-    public void manageVisitor(Router router){
-        employeeView.showManageVisitorMenu(router);
+    public void managePerson(Router router, String choice){
+        employeeView.showManagePersonMenu(router, choice);
     }
 
     public void followUpPage(){
@@ -66,4 +61,6 @@ public class Router {
     public void showVisitorList(){
 
     }
+
+
 }
