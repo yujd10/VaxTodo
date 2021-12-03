@@ -18,7 +18,7 @@ public class EmployeeView extends View{
                         "- [3] Consultation du calendrier: Accédez au calendrier et cherchez les rendez-vous à venir\n" +
                         "- [4] Réserver un rendez-vous: Faire la réservation d'un rendez vous\n" +
                         "- [5] Remplir questionnaire: Remplir le questionnaire pour avoir les informations personnelles du visiteur\n" +
-                        "- [0] Retour au menu principal");
+                        "- [0] Quitter l'application");
         try {
             input = reader.readLine();
         } catch (IOException e) {
@@ -39,7 +39,11 @@ public class EmployeeView extends View{
         else if (input.trim().equals("5")){
             router.surveyPage();
         }
+        else if(input.trim().equals(("0"))){
+            exit();
+        }
         else{
+            System.out.println("Invalid option");
             router.employeeMain(router);
         }
     }

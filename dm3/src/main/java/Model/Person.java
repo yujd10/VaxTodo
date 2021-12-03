@@ -108,7 +108,7 @@ public class Person {
         String old;
         List<Person> currentPerson = readData();
         for(Person p : currentPerson){
-            if(p == person){
+            if(p.id.equals(person.id)){
                 switch (choice){
                     case "1":
                         old = p.id;
@@ -150,16 +150,13 @@ public class Person {
         List<Person> currentPerson = readData();
         Person person = new Person(personInfo[0], personInfo[1], personInfo[2], personInfo[3],personInfo[4],personInfo[5],isVolunteer);
         currentPerson.add(person);
-        System.out.println("current person size: "+currentPerson.size());
         //TODO validate person variables.
         save(currentPerson);
-        System.out.println("current person size after save: "+currentPerson.size());
         System.out.println((person.isVolunteer ? "Volunteer ":"Visitor ")+ person.firstName+" "+person.lastName + " added");
     }
 
     private void save(List<Person> currentPerson) {
         JSONArray personList = new JSONArray();
-        System.out.println("save function: person List "+ personList.toJSONString());
         for(Person p : currentPerson){
             JSONObject personDetails = new JSONObject();
             personDetails.put("account number", p.getId());
@@ -174,8 +171,6 @@ public class Person {
 
         //Write JSON file
         try (FileWriter file = new FileWriter("person.json")){
-            System.out.println("Writing to json file");
-            System.out.println("person List: "+personList.toJSONString());
             file.write((personList.toJSONString()));
             file.flush();
         } catch (IOException e) {
@@ -197,7 +192,6 @@ public class Person {
             if(personList.size() == 0 ){
                 return results;
             }
-            System.out.println("person List size "+personList.size());
 
             personList.forEach(person -> {
                 results.add(parsePersonObject((JSONObject) person));

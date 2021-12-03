@@ -3,7 +3,6 @@ package View;
 import Model.Router;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class View {
@@ -18,7 +17,8 @@ public class View {
     }
 
     public void exit(){
-
+        System.out.println("Au revoir.");
+        System.exit(0);
     }
 
     public void clear(){
