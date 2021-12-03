@@ -2,16 +2,18 @@ package Model;
 
 public class Visit {
     private Integer reservationNumber;
-    private Person personVisiting;
+    private String firstName;
+    private String lastName;
     private String dose;
     private DateTime datetime;
 
     public Visit() {
     }
 
-    public Visit(Integer reservationNumber, Person personVisiting, String dose, DateTime datetime) {
+    public Visit(Integer reservationNumber, String firstName, String lastName, String dose, DateTime datetime) {
         this.reservationNumber = reservationNumber;
-        this.personVisiting = personVisiting;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.dose = dose;
         this.datetime = datetime;
     }
@@ -24,12 +26,20 @@ public class Visit {
         this.reservationNumber = reservationNumber;
     }
 
-    public Person getPersonVisiting() {
-        return personVisiting;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setPersonVisiting(Person personVisiting) {
-        this.personVisiting = personVisiting;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getDose() {

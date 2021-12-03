@@ -4,9 +4,13 @@ import java.time.Period;
 
 public class Calendar {
     private static Calendar instance;
+    private Period[] periods;
 
-    public static Calendar getInstance(){
-        return null;
+    public Calendar() {
+    }
+
+    public Calendar(Period[] periods) {
+        this.periods = new Period[10];
     }
 
     public boolean isPeriodAvailable(){
@@ -19,5 +23,21 @@ public class Calendar {
 
     public Period nextPeriod(){
         return null;
+    }
+
+    public static Calendar getInstance() {
+        return instance;
+    }
+
+    public static void setInstance(Calendar instance) {
+        Calendar.instance = instance;
+    }
+
+    public Period[] getPeriods() {
+        return periods;
+    }
+
+    public void setPeriods(Period[] periods) {
+        this.periods = periods;
     }
 }
