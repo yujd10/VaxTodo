@@ -13,7 +13,10 @@ public class LoginView extends View{
         try{
             System.out.printf("Please login: username:password -> ");
             String input[] = reader.readLine().split(":");
-            loginController.setLoggedUser(loginController.login(input[0], input[1]));
+            boolean success = loginController.login(input[0], input[1]);
+            if(!success){
+                return null;
+            }
 
         } catch (IOException | ArrayIndexOutOfBoundsException e){
             System.out.println("There's error in your input, please retry.");
