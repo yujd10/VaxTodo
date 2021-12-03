@@ -5,37 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd71ff62-2c0a-40ba-a6e4-ce9e7ae657e5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../dm3/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/.idea/libraries/Maven__com_google_code_gson_gson_2_8_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/.idea/libraries/Maven__junit_junit_4_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/appointments.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/dm3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/employees.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/src/main/java/package1/APP.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/src/main/java/package1/Appointment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/src/main/java/package1/AppointmentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/src/main/java/package1/AppointmentRespiratory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/src/main/java/package1/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/src/main/java/package1/Page.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/src/main/java/package1/Survey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/src/main/java/package1/SurveyRespiratory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/src/main/java/package1/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/src/main/java/package1/UserRespiratory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/src/main/java/package1/UserRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/src/main/java/package1/Visitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/src/main/java/package1/VisitorRespiratory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/surveys.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dm3/visitors.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dm3/src/main/java/Controller/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dm3/src/main/java/Controller/PersonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dm3/src/main/java/View/EmployeeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dm3/src/main/java/View/EmployeeView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +26,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="app.teamhub.trackedBranches" value="-1v4tvbq/g40,-1v4tvbq/main,-1v4tvbq/JiadiYU,-1v4tvbq/g40-dm3" />
+    <property name="app.teamhub.trackedBranches" value="-1v4tvbq/g40-dm3,-1v4tvbq/g40,-1v4tvbq/main,-1v4tvbq/JiadiYU" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -66,6 +38,8 @@
       <option name="presentableId" value="Default" />
       <updated>1638298152761</updated>
       <workItem from="1638298156570" duration="83000" />
+      <workItem from="1638478433453" duration="133000" />
+      <workItem from="1638507429263" duration="808000" />
     </task>
     <servers />
   </component>
