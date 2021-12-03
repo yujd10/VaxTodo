@@ -15,12 +15,12 @@ public class PersonController extends Controller{
         person.createPerson(personInfo, isVolunteer);
     }
 
-    public void updatePerson(Person person, int choice, String info){
+    public void updatePerson(Person person, String choice, String info){
         person.update(person, choice, info);
     }
 
-    public void deletePerson(){
-        
+    public void deletePerson(String id){
+        person.delete(id);
     }
 
     public Person search(String info){
