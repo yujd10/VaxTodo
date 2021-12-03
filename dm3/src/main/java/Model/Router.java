@@ -11,6 +11,8 @@ import java.util.Arrays;
 
 public class Router {
     private Router instance;
+    private EmployeeView employeeView = new EmployeeView();
+    private VolunteerView volunteerView = new VolunteerView();
 
     public Router getInstance(){
         return this.instance;
@@ -21,20 +23,40 @@ public class Router {
         User loggedUser = loginView.loginPage();
         String role = loggedUser.getRole();
         if(role.equals("EMPLOYEE")){
-            employeePage();
+            employeeMain(this);
         } else {
-            volunteerPage();
+            volunteerMain(this);
         }
     }
 
-    public void employeePage(){
-        EmployeeView employeeView = new EmployeeView();
-        employeeView.showEmployeeMenu();
+    public void employeeMain(Router router){
+        employeeView.showEmployeeMenu(router);
     }
 
-    public void volunteerPage(){
-        VolunteerView volunteerView = new VolunteerView();
-        volunteerView.showVolunteerMenu();
+    public void volunteerMain(Router router){
+        volunteerView.showVolunteerMenu(router);
+    }
+
+    public void manageVisitor(Router router){
+        employeeView.showManageVisitorMenu(router);
+    }
+
+    public void followUpPage(){
+
+    }
+
+    public void calendarPage(){
+
+    }
+
+    public void makeAppointment(){
+
+    }
+
+    public void surveyPage(){
+
+    }
+    public void showVisitorList(){
 
     }
 }
