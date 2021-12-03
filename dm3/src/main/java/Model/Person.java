@@ -19,6 +19,7 @@ public class Person {
     private String emailAddress;
     private String birthDate;
     private boolean isVolunteer;
+    private Address address;
 
     public Person(){
 
@@ -55,6 +56,33 @@ public class Person {
         return isVolunteer;
     }
 
+    public Person search(String info){
+        List<Person> currentPerson = readData();
+        Person found = null;
+        String[] split = info.split(":");
+        for (Person p : currentPerson) {
+            if (split.length == 2){
+                if(split[0].equals(p.lastName) && split[1].equals(p.firstName)){
+                    found = p;
+                }
+            }
+            else{
+                if (p.emailAddress.equals(info)) {
+                    found = p;
+                }
+                else if (p.id.equals(info)) {
+                    found = p;
+                }
+            }
+        }
+        if (found == null) {
+            System.out.println("Visitor not found");
+        } else {
+            System.out.println("name " + found.lastName+" "+found.firstName+"\n");
+        }
+        return found;
+    }
+
     public void delete(String id) {
         List<Person> currentPerson = readData();
         List<Person> newList = new ArrayList<>();
@@ -68,46 +96,43 @@ public class Person {
         this.save(newList);
     }
 
-    public void update(String oldInfo, String newInfo, String type){
+    public void update(Person person, int choice, String info){
+        String old;
         List<Person> currentPerson = readData();
         for(Person p : currentPerson){
-            switch(type) {
-                case "1":
-                    if (p.id.equals(oldInfo)) {
-                        p.id = newInfo;
-                        System.out.println(oldInfo + " modified to " + newInfo+"\n");
-                    }
-                    break;
-                case "2":
-                    if (p.lastName.equals(oldInfo)) {
-                        p.lastName = newInfo;
-                        System.out.println(oldInfo + " modified to " + newInfo+"\n");
-                    }
-                    break;
-                case "3":
-                    if (p.firstName.equals((oldInfo))) {
-                        p.firstName = newInfo;
-                        System.out.println(oldInfo + " modified to " + newInfo+"\n");
-                    }
-                    break;
-                case "4":
-                    if (p.birthDate.equals(oldInfo)) {
-                        p.birthDate = newInfo;
-                        System.out.println(oldInfo + " modified to " + newInfo+"\n");
-                    }
-                    break;
-                case "5":
-                    if (p.emailAddress.equals(oldInfo)) {
-                        p.emailAddress = newInfo;
-                        System.out.println(oldInfo + " modified to " + newInfo+"\n");
-                    }
-                    break;
-                case "6":
-                    if(p.phoneNumber.equals((oldInfo))){
-                        p.phoneNumber = newInfo;
-                        System.out.println(oldInfo + " modified to " + newInfo+"\n");
-                    }
-                    break;
+            if(p == person){
+                switch (choice){
+                    case '1':
+                        old = p.id;
+                        p.id = info;
+                        System.out.println(old + " modified to "+ info+"\n");
+                        break;
+                    case '2':
+                        old = p.firstName;
+                        p.firstName = info;
+                        System.out.println(old + " modified to "+ info+"\n");
+                        break;
+                    case '3':
+                        old = p.lastName;
+                        p.lastName = info;
+                        System.out.println(old + " modified to "+ info+"\n");
+                        break;
+                    case '4':
+                        old = p.birthDate;
+                        p.birthDate = info;
+                        System.out.println(old + " modified to "+ info+"\n");
+                        break;
+                    case '5':
+                        old = p.emailAddress;
+                        p.emailAddress = info;
+                        System.out.println(old + " modified to "+ info+"\n");
+                        break;
+                    case '6':
+                        old = p.phoneNumber;
+                        p.phoneNumber = info;
+                        System.out.println(old + " modified to "+ info+"\n");
+                        break;
+                }
             }
         }
         this.save(currentPerson);

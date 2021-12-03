@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd71ff62-2c0a-40ba-a6e4-ce9e7ae657e5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../VPP/Diagramme_de_Classe(final).vpp" beforeDir="false" afterPath="$PROJECT_DIR$/../VPP/Diagramme_de_Classe(final).vpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dm3/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dm3/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dm3/src/main/java/Controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dm3/src/main/java/Controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dm3/src/main/java/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dm3/src/main/java/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dm3/src/main/java/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dm3/src/main/java/Controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dm3/src/main/java/Model/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dm3/src/main/java/Model/Router.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dm3/src/main/java/View/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dm3/src/main/java/View/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dm3/src/main/java/Controller/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dm3/src/main/java/Controller/PersonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dm3/src/main/java/View/EmployeeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dm3/src/main/java/View/EmployeeView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +27,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="app.teamhub.trackedBranches" value="-1v4tvbq/g40-dm3,-1v4tvbq/g40,-1v4tvbq/main,-1v4tvbq/JiadiYU" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../VaxTodo_g40/PrototypeDM2/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -43,6 +39,7 @@
       <updated>1638298152761</updated>
       <workItem from="1638298156570" duration="83000" />
       <workItem from="1638478433453" duration="133000" />
+      <workItem from="1638507429263" duration="808000" />
     </task>
     <servers />
   </component>
