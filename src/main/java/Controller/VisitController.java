@@ -20,6 +20,11 @@ public class VisitController extends Controller{
     public static void addVisit(Visit visit){
         List<Visit> currentVisits = read();
         currentVisits.add(visit);
+        save(currentVisits);
+        System.out.println("Visit for" + visit.getFirstName() + visit.getLastName() + "is added" );
+    }
+
+    public static void save(List<Visit> currentVisits){
         JSONArray visitList = new JSONArray();
         for(Visit v: currentVisits){
             JSONObject visitDetails = new JSONObject();
@@ -27,7 +32,7 @@ public class VisitController extends Controller{
             visitDetails.put("firstname",v.getFirstName());
             visitDetails.put("lastname",v.getLastName());
             visitDetails.put("dose",v.getDose());
-            visitDetails.put("datetime",v.getDatetime().toString());
+            visitDetails.put("datetime",new JSONObject());
             visitList.add(visitDetails);
         }
 
@@ -59,8 +64,8 @@ public class VisitController extends Controller{
 
             JSONArray visitList = (JSONArray) obj;
 
-            visitList.forEach(emp -> {
-                results.add(parseVisitObject((JSONObject) emp));
+            visitList.forEach(visit -> {
+                results.add(parseVisitObject((JSONObject) visit));
             });
 
         } catch (IOException | ParseException e) {
@@ -69,10 +74,11 @@ public class VisitController extends Controller{
 
         return results;
     }
+
     private static Visit parseVisitObject(JSONObject visit) {
         Visit visit1 = new Visit();
         //Get employee object within list
-        visit1.setReservationNumber((int) visit.get("reservationNumber"));
+        visit1.setReservationNumber((String) visit.get("reservationNumber"));
         visit1.setFirstName((String) visit.get("firstname"));
         visit1.setLastName((String) visit.get("lastname"));
         visit1.setDose((String) visit.get("dose"));

@@ -1,7 +1,7 @@
 package Model;
 
 public class Visit {
-    private Integer reservationNumber;
+    private String reservationNumber;
     private String firstName;
     private String lastName;
     private String dose;
@@ -10,7 +10,7 @@ public class Visit {
     public Visit() {
     }
 
-    public Visit(Integer reservationNumber, String firstName, String lastName, String dose, DateTime datetime) {
+    public Visit(String reservationNumber, String firstName, String lastName, String dose, DateTime datetime) {
         this.reservationNumber = reservationNumber;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -18,11 +18,11 @@ public class Visit {
         this.datetime = datetime;
     }
 
-    public Integer getReservationNumber() {
+    public String getReservationNumber() {
         return reservationNumber;
     }
 
-    public void setReservationNumber(Integer reservationNumber) {
+    public void setReservationNumber(String reservationNumber) {
         this.reservationNumber = reservationNumber;
     }
 
