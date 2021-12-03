@@ -57,4 +57,8 @@ public class Visit {
     public void setDatetime(DateTime datetime) {
         this.datetime = datetime;
     }
+    public void setDatetime(String date,String time) {
+        this.datetime.setDate(date);
+        this.datetime.setTime(time);
+    }
 }

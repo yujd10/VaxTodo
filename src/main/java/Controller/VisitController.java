@@ -32,7 +32,8 @@ public class VisitController extends Controller{
             visitDetails.put("firstname",v.getFirstName());
             visitDetails.put("lastname",v.getLastName());
             visitDetails.put("dose",v.getDose());
-            visitDetails.put("datetime",new JSONObject());
+            visitDetails.put("date",v.getDatetime().getDate());
+            visitDetails.put("time",v.getDatetime().getTime());
             visitList.add(visitDetails);
         }
 
@@ -62,9 +63,9 @@ public class VisitController extends Controller{
             //Read JSON file
             Object obj = jsonParser.parse(reader);
 
-            JSONArray visitList = (JSONArray) obj;
+            JSONArray visitorList = (JSONArray) obj;
 
-            visitList.forEach(visit -> {
+            visitorList.forEach(visit -> {
                 results.add(parseVisitObject((JSONObject) visit));
             });
 
@@ -82,7 +83,7 @@ public class VisitController extends Controller{
         visit1.setFirstName((String) visit.get("firstname"));
         visit1.setLastName((String) visit.get("lastname"));
         visit1.setDose((String) visit.get("dose"));
-        visit1.setDatetime((DateTime) visit.get("datetime"));
+        visit1.setDatetime((String) visit.get("date"),(String) visit.get("time"));
 
         return visit1;
     }
