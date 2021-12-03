@@ -1,5 +1,6 @@
 package Model;
 
+import com.sun.xml.internal.bind.v2.TODO;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -9,6 +10,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.ConcurrentModificationException;
 import java.util.List;
 
 public class Person {
@@ -83,51 +86,56 @@ public class Person {
         return found;
     }
 
-    public void delete(String id) {
+    public void delete(String id) throws ConcurrentModificationException {
         List<Person> currentPerson = readData();
-        List<Person> newList = new ArrayList<>();
+        boolean found = false;
         for (Person p : currentPerson) {
             if (p.id.equals(id)) {
+                found = true;
+                currentPerson.remove(p);
                 System.out.println((p.isVolunteer ? "Volunteer ":"Visitor ")+ p.firstName+ " "+p.lastName + " removed\n");
-            } else {
-                newList.add(p);
+                break;
             }
         }
-        this.save(newList);
+        if(found){
+            this.save(currentPerson);
+        }else{
+            System.out.println("account number not found, please try again");
+        }
     }
 
-    public void update(Person person, int choice, String info){
+    public void update(Person person, String choice, String info){
         String old;
         List<Person> currentPerson = readData();
         for(Person p : currentPerson){
             if(p == person){
                 switch (choice){
-                    case '1':
+                    case "1":
                         old = p.id;
                         p.id = info;
                         System.out.println(old + " modified to "+ info+"\n");
                         break;
-                    case '2':
+                    case "2":
                         old = p.firstName;
                         p.firstName = info;
                         System.out.println(old + " modified to "+ info+"\n");
                         break;
-                    case '3':
+                    case "3":
                         old = p.lastName;
                         p.lastName = info;
                         System.out.println(old + " modified to "+ info+"\n");
                         break;
-                    case '4':
+                    case "4":
                         old = p.birthDate;
                         p.birthDate = info;
                         System.out.println(old + " modified to "+ info+"\n");
                         break;
-                    case '5':
+                    case "5":
                         old = p.emailAddress;
                         p.emailAddress = info;
                         System.out.println(old + " modified to "+ info+"\n");
                         break;
-                    case '6':
+                    case "6":
                         old = p.phoneNumber;
                         p.phoneNumber = info;
                         System.out.println(old + " modified to "+ info+"\n");
@@ -142,25 +150,32 @@ public class Person {
         List<Person> currentPerson = readData();
         Person person = new Person(personInfo[0], personInfo[1], personInfo[2], personInfo[3],personInfo[4],personInfo[5],isVolunteer);
         currentPerson.add(person);
+        System.out.println("current person size: "+currentPerson.size());
+        //TODO validate person variables.
         save(currentPerson);
+        System.out.println("current person size after save: "+currentPerson.size());
         System.out.println((person.isVolunteer ? "Volunteer ":"Visitor ")+ person.firstName+" "+person.lastName + " added");
     }
 
     private void save(List<Person> currentPerson) {
         JSONArray personList = new JSONArray();
+        System.out.println("save function: person List "+ personList.toJSONString());
         for(Person p : currentPerson){
             JSONObject personDetails = new JSONObject();
-            personDetails.put("id", p.getId());
+            personDetails.put("account number", p.getId());
             personDetails.put("first name", p.getFirstName());
             personDetails.put("last name", p.getLastName());
             personDetails.put("phone number", p.getPhoneNumber());
             personDetails.put("email", p.getEmailAddress());
             personDetails.put("birthday", p.getBirthDate());
             personDetails.put("isVolunteer", p.isVolunteer());
+            personList.add(personDetails);
         }
 
         //Write JSON file
         try (FileWriter file = new FileWriter("person.json")){
+            System.out.println("Writing to json file");
+            System.out.println("person List: "+personList.toJSONString());
             file.write((personList.toJSONString()));
             file.flush();
         } catch (IOException e) {
@@ -174,10 +189,15 @@ public class Person {
         List<Person> results = new ArrayList<>();
 
         try (FileReader reader = new FileReader("person.json")) {
+
             //Read JSON file
             Object obj = jsonParser.parse(reader);
 
             JSONArray personList = (JSONArray) obj;
+            if(personList.size() == 0 ){
+                return results;
+            }
+            System.out.println("person List size "+personList.size());
 
             personList.forEach(person -> {
                 results.add(parsePersonObject((JSONObject) person));

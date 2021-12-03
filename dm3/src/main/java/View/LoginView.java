@@ -8,16 +8,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class LoginView extends View{
-
+    LoginController loginController = new LoginController();
     public User loginPage(){
-        LoginController loginController = new LoginController();
-
         try{
             System.out.printf("Please login: username:password -> ");
             String input[] = reader.readLine().split(":");
             loginController.setLoggedUser(loginController.login(input[0], input[1]));
 
-        } catch (IOException e){
+        } catch (IOException | ArrayIndexOutOfBoundsException e){
             System.out.println("There's error in your input, please retry.");
             loginPage();
         }
