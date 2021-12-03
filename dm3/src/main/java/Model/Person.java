@@ -1,6 +1,5 @@
 package Model;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -10,7 +9,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.ConcurrentModificationException;
 import java.util.List;
 
@@ -57,6 +55,19 @@ public class Person {
     }
     public boolean isVolunteer() {
         return isVolunteer;
+    }
+
+    @Override
+    public String toString() {
+        return  "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", emailAddress='" + emailAddress + '\'' +
+                ", birthDate='" + birthDate + '\'' +
+                ", isVolunteer=" + isVolunteer +
+                ", address=" + address +
+                '}';
     }
 
     public Person search(String info){
@@ -146,9 +157,10 @@ public class Person {
         this.save(currentPerson);
     }
 
-    public void createPerson(String[] personInfo, boolean isVolunteer){
+    public void createPerson(String[] personInfo, boolean isVolunteer, String[] Address){
         List<Person> currentPerson = readData();
         Person person = new Person(personInfo[0], personInfo[1], personInfo[2], personInfo[3],personInfo[4],personInfo[5],isVolunteer);
+        person.address = new Address(Address[0],Address[1],Address[2],Address[3],Address[4]);
         currentPerson.add(person);
         //TODO validate person variables.
         save(currentPerson);
@@ -166,6 +178,11 @@ public class Person {
             personDetails.put("email", p.getEmailAddress());
             personDetails.put("birthday", p.getBirthDate());
             personDetails.put("isVolunteer", p.isVolunteer());
+            personDetails.put("street number",p.address.getStreetNumber());
+            personDetails.put("street name",p.address.getStreetName());
+            personDetails.put("city",p.address.getCity());
+            personDetails.put("province",p.address.getProvince());
+            personDetails.put("postal code",p.address.getPostalCode());
             personList.add(personDetails);
         }
 
@@ -205,6 +222,7 @@ public class Person {
     }
     private static Person parsePersonObject(JSONObject person1) {
         Person person = new Person();
+        person.address = new Address();
         //Get Person object within list
         person.id = ((String) person1.get("account number"));
         person.firstName = ((String) person1.get("first name"));
@@ -213,6 +231,11 @@ public class Person {
         person.emailAddress = ((String) person1.get("email"));
         person.birthDate = ((String) person1.get("birthday"));
         person.isVolunteer = ((boolean) person1.get("isVolunteer"));
+        person.address.setStreetNumber((String)person1.get("street number"));
+        person.address.setStreetName((String) person1.get("street name"));
+        person.address.setCity((String) person1.get("city"));
+        person.address.setProvince((String) person1.get("province"));
+        person.address.setPostalCode((String) person1.get("postal code"));
         return person;
     }
 
@@ -220,7 +243,7 @@ public class Person {
         List<Person> personList = readData();
         for(Person p : personList){
             if(p.isVolunteer == isVolunteer){
-                System.out.println(p.id+";"+p.lastName+";"+p.firstName+";"+p.emailAddress+p.phoneNumber);
+                System.out.println(p.toString());
             }
         }
     }

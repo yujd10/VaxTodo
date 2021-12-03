@@ -11,8 +11,8 @@ import java.util.List;
 
 public class PersonController extends Controller{
     private Person person = new Person();
-    public void createPerson(String[] personInfo, boolean isVolunteer){
-        person.createPerson(personInfo, isVolunteer);
+    public void createPerson(String[] personInfo, boolean isVolunteer,String[] Address){
+        person.createPerson(personInfo, isVolunteer, Address);
     }
 
     public void updatePerson(Person person, String choice, String info){

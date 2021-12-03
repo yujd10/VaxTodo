@@ -1,15 +1,10 @@
 package View;
-
-import Controller.Controller;
 import Controller.PersonController;
 import Model.Person;
 import Model.Router;
-import Model.User;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.List;
+
 
 public class EmployeeView extends View{
     public void showEmployeeMenu(Router router){
@@ -78,8 +73,16 @@ public class EmployeeView extends View{
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            System.out.println("Entrer l'addresse de la personne: numéro;rue;ville;province;code postal");
+            String[] address = null;
+            try {
+                address = reader.readLine().split(";");
+//                System.out.println("address: "+address.toString());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             String[] personInfo = input.split(";");
-            personController.createPerson(personInfo,isVolunteer);
+            personController.createPerson(personInfo,isVolunteer,address);
             router.managePerson(router,role);
         } else if (input.trim().equals("3")) {
             System.out.printf("Entrer le numéro de compte du "+role+" ou son nom au complet (prénom:Nom de famille) ou son courriel: ");
