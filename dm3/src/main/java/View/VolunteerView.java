@@ -1,5 +1,6 @@
 package View;
 
+import Controller.PersonController;
 import Model.Router;
 import Model.User;
 
@@ -8,6 +9,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class VolunteerView extends View{
+    private PersonController personController = new PersonController();
+
     public void showVolunteerMenu(Router router){
         System.out.println(
                 "- [1] Consultation du calendrier: Accédez au calendrier et cherchez les rendez-vous à venir\n" +
@@ -24,7 +27,7 @@ public class VolunteerView extends View{
             router.calendarPage();
         }
         else if(input.trim().equals("2")){
-            router.showVisitorList();
+            router.showVisitorList(router);
         }
         else if(input.trim().equals("3")){
             router.makeAppointment();
@@ -32,5 +35,9 @@ public class VolunteerView extends View{
         else{
             router.volunteerMain(router);
         }
-}
     }
+    public void showVisitorList(Router router){
+        personController.printPersonList(false);
+        router.volunteerMain(router);
+    }
+}

@@ -14,9 +14,4 @@ public class Controller {
         this.loggedUser = loggedUser;
     }
 
-    public Data[] parseData(String[] data) {
-
-        return null;
-    }
-
 }
