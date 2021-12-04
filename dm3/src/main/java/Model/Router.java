@@ -58,8 +58,8 @@ public class Router {
     public void surveyPage(){
 
     }
-    public void showVisitorList(){
-
+    public void showVisitorList(Router router){
+        volunteerView.showVisitorList(router);
     }
 
 

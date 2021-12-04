@@ -7,6 +7,7 @@ import java.io.IOException;
 
 
 public class EmployeeView extends View{
+
     public void showEmployeeMenu(Router router){
         System.out.println(
                 "- [1] Gestion des visiteurs: Accédez à la liste des visiteurs et ajouter, modifier ou supprimer un visiteur.\n" +
