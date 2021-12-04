@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class Person {
     private String id;
@@ -157,14 +158,58 @@ public class Person {
         this.save(currentPerson);
     }
 
-    public void createPerson(String[] personInfo, boolean isVolunteer, String[] Address){
+    public void createPerson(String[] personInfo, boolean isVolunteer, String address){
         List<Person> currentPerson = readData();
         Person person = new Person(personInfo[0], personInfo[1], personInfo[2], personInfo[3],personInfo[4],personInfo[5],isVolunteer);
-        person.address = new Address(Address[0],Address[1],Address[2],Address[3],Address[4]);
+        String[] address_Split = address.split(";");
+        person.address = new Address(address_Split[0],address_Split[1],address_Split[2],address_Split[3],address_Split[4]);
         currentPerson.add(person);
-        //TODO validate person variables.
         save(currentPerson);
         System.out.println((person.isVolunteer ? "Volunteer ":"Visitor ")+ person.firstName+" "+person.lastName + " added");
+    }
+    public String verifyInfo(String info, int index){
+        String result = "";
+            switch (index - 1) {
+                case 0:
+                    if (info.length() != 12) {
+                        result += "Numéro de compte doit être 12 caractères\n";
+                    }
+                    break;
+                case 1:
+                    if (info.length() > 50) {
+                        result += "Le prénom ne doit pas dépasser 50 caractères\n";
+                    }
+                    break;
+                case 2:
+                    if (info.length() > 50) {
+                        result += "Le nom de famille ne doit pas dépasser 50 caractères\n";
+                    }
+                    break;
+                case 3:
+                    String[] temp = info.split("-");
+                    if (!info.contains("-") || temp[0].length() != 4 || temp[1].length() != 2 || temp[2].length() != 2) {
+                        result += "Le format de la date de naissance doit être YYYY-MM-DD\n";
+                    }
+                    break;
+                case 5:
+                    if (!Pattern.matches("\\d{10}", info)) {
+                        result += "Le numéro de téléphone doit être 10 chiffres\n";
+                    }
+                    break;
+                case 6:
+                    String[] split = info.split(";");
+                    if ((split[0] + split[1]).length() > 100) {
+                        result += "L'adresse ne doit pas dépasser 100 caractères\n";
+                    }
+                    if (split[2].length() > 50) {
+                        result += "Le nom de la ville ne peut pas dépasser 50 caractères\n";
+                    }
+                    if (split[4].length() != 6) {
+                        result += "Le code postal doit avoir 6 caractères\n";
+                    }
+                    break;
+            }
+        return result;
     }
 
     private void save(List<Person> currentPerson) {

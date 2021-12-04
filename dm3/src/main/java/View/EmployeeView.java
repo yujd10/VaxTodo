@@ -74,15 +74,18 @@ public class EmployeeView extends View{
                 e.printStackTrace();
             }
             System.out.println("Entrer l'addresse de la personne: numéro;rue;ville;province;code postal");
-            String[] address = null;
+            String address = null;
             try {
-                address = reader.readLine().split(";");
-//                System.out.println("address: "+address.toString());
+                address = reader.readLine();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             String[] personInfo = input.split(";");
-            personController.createPerson(personInfo,isVolunteer,address);
+            String inputVerification = (personController.createPerson(personInfo,isVolunteer,address));
+            if(inputVerification != ""){
+                System.out.println("Création du compte échouer!");
+                System.out.println(inputVerification);
+            }
             router.managePerson(router,role);
         } else if (input.trim().equals("3")) {
             System.out.printf("Entrer le numéro de compte du "+role+" ou son nom au complet (prénom:Nom de famille) ou son courriel: ");
@@ -103,6 +106,7 @@ public class EmployeeView extends View{
                             "- [4] Date de naissance\n" +
                             "- [5] Adresse courriel\n" +
                             "- [6] Numéro de téléphone\n" +
+                            "- [7] Adresse\n" +
                             "- [0] Annuler\n");
             try {
                 input = reader.readLine();
@@ -127,6 +131,9 @@ public class EmployeeView extends View{
             else if (input.trim().equals("6")){
                 System.out.printf("Enter le nouveau numéro de téléphone: ");
             }
+            else if (input.trim().equals("7")){
+                System.out.printf("Enter la adresse: (numéro;rue;ville;province;code postal) ");
+            }
             else{
                 router.employeeMain(router);
             }
@@ -134,7 +141,11 @@ public class EmployeeView extends View{
                 String option = input.trim();
                 input = reader.readLine();
                 if(person != null){
-                    personController.updatePerson(person, option, input);
+                    String inputVerification = (personController.updatePerson(person, option, input));
+                    if(inputVerification != ""){
+                        System.out.println("Modification échoué");
+                        System.out.println(inputVerification);
+                    }
                 }
                 //need data validation
             } catch (IOException e) {

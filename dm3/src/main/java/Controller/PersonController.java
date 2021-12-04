@@ -11,12 +11,24 @@ import java.util.List;
 
 public class PersonController extends Controller{
     private Person person = new Person();
-    public void createPerson(String[] personInfo, boolean isVolunteer,String[] Address){
-        person.createPerson(personInfo, isVolunteer, Address);
+    public String createPerson(String[] personInfo, boolean isVolunteer,String address){
+        String verification = "";
+        for(int i = 0; i < personInfo.length; i++){
+            verification += person.verifyInfo(personInfo[i],i);
+        }
+        verification += person.verifyInfo(address,6);
+        if(verification.equals("")){
+            person.createPerson(personInfo,isVolunteer,address);
+        }
+        return verification;
     }
 
-    public void updatePerson(Person person, String choice, String info){
-        person.update(person, choice, info);
+    public String updatePerson(Person person, String choice, String info){
+        String verification = person.verifyInfo(info, Integer.parseInt(choice));
+        if(verification.equals("")){
+            person.update(person, choice, info);
+        }
+        return verification;
     }
 
     public void deletePerson(String id){
