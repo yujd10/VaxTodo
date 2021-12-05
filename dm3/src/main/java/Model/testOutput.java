@@ -6,25 +6,15 @@ import java.util.List;
 
 public class testOutput {
     public static void main(String[] args) {
-//        Period period = new Period();
-//        List<Visit> visits = new ArrayList<>();
-//        visits.add(new Visit("555","aaa","ggg","1","2077","13:30"));
-//        visits.add(new Visit("666","aaa","ggg","1","2077","13:30"));
-//        visits.add(new Visit("888","aaa","ggg","1","2077","13:30"));
-//        visits.add(new Visit("342","aaa","ggg","1","2077","13:30"));
-//        period.setVisits(visits);
-//        System.out.println(period.showVisits());
-//        visits.add(new Visit("555","aaa","ggg","1","2077","13:30"));
-//        visits.add(new Visit("666","aaa","ggg","1","2077","13:30"));
-//        visits.add(new Visit("777","aaa","ggg","1","2077","13:30"));
-//        visits.add(new Visit("888","aaa","ggg","1","2077","13:30"));
-//        visits.add(new Visit("999","aaa","ggg","1","2077","13:30"));
-//
-//        Visit.addNewVisit("555","aaa","ggg","1","2077","13:30");
-//        Visit.showCurrentVisits();
-        Calendar cal = new Calendar("2020-09-10");
+//        Calendar cal = new Calendar("2020-09-10");
+        WorkingDay cal = new WorkingDay("2020-09-10");
         System.out.println(cal.isPeriodFull(8));;
+//        cal.gotoPeriod(8).AddVisit(new PlanVisit("Jiadi","Yu","1",cal.getDate().getDate(),"8",12345));
+        cal.gotoPeriod(8).AddVisit(new PlanVisit("Jiadi","Yu","1",cal.getDate().getDate(),"8",12345));
 
+//        System.out.println(cal.gotoPeriod(8).getVisits().size());
+//        System.out.println(cal.gotoPeriod(8).toString());
+        System.out.println(cal.printTheCalender());
 
     }
 }

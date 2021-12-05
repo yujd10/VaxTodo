@@ -19,16 +19,32 @@ public class Period {
     }
 
     public void AddVisit(Visit visit){
-        if(!isFull())
-            this.visits.add(visit);
+        if(isExisted(visit)){
+            System.out.println("This visit existed already !");
+        }
+        else{
+            if(!isFull())
+                this.visits.add(visit);
+            else System.out.println("Period full !!!");
+        }
+    }
+
+    public boolean isExisted(Visit visit){
+        boolean existed = false;
+        for(Visit visit1:visits){
+            if(visit1.getFirstName().equals(visit.getFirstName()) && visit1.getLastName().equals(visit.getLastName())){
+                existed = true;
+            }
+        }
+        return existed;
     }
 
     public String showVisits(){
-      String list = "[";
+      String list = "[ ";
       for(Visit visit:visits){
           list = list+ visit.toString();
       }
-        list = list + " ] ";
+        list = list + " ]";
 
         return list;
     }
@@ -36,7 +52,7 @@ public class Period {
     public String toString() {
         return "Period{" +
                 "date : '" + date + '\'' +
-                ", start at" + start +
+                ", start at " + start +
                 ", visits " + showVisits() +
                 '}';
     }

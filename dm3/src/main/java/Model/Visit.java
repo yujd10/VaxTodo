@@ -3,6 +3,7 @@ package Model;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Visit implements Serializable {
 //    private String reservationNumber;
@@ -24,13 +25,14 @@ public class Visit implements Serializable {
         this.datetime=new DateTime(date,time);
         this.isConfirmed = false;
     }
+
     @Override
     public String toString(){
-
-        return "Visit{" +
-                "firtName='" + firstName+ '\'' +
-                "}\n";
+        return " Visit { " +
+                " Name : " + firstName + " " +lastName.toUpperCase(Locale.ROOT)  +
+                " } ";
     }
+
 
     public boolean confirm(){
         //TODO:check availability in calender
@@ -87,7 +89,7 @@ public class Visit implements Serializable {
     public static List<Visit> readVisits(){
         List<Visit> listIn= new ArrayList<>();
         try{
-            FileInputStream readData = new FileInputStream("card.out");
+            FileInputStream readData = new FileInputStream("visit.out");
             ObjectInputStream readStream = new ObjectInputStream(readData);
 
             listIn = (List<Visit>) readStream.readObject();
