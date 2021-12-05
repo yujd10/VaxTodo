@@ -1,58 +1,52 @@
 package Model;
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Calendar {
-    private Calendar instance;
     private DateTime date;
     private static List<Model.Period> periods;
 
     public Calendar() {
     }
 
-    public Calendar(DateTime date) {
-//        this.instance = instance;
-
-        this.date = date;
+    public Calendar(String date) {
+        this.date = new DateTime(date,null);
         this.periods = new ArrayList<>();
-        for(int i=8;i<=17;i++){
-            this.periods.add(new Period(date.getDate(), i,i+1));
+        for(int hour=8;hour<=17;hour++){
+            this.periods.add(new Period(date, hour));
         }
     }
 
-    public Calendar getInstance(){
-        return instance;
-    }
-
-    public boolean isPeriodFull(){
+    public boolean isPeriodFull(int time){
         boolean isFull = true;
         for(Model.Period period:periods){
-            if(!period.isFull()){isFull = false;}
+            if(period.getStart() == time){
+                if(!period.isFull()){
+                    isFull = false;
+                }
+            }
         }
         return isFull;
     }
 
-    public Period[] getAvailablePeriods(String from, String to){
-        return null;
+    public List<Period> getAvailablePeriods(int from, int to){
+        List<Period> availablePeriods = new ArrayList<>();
+        for(Period period:periods){
+            if(period.getStart()>=from && period.getStart()<=to){
+            if(!period.isFull()){
+                availablePeriods.add(period);
+            }}
+        }
+        return availablePeriods;
+    }
+
+    public String printTheCalender(DateTime date){
+        return  "1";
     }
 
     public Period nextPeriod(){
         return null;
-    }
-
-    public void setInstance(Calendar instance) {
-        this.instance = instance;
     }
 
     public DateTime getDate() {

@@ -5,29 +5,47 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Visit implements Serializable {
-    private String reservationNumber;
+//    private String reservationNumber;
     private String firstName;
     private String lastName;
     private String dose;
     private DateTime datetime;
+    private boolean isConfirmed;
 
 
     public Visit() {
     }
 
-    public Visit(String reservationNumber, String firstName, String lastName, String dose,String date,String time) {
-        this.reservationNumber = reservationNumber;
+    public Visit(String firstName, String lastName, String dose,String date,String time) {
+//        this.reservationNumber = reservationNumber;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dose = dose;
-        new DateTime(date,time);
+        this.datetime=new DateTime(date,time);
+        this.isConfirmed = false;
     }
     @Override
     public String toString(){
 
         return "Visit{" +
-                "firtName='" + reservationNumber+ '\'' +
+                "firtName='" + firstName+ '\'' +
                 "}\n";
+    }
+
+    public boolean confirm(){
+        //TODO:check availability in calender
+        this.isConfirmed = true;
+        return this.isConfirmed;
+    }
+
+    public void Cancel(){
+        //TODO:delete the visit
+    }
+
+    public boolean isValide(){
+        boolean isValide = false;
+        //TODO:check if valide
+        return isValide;
     }
 
     public static void showCurrentVisits(){
@@ -37,9 +55,11 @@ public class Visit implements Serializable {
         }
     }
 
+
+    //File ///////////////////////////////////////////////
     public static void addNewVisit(String reservationNumber, String firstName, String lastName, String dose,String date,String time){
         List<Visit> currentVisits = readVisits();
-        Visit visit = new Visit(reservationNumber,firstName,lastName,dose,date,time);
+        Visit visit = new Visit(firstName,lastName,dose,date,time);
         currentVisits.add(visit);
         saveVisits(currentVisits);
     }
@@ -47,15 +67,12 @@ public class Visit implements Serializable {
     public static void saveVisits(List<Visit> visits){
         PrintWriter writer = null;
         try {
-            writer = new PrintWriter("card.out");
+            writer = new PrintWriter("visit.out");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        writer.print("");
-// other operations
-        writer.close();
         try{
-            FileOutputStream writeData = new FileOutputStream("card.out");
+            FileOutputStream writeData = new FileOutputStream("visit.out");
             ObjectOutputStream writeStream = new ObjectOutputStream(writeData);
 
             writeStream.writeObject(visits);
@@ -75,23 +92,15 @@ public class Visit implements Serializable {
 
             listIn = (List<Visit>) readStream.readObject();
             readStream.close();
-//            for(Visit visit:listIn){
-//                System.out.println(visit.toString());
-//            }
         }catch (Exception e) {
             e.printStackTrace();
         }
 
         return listIn;
     }
+    //ENF OF FILE/////////////////////////////
 
-    public String getReservationNumber() {
-        return reservationNumber;
-    }
 
-    public void setReservationNumber(String reservationNumber) {
-        this.reservationNumber = reservationNumber;
-    }
 
     public String getFirstName() {
         return firstName;

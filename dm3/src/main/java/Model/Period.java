@@ -1,6 +1,5 @@
 package Model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,9 +7,21 @@ public class Period {
     private List<Visit> visits ;
     private String date;
     private int start;
-    private int end;
 
+    public Period() {
+        this.visits = new ArrayList<>();
+    }
 
+    public Period(String date, int start) {
+        this.date = date;
+        this.start = start;
+        this.visits = new ArrayList<>();
+    }
+
+    public void AddVisit(Visit visit){
+        if(!isFull())
+            this.visits.add(visit);
+    }
 
     public String showVisits(){
       String list = "[";
@@ -24,10 +35,9 @@ public class Period {
 
     public String toString() {
         return "Period{" +
-                "date='" + date + '\'' +
-                ", start=" + start +
-                ", end=" + end +
-                ", visits" + showVisits() +
+                "date : '" + date + '\'' +
+                ", start at" + start +
+                ", visits " + showVisits() +
                 '}';
     }
 
@@ -36,17 +46,6 @@ public class Period {
         if(this.visits.size() >= 15)
             listFull = true;
         return listFull;
-    }
-
-    public Period() {
-        this.visits = new ArrayList<>();
-    }
-
-    public Period(String date, int start, int end) {
-        this.date = date;
-        this.start = start;
-        this.end = end;
-        this.visits = new ArrayList<>();
     }
 
     public List<Visit> getVisits() {
@@ -71,13 +70,5 @@ public class Period {
 
     public void setStart(int start) {
         this.start = start;
-    }
-
-    public int getEnd() {
-        return end;
-    }
-
-    public void setEnd(int end) {
-        this.end = end;
     }
 }
