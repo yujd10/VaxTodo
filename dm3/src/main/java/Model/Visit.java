@@ -40,13 +40,26 @@ public class Visit implements Serializable {
         this.reservationNumber = reservationNumber;
     }
 
-    @Override
-    public String toString(){
-        return " Visit { " +
-                " Name : " + firstName + " " +lastName.toUpperCase(Locale.ROOT)  +
-                " } ";
-    }
+//    @Override
+//    public String toString(){
+//        return " Visit { " +
+//                " Name : " + firstName + " " +lastName.toUpperCase(Locale.ROOT)  +
+//                " } ";
+//    }
 
+
+    @Override
+    public String toString() {
+        return "Visit{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dose='" + dose + '\'' +
+                ", datetime=" + datetime.getDate() + " " + datetime.getTime() +
+                ", isConfirmed=" + isConfirmed +
+                ", withRDV=" + withRDV +
+                ", reservationNumber=" + reservationNumber +
+                '}';
+    }
 
     public boolean confirm(){
         //TODO:check availability in calender
