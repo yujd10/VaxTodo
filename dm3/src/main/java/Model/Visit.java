@@ -40,13 +40,6 @@ public class Visit implements Serializable {
         this.reservationNumber = reservationNumber;
     }
 
-//    @Override
-//    public String toString(){
-//        return " Visit { " +
-//                " Name : " + firstName + " " +lastName.toUpperCase(Locale.ROOT)  +
-//                " } ";
-//    }
-
 
     @Override
     public String toString() {
@@ -64,6 +57,7 @@ public class Visit implements Serializable {
     public boolean confirm(){
         //TODO:check availability in calender
         this.isConfirmed = true;
+        System.out.println("This visit for " + this.firstName +" "+ this.lastName +"at" +this.datetime.getDate()+ " "+this.datetime.getTime()  +"is confirmed successfully !");
         return this.isConfirmed;
     }
 

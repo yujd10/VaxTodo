@@ -7,9 +7,14 @@ public class AdminController extends Controller{
         return null;
     }
 
-    public boolean saveForm(String[] infos){
-        return false;
-    }
+
+
+//    public Form addForm(String[] infos){
+//
+//        return null;
+//    }
+//
+//    public void saveForm(Form from){}
 
     public void printForm(){}
 
