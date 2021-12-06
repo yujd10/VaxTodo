@@ -13,7 +13,7 @@ public class Visit implements Serializable {
     private DateTime datetime;
     private boolean isConfirmed;
     private boolean withRDV;
-    private int reservationNumber;
+    private Integer reservationNumber;
 
 
 
@@ -21,12 +21,23 @@ public class Visit implements Serializable {
     public Visit() {
     }
 
-    public Visit(String firstName, String lastName, String dose,String date,String time) {
+    public Visit(boolean withRDV,String firstName, String lastName, String dose,String date,String time) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dose = dose;
         this.datetime=new DateTime(date,time);
         this.isConfirmed = false;
+        this.withRDV = withRDV;
+    }
+
+    public Visit(boolean withRDV,Integer reservationNumber,String firstName, String lastName, String dose,String date,String time) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dose = dose;
+        this.datetime=new DateTime(date,time);
+        this.isConfirmed = false;
+        this.withRDV = withRDV;
+        this.reservationNumber = reservationNumber;
     }
 
     @Override
@@ -52,60 +63,6 @@ public class Visit implements Serializable {
         //TODO:check if valide
         return isValide;
     }
-
-    public static void showCurrentVisits(){
-        List<Visit> visits = readVisits();
-        for (Visit visit:visits){
-            System.out.println(visit.toString());
-        }
-    }
-
-
-    //File ///////////////////////////////////////////////
-    public static void addNewVisit(String reservationNumber, String firstName, String lastName, String dose,String date,String time){
-        List<Visit> currentVisits = readVisits();
-        Visit visit = new Visit(firstName,lastName,dose,date,time);
-        currentVisits.add(visit);
-        saveVisits(currentVisits);
-    }
-
-    public static void saveVisits(List<Visit> visits){
-        PrintWriter writer = null;
-        try {
-            writer = new PrintWriter("visit.out");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        try{
-            FileOutputStream writeData = new FileOutputStream("visit.out");
-            ObjectOutputStream writeStream = new ObjectOutputStream(writeData);
-
-            writeStream.writeObject(visits);
-            writeStream.flush();
-            writeStream.close();
-
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static List<Visit> readVisits(){
-        List<Visit> listIn= new ArrayList<>();
-        try{
-            FileInputStream readData = new FileInputStream("visit.out");
-            ObjectInputStream readStream = new ObjectInputStream(readData);
-
-            listIn = (List<Visit>) readStream.readObject();
-            readStream.close();
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return listIn;
-    }
-    //ENF OF FILE/////////////////////////////
-
-
 
     public String getFirstName() {
         return firstName;
@@ -139,4 +96,27 @@ public class Visit implements Serializable {
         this.dose = dose;
     }
 
+    public boolean isConfirmed() {
+        return isConfirmed;
+    }
+
+    public void setConfirmed(boolean confirmed) {
+        isConfirmed = confirmed;
+    }
+
+    public boolean isWithRDV() {
+        return withRDV;
+    }
+
+    public void setWithRDV(boolean withRDV) {
+        this.withRDV = withRDV;
+    }
+
+    public int getReservationNumber() {
+        return reservationNumber;
+    }
+
+    public void setReservationNumber(int reservationNumber) {
+        this.reservationNumber = reservationNumber;
+    }
 }

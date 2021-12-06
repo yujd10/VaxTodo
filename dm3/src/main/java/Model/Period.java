@@ -1,5 +1,6 @@
 package Model;
 
+import Controller.VisitController;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
@@ -28,11 +29,25 @@ public class Period {
     }
 
     public boolean isFull(){
-       return true;
+        int counter = 0;
+       Boolean filled = true;
+       VisitController vs = new VisitController();
+       List<Visit> visits = vs.read();
+       for(Visit visit:visits){
+           if(visit.getDatetime().getDate().equals(this.date)
+                   &&Integer.parseInt(visit.getDatetime().getTime()) == this.start){
+               counter ++;
+               System.out.println(counter);
+           }
+       }
+
+       if(counter >=15) { filled = false; }
+       return filled;
     }
 
     public Visit removeVisit(Visit visit){
-        List<Visit> visits = read();
+        VisitController vc = new VisitController();
+        List<Visit> visits = vc.read();
         for(Visit visit1:visits){
             if(visit1.equals(visit)){
                 visits.remove(visit);
@@ -42,41 +57,21 @@ public class Period {
         return visit;
     }
 
-    public Visit addVisit(Visit visit){
-        List<Visit> visits = read();
-        visits.add(visit);
-        System.out.println(visit.toString()+" is added ");
-        saveData(visits);
-        return visit;
-    }
+    public void addVisit(Visit visit){
+        VisitController vc = new VisitController();
+        String firstName = visit.getFirstName();
+        String lastName = visit.getLastName();
+        String dose = visit.getDose();
+        String date = this.date;
+        String time = Integer.toString(this.start);
 
-    public List<Visit> read(){
-        JSONArray personList = new JSONArray();
-
-        List<Visit> results = new ArrayList<>();
-        try {
-            Reader reader = Files.newBufferedReader(Paths.get("visits.json"));
-            results= new Gson().fromJson(reader,new TypeToken<List<Visit>>() {}.getType());
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(visit.isWithRDV()){
+            vc.addNewVisit(true,999999,firstName,lastName,dose,date,time);
         }
-
-        return results;
+        else {vc.addNewVisit(false,null,firstName,lastName,dose,date,time);}
     }
 
-    public void saveData(List<Visit> currentlist){
-//        JSONArray personList = new JSONArray();
-        Gson gson = new Gson();
-        try {
-            Writer writer = Files.newBufferedWriter(Paths.get("visits.json"));
 
-            writer.write(gson.toJson(currentlist));
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
 
     public String getDate() {

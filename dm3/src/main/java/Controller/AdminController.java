@@ -11,15 +11,10 @@ public class AdminController extends Controller{
         return false;
     }
 
-    public void printForm(){
+    public void printForm(){}
 
-    }
 
-    public void sendReport(){
+    public void sendReport(){}
 
-    }
-
-    public void sendReminder(){
-
-    }
+    public void sendReminder(){}
 }

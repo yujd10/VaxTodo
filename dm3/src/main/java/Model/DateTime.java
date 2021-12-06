@@ -1,5 +1,9 @@
 package Model;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 public class DateTime {
     private String date;
     private String time;
@@ -8,8 +12,23 @@ public class DateTime {
     }
 
     public DateTime(String date, String time) {
+        if(isDateValid(date)){
         this.date = date;
-        this.time = time;
+        this.time = time;}
+    }
+
+    final static String DATE_FORMAT = "YYYY-MM-DD";
+
+    public static boolean isDateValid(String date)
+    {
+        try {
+            DateFormat df = new SimpleDateFormat(DATE_FORMAT);
+            df.setLenient(false);
+            df.parse(date);
+            return true;
+        } catch (ParseException e) {
+            return false;
+        }
     }
 
     public String getDate() {
