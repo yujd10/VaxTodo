@@ -12,6 +12,8 @@ public class Visit implements Serializable {
     private String dose;
     private DateTime datetime;
     private boolean isConfirmed;
+    private boolean withRDV;
+    private int reservationNumber;
 
 
 
