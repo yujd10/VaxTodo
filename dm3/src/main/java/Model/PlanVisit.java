@@ -19,5 +19,12 @@ public class PlanVisit extends Visit{
         this.reservationNumber = reservationNumber;
     }
 
+    @Override
+    public String toString() {
+        return "PlanVisit{" +
+                "reservationNumber=" + reservationNumber +
+                '}';
+    }
+
 
 }

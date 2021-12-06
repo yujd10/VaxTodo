@@ -1,76 +1,83 @@
 package Model;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.reflect.TypeToken;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Period {
-    private List<Visit> visits ;
     private String date;
     private int start;
 
     public Period() {
-        this.visits = new ArrayList<>();
     }
 
     public Period(String date, int start) {
         this.date = date;
         this.start = start;
-        this.visits = new ArrayList<>();
-    }
-
-    public void AddVisit(Visit visit){
-        if(isExisted(visit)){
-            System.out.println("This visit existed already !");
-        }
-        else{
-            if(!isFull())
-                this.visits.add(visit);
-            else System.out.println("Period full !!!");
-        }
-    }
-
-    public boolean isExisted(Visit visit){
-        boolean existed = false;
-        for(Visit visit1:visits){
-            if(visit1.getFirstName().equals(visit.getFirstName()) && visit1.getLastName().equals(visit.getLastName())){
-                existed = true;
-            }
-        }
-        return existed;
-    }
-
-    public String showVisits(){
-      String list = "[ ";
-      for(Visit visit:visits){
-          list = list+ visit.toString();
-      }
-        list = list + " ]";
-
-        return list;
-    }
-
-    public String toString() {
-        return "Period{" +
-                "date : '" + date + '\'' +
-                ", start at " + start +
-                ", visits " + showVisits() +
-                '}';
     }
 
     public boolean isFull(){
-        boolean listFull = false;
-        if(this.visits.size() >= 15)
-            listFull = true;
-        return listFull;
+       return true;
     }
 
-    public List<Visit> getVisits() {
-        return visits;
+    public Visit removeVisit(Visit visit){
+        List<Visit> visits = read();
+        for(Visit visit1:visits){
+            if(visit1.equals(visit)){
+                visits.remove(visit);
+                System.out.println(visit.toString()+" is removed ");
+            }
+        }
+        return visit;
     }
 
-    public void setVisits(List<Visit> visits) {
-        this.visits = visits;
+    public Visit addVisit(Visit visit){
+        List<Visit> visits = read();
+        visits.add(visit);
+        System.out.println(visit.toString()+" is added ");
+        saveData(visits);
+        return visit;
     }
+
+    public List<Visit> read(){
+        JSONArray personList = new JSONArray();
+
+        List<Visit> results = new ArrayList<>();
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get("visits.json"));
+            results= new Gson().fromJson(reader,new TypeToken<List<Visit>>() {}.getType());
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return results;
+    }
+
+    public void saveData(List<Visit> currentlist){
+//        JSONArray personList = new JSONArray();
+        Gson gson = new Gson();
+        try {
+            Writer writer = Files.newBufferedWriter(Paths.get("visits.json"));
+
+            writer.write(gson.toJson(currentlist));
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public String getDate() {
         return date;

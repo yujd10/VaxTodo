@@ -14,11 +14,12 @@ public class Visit implements Serializable {
     private boolean isConfirmed;
 
 
+
+
     public Visit() {
     }
 
     public Visit(String firstName, String lastName, String dose,String date,String time) {
-//        this.reservationNumber = reservationNumber;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dose = dose;
