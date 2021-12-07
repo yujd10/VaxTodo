@@ -7,19 +7,13 @@ public class AdminController extends Controller{
         return null;
     }
 
-    public boolean saveForm(String[] infos){
-        return false;
-    }
 
-    public void printForm(){
 
-    }
 
-    public void sendReport(){
+    public void printForm(){}
 
-    }
 
-    public void sendReminder(){
+    public void sendReport(){}
 
-    }
+    public void sendReminder(){}
 }
