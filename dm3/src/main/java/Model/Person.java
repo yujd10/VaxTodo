@@ -22,6 +22,7 @@ public class Person {
     private String birthDate;
     private boolean isVolunteer;
     private Address address;
+    private List<VaccineProfile> profiles;
 
     public Person(){
 
@@ -34,8 +35,8 @@ public class Person {
         this.emailAddress = emailAddress;
         this.phoneNumber = phoneNumber;
         this.isVolunteer = isVolunteer;
-
     }
+
     public String getId() {
         return id;
     }
@@ -77,7 +78,7 @@ public class Person {
         String[] split = info.split(":");
         for (Person p : currentPerson) {
             if (split.length == 2){
-                if(split[0].equals(p.lastName) && split[1].equals(p.firstName)){
+                if(split[0].equals(p.firstName) && split[1].equals(p.lastName)){
                     found = p;
                 }
             }
@@ -291,5 +292,9 @@ public class Person {
                 System.out.println(p.toString());
             }
         }
+    }
+
+    public void addProfil(VaccineProfile profile){
+        this.profiles.add(profile);
     }
 }
