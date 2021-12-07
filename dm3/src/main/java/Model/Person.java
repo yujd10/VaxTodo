@@ -159,6 +159,12 @@ public class Person {
         this.save(currentPerson);
     }
 
+    /**
+     *
+     * @param personInfo
+     * @param isVolunteer
+     * @param address
+     */
     public void createPerson(String[] personInfo, boolean isVolunteer, String address){
         List<Person> currentPerson = readData();
         Person person = new Person(personInfo[0], personInfo[1], personInfo[2], personInfo[3],personInfo[4],personInfo[5],isVolunteer);
