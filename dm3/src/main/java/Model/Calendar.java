@@ -3,6 +3,7 @@ package Model;
 import Controller.VisitController;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class Calendar {
@@ -44,8 +45,6 @@ public class Calendar {
         if(!period.isFull()) period.addVisit(visit);
         return visit;
     }
-
-    public static void getCalendar(){}
 
 
 }
