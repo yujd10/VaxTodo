@@ -21,22 +21,8 @@ public class testOutput {
 //        }
 ////        System.out.println(form2.getVisitor().getFirstName());
 //        System.out.println(form2.toString());
-        GregorianCalendar cal = new GregorianCalendar();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//        Period period = new Period("2020-09-10",10);
+//        period.addVisit(new Visit(false,"Kiko","Loureino","1","",""));
+        System.out.println(Calendar.isPeriodAvailable("2020-09-10","10"));;
 
-//        int day = cal.get(GregorianCalendar.DAY_OF_MONTH);
-//
-//        int i = 0;
-//        while(i<=5){
-//            if(cal.get(GregorianCalendar.DAY_OF_WEEK) != GregorianCalendar.SATURDAY){
-//                cal.set(GregorianCalendar.DAY_OF_MONTH, day);
-//                Date date = cal.getTime();
-//                System.out.println(sdf.format(date));
-//                day ++;
-//                i++;}
-//            else {day++;}
-//        }
-
-
-    }
-}
+}}

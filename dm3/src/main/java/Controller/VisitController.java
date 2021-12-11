@@ -23,9 +23,10 @@ public class VisitController extends Controller{
 
 
     //File ///////////////////////////////////////////////
-    public void addNewVisit(boolean withRDV,Integer reservationNumber ,String firstName, String lastName, String dose,String date,String time){
+    public void addNewVisit(boolean withRDV,String firstName, String lastName, String dose,String date,String time){
         List<Visit> currentVisits = read();
-        Visit visit = new Visit(withRDV,reservationNumber,firstName,lastName,dose,date,time);
+        Visit visit = new Visit(withRDV,firstName,lastName,dose,date,time);
+        System.out.println(visit.getDatetime().getDate());
         currentVisits.add(visit);
         saveData(currentVisits);
     }
@@ -47,7 +48,7 @@ public class VisitController extends Controller{
         List<Visit> results = new ArrayList<>();
         try {
             Reader reader = Files.newBufferedReader(Paths.get("visits.json"));
-            results= new Gson().fromJson(reader,new TypeToken<List<Visit>>() {}.getType());
+            results = new Gson().fromJson(reader,new TypeToken<List<Visit>>() {}.getType());
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();

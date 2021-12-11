@@ -25,20 +25,16 @@ public class Visit implements Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dose = dose;
-        this.datetime=new DateTime(date,time);
+        this.datetime=new DateTime();
+        this.datetime.setDate(date);
+        this.datetime.setTime(time);
         this.isConfirmed = false;
         this.withRDV = withRDV;
+        if(withRDV){
+            this.reservationNumber = 999999;
+        }
     }
 
-    public Visit(boolean withRDV,Integer reservationNumber,String firstName, String lastName, String dose,String date,String time) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.dose = dose;
-        this.datetime=new DateTime(date,time);
-        this.isConfirmed = false;
-        this.withRDV = withRDV;
-        this.reservationNumber = reservationNumber;
-    }
 
 
     @Override

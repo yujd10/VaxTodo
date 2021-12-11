@@ -2,7 +2,9 @@ package Model;
 
 import Controller.VisitController;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -11,8 +13,13 @@ public class Calendar {
     private int startTime = 8;
     private int endTime = 17;
 
-    public boolean isPeriodAvailable(DateTime dateTime){
-        return true;
+    public static boolean isPeriodAvailable(String date,String time){
+        boolean isAvailable = true;
+        Period period = new Period(date,Integer.parseInt(time));
+        if(period.isFull()){
+            isAvailable = false;
+        }
+        return isAvailable;
     }
 
     public List<Period> getAvailablePeriods(DateTime from,DateTime to){return null;}
@@ -38,12 +45,40 @@ public class Calendar {
 
     public Period nextPeriod(DateTime from){return null;}
 
+    public boolean isDayFull(String date){
+        boolean filled = true;
+        for(int i = 8;i<17;i++){
+            Period period = new Period();
+            period.setDate(date);
+            period.setStart(i);
+            if(!period.isFull()){filled = false;}
+        }
+        return filled;
+    }
+
     public Visit makeRDV(Visit visit){
         Period period = new Period();
         period.setDate(visit.getDatetime().getDate());
         period.setStart(Integer.parseInt(visit.getDatetime().getTime()));
         if(!period.isFull()) period.addVisit(visit);
         return visit;
+    }
+
+    public List<String> nextFiveDays(){GregorianCalendar cal = new GregorianCalendar();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        int day = cal.get(GregorianCalendar.DAY_OF_MONTH);
+        int counter = 0;
+        List<String> dates = new ArrayList<>();
+        while(counter<5){
+            cal.set(GregorianCalendar.DAY_OF_MONTH, day);
+            if(cal.get(GregorianCalendar.DAY_OF_WEEK)!=GregorianCalendar.SATURDAY
+                    &&cal.get(GregorianCalendar.DAY_OF_WEEK)!=GregorianCalendar.SUNDAY){
+                Date date = cal.getTime();
+                System.out.println(sdf.format(date));
+                dates.add(sdf.format(date));
+                counter++;}
+            day++;}
+        return dates;
     }
 
 

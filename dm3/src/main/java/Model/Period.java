@@ -30,20 +30,22 @@ public class Period {
 
     public boolean isFull(){
         int counter = 0;
-       Boolean filled = true;
+       Boolean filled = false;
        VisitController vs = new VisitController();
        List<Visit> visits = vs.read();
        for(Visit visit:visits){
            if(visit.getDatetime().getDate().equals(this.date)
                    &&Integer.parseInt(visit.getDatetime().getTime()) == this.start){
                counter ++;
-               System.out.println(counter);
            }
        }
 
-       if(counter >=15) { filled = false; }
+       if(counter >=15) { filled = true; }
        return filled;
     }
+
+
+
 
     public Visit removeVisit(Visit visit){
         VisitController vc = new VisitController();
@@ -66,9 +68,15 @@ public class Period {
         String time = Integer.toString(this.start);
 
         if(visit.isWithRDV()){
-            vc.addNewVisit(true,999999,firstName,lastName,dose,date,time);
+            vc.addNewVisit(true,firstName,lastName,dose,date,time);
+//            System.out.println(firstName);
+//            System.out.println(date);
         }
-        else {vc.addNewVisit(false,null,firstName,lastName,dose,date,time);}
+        else {
+            vc.addNewVisit(false, firstName, lastName, dose, date, time);
+//            System.out.println(firstName);
+//            System.out.println(date);
+        }
     }
 
 
