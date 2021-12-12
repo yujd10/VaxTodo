@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f0cfb4-7b82-4c82-b9ae-be06c4dcf2c6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/VisitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/VisitController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Calendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Calendar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Period.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Period.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Visit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Visit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/testOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/testOutput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visits.json" beforeDir="false" afterPath="$PROJECT_DIR$/visits.json" afterDir="false" />
-    </list>
+    <list default="true" id="e8f0cfb4-7b82-4c82-b9ae-be06c4dcf2c6" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
