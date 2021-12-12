@@ -1,9 +1,11 @@
 package View;
 import Controller.PersonController;
+import Model.Calendar;
 import Model.Person;
 import Model.Router;
 
 import java.io.IOException;
+import java.util.List;
 
 
 public class EmployeeView extends View{
@@ -31,7 +33,7 @@ public class EmployeeView extends View{
             router.followUpPage();
         }
         else if (input.trim().equals("4")){
-            router.calendarPage();
+            router.calendarPage(router);
         }
         else if (input.trim().equals("5")){
             router.makeAppointment();
@@ -167,5 +169,39 @@ public class EmployeeView extends View{
         else {
             router.employeeMain(router);
         }
+    }
+
+    public void showCalendarMenu(Router router){
+        Calendar calendar = new Calendar();
+        List<String> next5days = calendar.consultationOfCalendar(0);
+        System.out.println("Voulez-vous consulter les 5 prochaines jours ? Y/N");
+        try {
+            input = reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (input.trim().equals("N")){
+            System.out.printf("Chosir un jour que vous voulez traiter : ");
+            try {
+                input = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            String date = next5days.get(Integer.parseInt(input.trim())-1);
+            System.out.println("Vous avez choisi : " + date +"\n"+" Choisir ce que vous voulez faire :");
+            System.out.println( "- [1] Consulter les Periods libres\n"+
+                    "- [2] Ajouter une visite\n"+
+                    "- [3] Confirmer une visite\n"+
+                    "- [4] Consulter les Periods libres\n"+
+                    "- [5] Envoyer les　notifications de rappel aux patients\n" );
+        }
+
+        else if (input.trim().equals("Y")) {
+            List<String> nextnext5days = calendar.consultationOfCalendar(5);
+        }
+
+
     }
 }

@@ -23,6 +23,7 @@ public class testOutput {
 //        System.out.println(form2.toString());
 //        Period period = new Period("2020-09-10",10);
 //        period.addVisit(new Visit(false,"Kiko","Loureino","1","",""));
-        System.out.println(Calendar.isPeriodAvailable("2020-09-10","10"));;
+//        System.out.println(Calendar.isDayFull("2020-09-10"));;
+        Calendar.nextNDays(5,1);
 
 }}
