@@ -13,13 +13,9 @@ public class Calendar {
     private int startTime = 8;
     private int endTime = 17;
 
-    public static boolean isPeriodAvailable(String date,String time){
-        boolean isAvailable = true;
-        Period period = new Period(date,Integer.parseInt(time));
-        if(period.isFull()){
-            isAvailable = false;
-        }
-        return isAvailable;
+    public List<String> consultationOfCalendar(int next){
+        List<String> periods =nextNDays(5,next);
+        return periods;
     }
 
     public List<Period> getAvailablePeriods(DateTime from,DateTime to){return null;}
@@ -45,7 +41,7 @@ public class Calendar {
 
     public Period nextPeriod(DateTime from){return null;}
 
-    public boolean isDayFull(String date){
+    public static boolean isDayFull(String date){
         boolean filled = true;
         for(int i = 8;i<17;i++){
             Period period = new Period();
@@ -64,18 +60,20 @@ public class Calendar {
         return visit;
     }
 
-    public List<String> nextFiveDays(){GregorianCalendar cal = new GregorianCalendar();
+    public static List<String> nextNDays(int n,int next){
+        GregorianCalendar cal = new GregorianCalendar();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        int day = cal.get(GregorianCalendar.DAY_OF_MONTH);
+        int day = cal.get(GregorianCalendar.DAY_OF_MONTH)+next;
         int counter = 0;
         List<String> dates = new ArrayList<>();
-        while(counter<5){
+        while(counter<n){
             cal.set(GregorianCalendar.DAY_OF_MONTH, day);
             if(cal.get(GregorianCalendar.DAY_OF_WEEK)!=GregorianCalendar.SATURDAY
                     &&cal.get(GregorianCalendar.DAY_OF_WEEK)!=GregorianCalendar.SUNDAY){
                 Date date = cal.getTime();
-                System.out.println(sdf.format(date));
-                dates.add(sdf.format(date));
+                if(!isDayFull(sdf.format(date))){
+                    System.out.println(sdf.format(date));
+                    dates.add(sdf.format(date));}
                 counter++;}
             day++;}
         return dates;

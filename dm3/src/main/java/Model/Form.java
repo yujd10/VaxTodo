@@ -45,7 +45,6 @@ public class Form{
     public void addNewForm(Form form){
         List<Form> currentForms = read();
         currentForms.add(form);
-        currentForms.add(form);
         saveData(currentForms);
     }
 

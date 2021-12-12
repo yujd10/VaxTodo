@@ -24,7 +24,7 @@ public class VolunteerView extends View{
             e.printStackTrace();
         }
         if (input.trim().equals("1")) {
-            router.calendarPage();
+            router.calendarPage(router);
         }
         else if(input.trim().equals("2")){
             router.showVisitorList(router);
