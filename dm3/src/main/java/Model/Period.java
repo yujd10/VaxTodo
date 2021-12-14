@@ -44,9 +44,6 @@ public class Period {
        return filled;
     }
 
-
-
-
     public Visit removeVisit(Visit visit){
         VisitController vc = new VisitController();
         List<Visit> visits = vc.read();
@@ -59,24 +56,18 @@ public class Period {
         return visit;
     }
 
-    public void addVisit(Visit visit){
+    public void addVisitSpontane(String firstName,String lastName,String dose){
         VisitController vc = new VisitController();
-        String firstName = visit.getFirstName();
-        String lastName = visit.getLastName();
-        String dose = visit.getDose();
         String date = this.date;
         String time = Integer.toString(this.start);
+        vc.addNewVisit(false, firstName, lastName, dose, date, time);
+    }
 
-        if(visit.isWithRDV()){
-            vc.addNewVisit(true,firstName,lastName,dose,date,time);
-//            System.out.println(firstName);
-//            System.out.println(date);
-        }
-        else {
-            vc.addNewVisit(false, firstName, lastName, dose, date, time);
-//            System.out.println(firstName);
-//            System.out.println(date);
-        }
+    public void addVisitAvecRDV(String firstName,String lastName,String dose){
+        VisitController vc = new VisitController();
+        String date = this.date;
+        String time = Integer.toString(this.start);
+        vc.addNewVisit(true, firstName, lastName, dose, date, time);
     }
 
 

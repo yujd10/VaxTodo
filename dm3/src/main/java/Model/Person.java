@@ -22,7 +22,6 @@ public class Person {
     private String birthDate;
     private boolean isVolunteer;
     private Address address;
-    private List<VaccineProfile> profiles;
 
     public Person(){
 
@@ -300,7 +299,5 @@ public class Person {
         }
     }
 
-    public void addProfil(VaccineProfile profile){
-        this.profiles.add(profile);
-    }
+
 }

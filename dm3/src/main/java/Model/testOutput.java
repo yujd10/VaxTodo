@@ -1,5 +1,7 @@
 package Model;
 
+import Controller.VisitController;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -24,6 +26,8 @@ public class testOutput {
 //        Period period = new Period("2020-09-10",10);
 //        period.addVisit(new Visit(false,"Kiko","Loureino","1","",""));
 //        System.out.println(Calendar.isDayFull("2020-09-10"));;
-        Calendar.nextNDays(5,1);
+        System.out.println(Calendar.periodsAvailable("2020-09-10").toString());;
+        VisitController vc = new VisitController();
+        vc.confirmerVisitSpontane("Jiadi","Yu");
 
 }}

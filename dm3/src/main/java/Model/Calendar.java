@@ -43,7 +43,7 @@ public class Calendar {
 
     public static boolean isDayFull(String date){
         boolean filled = true;
-        for(int i = 8;i<17;i++){
+        for(int i = 8;i<=17;i++){
             Period period = new Period();
             period.setDate(date);
             period.setStart(i);
@@ -52,13 +52,24 @@ public class Calendar {
         return filled;
     }
 
-    public Visit makeRDV(Visit visit){
-        Period period = new Period();
-        period.setDate(visit.getDatetime().getDate());
-        period.setStart(Integer.parseInt(visit.getDatetime().getTime()));
-        if(!period.isFull()) period.addVisit(visit);
-        return visit;
+    public static List<Integer> periodsAvailable(String date){
+        List<Integer> list = new ArrayList<>();
+        for(int i = 8;i<=17;i++){
+            Period period = new Period();
+            period.setDate(date);
+            period.setStart(i);
+            if(!period.isFull()){list.add(i);}
+        }
+        return list;
     }
+
+//    public Visit makeRDV(Visit visit){
+//        Period period = new Period();
+//        period.setDate(visit.getDatetime().getDate());
+//        period.setStart(Integer.parseInt(visit.getDatetime().getTime()));
+//        if(!period.isFull()) period.addVisit(visit);
+//        return visit;
+//    }
 
     public static List<String> nextNDays(int n,int next){
         GregorianCalendar cal = new GregorianCalendar();

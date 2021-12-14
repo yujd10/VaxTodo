@@ -1,6 +1,8 @@
 package View;
 import Controller.PersonController;
+import Controller.VisitController;
 import Model.Calendar;
+import Model.Period;
 import Model.Person;
 import Model.Router;
 
@@ -15,8 +17,8 @@ public class EmployeeView extends View{
                 "- [1] Gestion des visiteurs: Accédez à la liste des visiteurs et ajouter, modifier ou supprimer un visiteur.\n" +
                 "- [2] Gestion des bénévoles: Accédez à la liste des bénévoles et ajouter, modifier ou supprimer un bénévole.\n" +
                         "- [3] Envoi courriel de suivi: Envoyez un courriel de suivi à un visiteur pour lui rappeler\n" +
-                        "- [4] Consultation du calendrier: Accédez au calendrier et cherchez les rendez-vous à venir\n" +
-                        "- [5] Réserver un rendez-vous: Faire la réservation d'un rendez vous\n" +
+                        "- [4] Calendrier: Consultation du calendrier et ajouter les visits/rendez-vous\n" +
+                        "- [5] Traitement des visits: Confirmer les visits et Remplir les formulaire\n" +
                         "- [6] Remplir questionnaire: Remplir le questionnaire pour avoir les informations personnelles du visiteur\n" +
                         "- [0] Quitter l'application");
         try {
@@ -36,7 +38,7 @@ public class EmployeeView extends View{
             router.calendarPage(router);
         }
         else if (input.trim().equals("5")){
-            router.makeAppointment();
+            router.visitPage(router);
         }
         else if (input.trim().equals("6")){
             router.surveyPage();
@@ -173,35 +175,167 @@ public class EmployeeView extends View{
 
     public void showCalendarMenu(Router router){
         Calendar calendar = new Calendar();
-        List<String> next5days = calendar.consultationOfCalendar(0);
+        VisitController vc =new VisitController();
+        List<String> next5days=null;
+        String date = null;
+        calendar.consultationOfCalendar(0);
         System.out.println("Voulez-vous consulter les 5 prochaines jours ? Y/N");
         try {
             input = reader.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        if (input.trim().equals("N")){
+        if (input.trim().equals("N")||input.trim().equals("n")){
+            next5days = calendar.consultationOfCalendar(0);
             System.out.printf("Chosir un jour que vous voulez traiter : ");
+            }
+        else if (input.trim().equals("Y")||input.trim().equals("y")) {
+            next5days = calendar.consultationOfCalendar(5);
+            System.out.printf("Chosir un jour que vous voulez traiter : ");
+        }
+        try {
+            input = reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        date = next5days.get(Integer.parseInt(input.trim())-1);
+//        try {
+//            input = reader.readLine();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+        System.out.println("Vous avez choisi : " + date +"\n"+" Choisir ce que vous voulez faire :");
+        System.out.println( "- [1] Ajouter une rendez-vous(Visite non-spontané)\n"+
+                "- [2] Ajouter une visite\n"+
+                "- [3] Consulter les Periods libres\n"+
+                "- [4] Envoyer les　notifications de rappel aux patients\n" );
+        try {
+            input = reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (input.trim().equals("1")){
+            System.out.println("Periods available for " + date +" are ");
+            List<Integer> days =Calendar.periodsAvailable(date);
+            System.out.println(days.toString());
+            System.out.println("Choisir un temps :");
             try {
                 input = reader.readLine();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            int time = days.get(Integer.parseInt(input.trim())-1);
+            Period period = new Period(date,time);
+            System.out.println("Ajouter un nouveau rendez-vous");
+            System.out.println("Entrer les information de rendez-vous:");
+            System.out.println("Firstname :");
+            try {
+                input = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String firstName = input.trim();
+            System.out.println("Firstname :");
+            try {
+                input = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String lastName = input.trim();
+            System.out.println("Dose Number :");
+            try {
+                input = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String dose = input.trim();
+            period.addVisitAvecRDV(firstName,lastName,dose);
 
-            String date = next5days.get(Integer.parseInt(input.trim())-1);
-            System.out.println("Vous avez choisi : " + date +"\n"+" Choisir ce que vous voulez faire :");
-            System.out.println( "- [1] Consulter les Periods libres\n"+
-                    "- [2] Ajouter une visite\n"+
-                    "- [3] Confirmer une visite\n"+
-                    "- [4] Consulter les Periods libres\n"+
-                    "- [5] Envoyer les　notifications de rappel aux patients\n" );
+            showEmployeeMenu(router);
         }
+        else if (input.trim().equals("2")){
+            System.out.println("Periods available for " + date +" are ");
+            List<Integer> days =Calendar.periodsAvailable(date);
+            System.out.println(days.toString());
+            System.out.println("Choisir un temps :");
+            try {
+                input = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            int time = days.get(Integer.parseInt(input.trim())-1);
+            Period period = new Period(date,time);
+            System.out.println("Ajouter un nouveau visit spontané");
+            System.out.println("Entrer les information de visit:");
+            System.out.println("Firstname :");
+            try {
+                input = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String firstName = input.trim();
+            System.out.println("Firstname :");
+            try {
+                input = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String lastName = input.trim();
+            System.out.println("Dose Number :");
+            try {
+                input = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String dose = input.trim();
+            period.addVisitSpontane(firstName,lastName,dose);
 
-        else if (input.trim().equals("Y")) {
-            List<String> nextnext5days = calendar.consultationOfCalendar(5);
+            showEmployeeMenu(router);
         }
-
 
     }
+
+    public void showVisitMenu(Router router) {
+        Calendar calendar = new Calendar();
+        VisitController vc =new VisitController();
+        System.out.println( "- [1] Confirmer un rendez-vous(Visite non-spontané)\n"+
+                "- [2] Confirmer un visite(Sans rendez-vous)\n"+
+                "- [3] Remplir une formulaire\n"+
+                "- [4] shit it real---------------------------------------------------\n" );
+        try {
+            input = reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (input.trim().equals("1")){
+            System.out.println("Reservation Number :");
+            try {
+                input = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            int number = Integer.parseInt(input.trim());
+            vc.confirmerVisitRDV(number);
+        }
+        else if (input.trim().equals("2")){
+                System.out.println("First name:");
+                try {
+                    input = reader.readLine();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                String firstName = input.trim();
+                System.out.println("Lase name:");
+                try {
+                    input = reader.readLine();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                String lastName = input.trim();
+                vc.confirmerVisitSpontane(firstName,lastName);
+            }
+        }
 }

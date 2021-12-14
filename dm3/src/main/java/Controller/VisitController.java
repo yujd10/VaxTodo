@@ -40,8 +40,42 @@ public class VisitController extends Controller{
         }
     }
 
-    public void getUpComingVisits(DateTime from, DateTime to){
+    public void confirmerVisitSpontane(String firstName,String lastName){
+        List<Visit> visits=read();
+        Integer index = null;
+        for(Visit visit:visits){
+            if(!visit.isWithRDV()
+                    &&visit.getFirstName().equals(firstName)
+                    &&visit.getLastName().equals(lastName)){
+                index =visits.indexOf(visit);
+                visits.set(index,visit.confirm());
+            }
+        }
+        if(index == null){
+            System.out.println("Visit n'existe pas ! ");
+        }
+        saveData(visits);
+    }
 
+    public void confirmerVisitRDV(int reserverNumber){
+        List<Visit> visits=read();
+        Integer index = null;
+        for(Visit visit:visits){
+            if(visit.isWithRDV()
+                    &&visit.getReservationNumber() == reserverNumber){
+                index =visits.indexOf(visit);
+                visits.set(index,visit.confirm());
+            }
+        }
+        if(index == null){
+            System.out.println("Visit n'existe pas ! ");
+        }
+        saveData(visits);
+    }
+
+
+
+    public void getUpComingVisits(DateTime from, DateTime to){
     }
 
     public List<Visit> read(){
