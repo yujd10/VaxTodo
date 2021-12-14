@@ -253,8 +253,6 @@ public class EmployeeView extends View{
             }
             String dose = input.trim();
             period.addVisitAvecRDV(firstName,lastName,dose);
-
-            showEmployeeMenu(router);
         }
         else if (input.trim().equals("2")){
             System.out.println("Periods available for " + date +" are ");
@@ -295,7 +293,7 @@ public class EmployeeView extends View{
 
             showEmployeeMenu(router);
         }
-
+        showEmployeeMenu(router);
     }
 
     public void showVisitMenu(Router router) {
@@ -337,5 +335,6 @@ public class EmployeeView extends View{
                 String lastName = input.trim();
                 vc.confirmerVisitSpontane(firstName,lastName);
             }
+        showEmployeeMenu(router);
         }
 }

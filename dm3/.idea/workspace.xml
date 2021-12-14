@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8f0cfb4-7b82-4c82-b9ae-be06c4dcf2c6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/VisitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/VisitController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Calendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Calendar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Period.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Period.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Router.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Visit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Visit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/testOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/testOutput.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/EmployeeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/EmployeeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visitors.json" beforeDir="false" afterPath="$PROJECT_DIR$/visitors.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visits.json" beforeDir="false" afterPath="$PROJECT_DIR$/visits.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +71,7 @@
       <updated>1639113692495</updated>
       <workItem from="1639113693302" duration="2256000" />
       <workItem from="1639279370383" duration="3928000" />
-      <workItem from="1639438926461" duration="10416000" />
+      <workItem from="1639438926461" duration="11685000" />
     </task>
     <servers />
   </component>
