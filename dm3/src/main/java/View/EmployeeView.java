@@ -178,35 +178,49 @@ public class EmployeeView extends View{
         VisitController vc =new VisitController();
         List<String> next5days=null;
         String date = null;
-        calendar.consultationOfCalendar(0);
+        int count = 0;
+        next5days = calendar.consultationOfCalendar(count);
         System.out.println("Voulez-vous consulter les 5 prochaines jours ? Y/N");
         try {
             input = reader.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if (input.trim().equals("N")||input.trim().equals("n")){
-            next5days = calendar.consultationOfCalendar(0);
-            System.out.printf("Chosir un jour que vous voulez traiter : ");
-            }
-        else if (input.trim().equals("Y")||input.trim().equals("y")) {
-            next5days = calendar.consultationOfCalendar(5);
-            System.out.printf("Chosir un jour que vous voulez traiter : ");
-        }
-        try {
-            input = reader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
+        while(true){
+            if((input.trim().equals("Y")||input.trim().equals("y"))){
+                next5days = calendar.consultationOfCalendar(count+=5);
+                System.out.println("Voulez-vous consulter les 5 prochaines jours ? Y/N");
+                try {
+                    input = reader.readLine();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            else if((input.trim().equals("N")||input.trim().equals("n"))){
+                System.out.printf("Chosir un jour que vous voulez traiter : ");
+                try {
+                    input = reader.readLine();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }else{
+                System.out.println("Veuillez choisir Y/N");
+                try {
+                    input = reader.readLine();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
         date = next5days.get(Integer.parseInt(input.trim())-1);
-//        try {
-//            input = reader.readLine();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        calendarOptionMenu(router, date);
+//        showEmployeeMenu(router);
+    }
 
+    public void calendarOptionMenu(Router router, String date){
         System.out.println("Vous avez choisi : " + date +"\n"+" Choisir ce que vous voulez faire :");
         System.out.println( "- [1] Ajouter une rendez-vous(Visite non-spontané)\n"+
                 "- [2] Ajouter une visite\n"+
@@ -293,7 +307,17 @@ public class EmployeeView extends View{
 
             showEmployeeMenu(router);
         }
-        showEmployeeMenu(router);
+        else if (input.trim().equals("3")){
+            System.out.println("consulter les periodes libres");
+            System.out.println("Periods available for " + date +" are ");
+            List<Integer> days =Calendar.periodsAvailable(date);
+            System.out.println(days.toString()+"\n");
+            calendarOptionMenu(router, date);
+        }
+        else if (input.trim().equals("4")){
+            System.out.println("Envoyer les notifications de rappels");
+
+        }
     }
 
     public void showVisitMenu(Router router) {

@@ -83,7 +83,7 @@ public class Calendar {
                     &&cal.get(GregorianCalendar.DAY_OF_WEEK)!=GregorianCalendar.SUNDAY){
                 Date date = cal.getTime();
                 if(!isDayFull(sdf.format(date))){
-                    System.out.println(sdf.format(date));
+                    System.out.println((counter+1)+". "+sdf.format(date));
                     dates.add(sdf.format(date));}
                 counter++;}
             day++;}
