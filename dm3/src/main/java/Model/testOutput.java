@@ -26,8 +26,10 @@ public class testOutput {
 //        Period period = new Period("2020-09-10",10);
 //        period.addVisit(new Visit(false,"Kiko","Loureino","1","",""));
 //        System.out.println(Calendar.isDayFull("2020-09-10"));;
-        System.out.println(Calendar.periodsAvailable("2020-09-10").toString());;
-        VisitController vc = new VisitController();
-        vc.confirmerVisitSpontane("Jiadi","Yu");
+//        System.out.println(Calendar.periodsAvailable("2020-09-10").toString());;
+//        VisitController vc = new VisitController();
+//        vc.confirmerVisitSpontane("Jiadi","Yu");
+        Calendar cal = new Calendar();
+        cal.consultationOfCalendar(5);
 
 }}

@@ -2,6 +2,7 @@ package Model;
 
 import Controller.VisitController;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -63,14 +64,6 @@ public class Calendar {
         return list;
     }
 
-//    public Visit makeRDV(Visit visit){
-//        Period period = new Period();
-//        period.setDate(visit.getDatetime().getDate());
-//        period.setStart(Integer.parseInt(visit.getDatetime().getTime()));
-//        if(!period.isFull()) period.addVisit(visit);
-//        return visit;
-//    }
-
     public static List<String> nextNDays(int n,int next){
         GregorianCalendar cal = new GregorianCalendar();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -89,6 +82,5 @@ public class Calendar {
             day++;}
         return dates;
     }
-
 
 }

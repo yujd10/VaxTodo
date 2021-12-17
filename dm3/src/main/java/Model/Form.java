@@ -38,8 +38,6 @@ public class Form{
         this.otherVaxTook = otherVaxTook;
     }
 
-    public void fillForm(){}
-
     public Form recoverForm(){return null;}
 
     public void addNewForm(Form form){
