@@ -78,6 +78,7 @@ public class EmployeeView extends View{
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            String[] personInfo = input.split(";");
             System.out.println("Entrer l'addresse de la personne: numéro;rue;ville;province;code postal");
             String address = null;
             try {
@@ -85,9 +86,8 @@ public class EmployeeView extends View{
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            String[] personInfo = input.split(";");
             String inputVerification = (personController.createPerson(personInfo,isVolunteer,address));
-            if(inputVerification != ""){
+            if(!inputVerification.equals("")){
                 System.out.println("Création du compte échouer!");
                 System.out.println(inputVerification);
             }
