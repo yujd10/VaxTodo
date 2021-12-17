@@ -175,7 +175,7 @@ public class Person {
     }
     public String verifyInfo(String info, int index){
         String result = "";
-            switch (index - 1) {
+            switch (index) {
                 case 0:
                     if (info.length() != 12) {
                         result += "Numéro de compte doit être 12 caractères\n";
