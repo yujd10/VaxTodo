@@ -30,18 +30,17 @@ public class Period {
 
     public boolean isFull(){
         int counter = 0;
-       Boolean filled = true;
+       Boolean filled = false;
        VisitController vs = new VisitController();
        List<Visit> visits = vs.read();
        for(Visit visit:visits){
            if(visit.getDatetime().getDate().equals(this.date)
                    &&Integer.parseInt(visit.getDatetime().getTime()) == this.start){
                counter ++;
-               System.out.println(counter);
            }
        }
 
-       if(counter >=15) { filled = false; }
+       if(counter >=15) { filled = true; }
        return filled;
     }
 
@@ -57,18 +56,18 @@ public class Period {
         return visit;
     }
 
-    public void addVisit(Visit visit){
+    public void addVisitSpontane(String firstName,String lastName,String dose){
         VisitController vc = new VisitController();
-        String firstName = visit.getFirstName();
-        String lastName = visit.getLastName();
-        String dose = visit.getDose();
         String date = this.date;
         String time = Integer.toString(this.start);
+        vc.addNewVisit(false, firstName, lastName, dose, date, time);
+    }
 
-        if(visit.isWithRDV()){
-            vc.addNewVisit(true,999999,firstName,lastName,dose,date,time);
-        }
-        else {vc.addNewVisit(false,null,firstName,lastName,dose,date,time);}
+    public void addVisitAvecRDV(String firstName,String lastName,String dose){
+        VisitController vc = new VisitController();
+        String date = this.date;
+        String time = Integer.toString(this.start);
+        vc.addNewVisit(true, firstName, lastName, dose, date, time);
     }
 
 

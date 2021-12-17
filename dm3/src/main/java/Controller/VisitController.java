@@ -23,9 +23,10 @@ public class VisitController extends Controller{
 
 
     //File ///////////////////////////////////////////////
-    public void addNewVisit(boolean withRDV,Integer reservationNumber ,String firstName, String lastName, String dose,String date,String time){
+    public void addNewVisit(boolean withRDV,String firstName, String lastName, String dose,String date,String time){
         List<Visit> currentVisits = read();
-        Visit visit = new Visit(withRDV,reservationNumber,firstName,lastName,dose,date,time);
+        Visit visit = new Visit(withRDV,firstName,lastName,dose,date,time);
+        System.out.println(visit.getDatetime().getDate());
         currentVisits.add(visit);
         saveData(currentVisits);
     }
@@ -39,15 +40,49 @@ public class VisitController extends Controller{
         }
     }
 
-    public void getUpComingVisits(DateTime from, DateTime to){
+    public void confirmerVisitSpontane(String firstName,String lastName){
+        List<Visit> visits=read();
+        Integer index = null;
+        for(Visit visit:visits){
+            if(!visit.isWithRDV()
+                    &&visit.getFirstName().equals(firstName)
+                    &&visit.getLastName().equals(lastName)){
+                index =visits.indexOf(visit);
+                visits.set(index,visit.confirm());
+            }
+        }
+        if(index == null){
+            System.out.println("Visit n'existe pas ! ");
+        }
+        saveData(visits);
+    }
 
+    public void confirmerVisitRDV(int reserverNumber){
+        List<Visit> visits=read();
+        Integer index = null;
+        for(Visit visit:visits){
+            if(visit.isWithRDV()
+                    &&visit.getReservationNumber() == reserverNumber){
+                index =visits.indexOf(visit);
+                visits.set(index,visit.confirm());
+            }
+        }
+        if(index == null){
+            System.out.println("Visit n'existe pas ! ");
+        }
+        saveData(visits);
+    }
+
+
+
+    public void getUpComingVisits(DateTime from, DateTime to){
     }
 
     public List<Visit> read(){
         List<Visit> results = new ArrayList<>();
         try {
             Reader reader = Files.newBufferedReader(Paths.get("visits.json"));
-            results= new Gson().fromJson(reader,new TypeToken<List<Visit>>() {}.getType());
+            results = new Gson().fromJson(reader,new TypeToken<List<Visit>>() {}.getType());
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();

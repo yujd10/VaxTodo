@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 public class Visit implements Serializable {
 //    private String reservationNumber;
@@ -25,20 +26,18 @@ public class Visit implements Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dose = dose;
-        this.datetime=new DateTime(date,time);
+        this.datetime=new DateTime();
+        this.datetime.setDate(date);
+        this.datetime.setTime(time);
         this.isConfirmed = false;
         this.withRDV = withRDV;
+        if(withRDV){
+            Random rnd = new Random();
+            int number = rnd.nextInt(999999);
+            this.reservationNumber = number;
+        }
     }
 
-    public Visit(boolean withRDV,Integer reservationNumber,String firstName, String lastName, String dose,String date,String time) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.dose = dose;
-        this.datetime=new DateTime(date,time);
-        this.isConfirmed = false;
-        this.withRDV = withRDV;
-        this.reservationNumber = reservationNumber;
-    }
 
 
     @Override
@@ -54,11 +53,15 @@ public class Visit implements Serializable {
                 '}';
     }
 
-    public boolean confirm(){
-        //TODO:check availability in calender
+    public Visit confirm(){
         this.isConfirmed = true;
-        System.out.println("This visit for " + this.firstName +" "+ this.lastName +"at" +this.datetime.getDate()+ " "+this.datetime.getTime()  +"is confirmed successfully !");
-        return this.isConfirmed;
+        System.out.println("This visit for " +
+                this.firstName +" "+
+                this.lastName +" at " +
+                this.datetime.getDate()+ " "+
+                this.datetime.getTime()  +" "+
+                "is confirmed successfully !");
+        return this;
     }
 
     public void Cancel(){

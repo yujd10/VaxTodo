@@ -2,7 +2,10 @@ package Model;
 
 import Controller.VisitController;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class Calendar {
@@ -10,8 +13,9 @@ public class Calendar {
     private int startTime = 8;
     private int endTime = 17;
 
-    public boolean isPeriodAvailable(DateTime dateTime){
-        return true;
+    public List<String> consultationOfCalendar(int next){
+        List<String> periods =nextNDays(5,next);
+        return periods;
     }
 
     public List<Period> getAvailablePeriods(DateTime from,DateTime to){return null;}
@@ -37,15 +41,54 @@ public class Calendar {
 
     public Period nextPeriod(DateTime from){return null;}
 
-    public Visit makeRDV(Visit visit){
-        Period period = new Period();
-        period.setDate(visit.getDatetime().getDate());
-        period.setStart(Integer.parseInt(visit.getDatetime().getTime()));
-        if(!period.isFull()) period.addVisit(visit);
-        return visit;
+    public static boolean isDayFull(String date){
+        boolean filled = true;
+        for(int i = 8;i<=17;i++){
+            Period period = new Period();
+            period.setDate(date);
+            period.setStart(i);
+            if(!period.isFull()){filled = false;}
+        }
+        return filled;
     }
 
-    public static void getCalendar(){}
+    public static List<Integer> periodsAvailable(String date){
+        List<Integer> list = new ArrayList<>();
+        for(int i = 8;i<=17;i++){
+            Period period = new Period();
+            period.setDate(date);
+            period.setStart(i);
+            if(!period.isFull()){list.add(i);}
+        }
+        return list;
+    }
+
+//    public Visit makeRDV(Visit visit){
+//        Period period = new Period();
+//        period.setDate(visit.getDatetime().getDate());
+//        period.setStart(Integer.parseInt(visit.getDatetime().getTime()));
+//        if(!period.isFull()) period.addVisit(visit);
+//        return visit;
+//    }
+
+    public static List<String> nextNDays(int n,int next){
+        GregorianCalendar cal = new GregorianCalendar();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        int day = cal.get(GregorianCalendar.DAY_OF_MONTH)+next;
+        int counter = 0;
+        List<String> dates = new ArrayList<>();
+        while(counter<n){
+            cal.set(GregorianCalendar.DAY_OF_MONTH, day);
+            if(cal.get(GregorianCalendar.DAY_OF_WEEK)!=GregorianCalendar.SATURDAY
+                    &&cal.get(GregorianCalendar.DAY_OF_WEEK)!=GregorianCalendar.SUNDAY){
+                Date date = cal.getTime();
+                if(!isDayFull(sdf.format(date))){
+                    System.out.println(sdf.format(date));
+                    dates.add(sdf.format(date));}
+                counter++;}
+            day++;}
+        return dates;
+    }
 
 
 }

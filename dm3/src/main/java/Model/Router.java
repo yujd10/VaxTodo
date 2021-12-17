@@ -47,9 +47,9 @@ public class Router {
 
     }
 
-    public void calendarPage(){
+    public void calendarPage(Router router){ employeeView.showCalendarMenu(router);}
 
-    }
+    public void visitPage(Router router){ employeeView.showVisitMenu(router);}
 
     public void makeAppointment(){
 
