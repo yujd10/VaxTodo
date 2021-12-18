@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ForkJoinPool;
 
 public class Form{
     private Person visitor;
@@ -57,6 +58,21 @@ public class Form{
         }
 
         return formsTargeted;
+    }
+
+    public Form findForm(String firstName,String lastName){
+        List<Form> currentForms=read();
+        Form form =null;
+        for(Form form1:currentForms){
+            if (form1.getVisitor().getFirstName().equals(firstName)
+                    &&form1.getVisitor().getLastName().equals(lastName)){
+                form = form1;
+            }
+        }
+        if(form == null){
+            System.out.println("Form pas trouvé !");
+        }
+        return form;
     }
 
     public void addNewForm(Form form){
@@ -120,7 +136,7 @@ public class Form{
     }
 
     public void setVisitDate(String visitDate) {
-        this.visitDate = visitDate;
+        
     }
 
     public boolean isFirstDose() {
@@ -128,7 +144,7 @@ public class Form{
     }
 
     public void setFirstDose(boolean firstDose) {
-        isFirstDose = firstDose;
+
     }
 
     public boolean isHasCovid() {

@@ -122,7 +122,7 @@ public class Visit implements Serializable {
         this.withRDV = withRDV;
     }
 
-    public int getReservationNumber() {
+    public Integer getReservationNumber() {
         return reservationNumber;
     }
 

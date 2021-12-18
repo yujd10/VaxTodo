@@ -9,7 +9,6 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.util.Calendar;
 
 public class testOutput {
     public static void main(String[] args) throws ParseException {
@@ -46,4 +45,7 @@ public class testOutput {
 //        Calendar.getDate1();
 //        Model.Calendar.nextNDays(5,30);
 //        System.out.println(cal.get(Calendar.DAY_OF_WEEK));
+        VisitController vc = new VisitController();
+        Visit visit = new Visit();
+        visit = vc.findVisitByNumber(316640);
 }}

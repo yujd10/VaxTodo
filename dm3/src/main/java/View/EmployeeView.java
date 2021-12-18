@@ -262,12 +262,17 @@ public class EmployeeView extends View{
             }
             String dose = input.trim();
 
-            period.addVisit(firstName,lastName,dose,visitePlanifiee);
+            if(dose.equals("1")){
+                period.addVisit(firstName,lastName,dose,visitePlanifiee);
+            }
+            else if(dose.equals("2")){
+                period.addVisit(firstName,lastName,dose,visitePlanifiee);
+            }
             calendarOptionMenu(router);
         }
         else if (input.trim().equals("2")){
             boolean visitePlanifiee;
-            System.out.println("Confirmer une visite planifiée (1) ou une visite spontanée (2)?");
+            System.out.println("Confirmer une visite spontanée (1) ou une visite planifiée(2)?");
             while (true){
                 try {
                     input = reader.readLine();
@@ -293,6 +298,15 @@ public class EmployeeView extends View{
                 }
                 int number = Integer.parseInt(input.trim());
                 vc.confirmerVisitRDV(number);
+                Visit visit = vc.findVisitByNumber(number);
+                if(visit.getDose().equals("2")) {
+                    Form form = new Form();
+                    form = form.findForm(visit.getFirstName(), visit.getLastName());
+                    if (form != null) {
+                        form.setFirstDose(false);
+                        form.setVisitDate(visit.getDatetime().getDate());
+                    }
+                }
             }else {
                 System.out.println("First name:");
                 try {
@@ -309,6 +323,15 @@ public class EmployeeView extends View{
                 }
                 String lastName = input.trim();
                 vc.confirmerVisitSpontane(firstName,lastName);
+                Visit visit = vc.findVisit(firstName,lastName);
+                if(visit.getDose().equals("2")) {
+                    Form form = new Form();
+                    form = form.findForm(visit.getFirstName(), visit.getLastName());
+                    if (form != null) {
+                        form.setFirstDose(false);
+                        form.setVisitDate(visit.getDatetime().getDate());
+                    }
+                }
                 calendarOptionMenu(router);
             }
         }
@@ -418,7 +441,7 @@ public class EmployeeView extends View{
                     e.printStackTrace();
                 }
                 if(input.trim().equals("Y")||input.trim().equals("y")){
-                    List<String> datesAvailable = calendar.consultationOfCalendar(30);
+                    List<String> datesAvailable = calendar.consultationOfCalendar(32);
                     System.out.println("Choisir index d'un jour:");
                     try {
                         input = reader.readLine();

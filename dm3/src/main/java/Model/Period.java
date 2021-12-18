@@ -61,15 +61,54 @@ public class Period {
         String date = this.date;
         String time = Integer.toString(this.start);
         String type = null;
-        if(!spontanee) {
-               vc.addNewVisit(false, firstName, lastName, dose, date, time);
-               type = "Visite spontanee ";
+        if(dose.equals("1")){
+            if(!spontanee) {
+                   vc.addNewVisit(false, firstName, lastName, dose, date, time);
+                   type = "Visite spontanee ";
+            }
+            else {
+                vc.addNewVisit(true, firstName, lastName, dose, date, time);
+                type = "Rendez-vous ";
+            }
+            System.out.println(type+firstName+" "+lastName +" de "+ dose +"a"+ date+" "+time +" dose est ajouter avec succes !");
         }
-        else {
-            vc.addNewVisit(true, firstName, lastName, dose, date, time);
-            type = "Rendez-vous ";
+
+        else if(dose.equals("2")){
+            if(!spontanee) {
+                Visit firstVisit = vc.findVisit(firstName,lastName);
+                String oldDate = firstVisit.getDatetime().getDate();
+                if(firstVisit!=null){
+                    if(Calendar.getDayCount(oldDate,date)>=30) {
+                        vc.addNewVisit(true, firstName, lastName, dose, date, time);
+                        type = "Rendez-vous ";
+                    }
+                    else {
+                        System.out.println("Le temps entre les deux doit etre plus que 1 mois");
+                    }
+                    System.out.println(type+firstName+" "+lastName +" de "+ dose +"a"+ date+" "+time +" dose est ajouter avec succes !");
+                }
+                else {
+                    System.out.println("SVP faite la première dose d‘abord !");
+                }
+            }
+            else if(!spontanee) {
+                Visit firstVisit = vc.findVisit(firstName,lastName);
+                String oldDate = firstVisit.getDatetime().getDate();
+                if(firstVisit!=null) {
+                    if (Calendar.getDayCount(oldDate, date) >= 30) {
+                        vc.addNewVisit(false, firstName, lastName, dose, date, time);
+                        type = "Visite spontanee ";
+                    } else {
+                        System.out.println("Le temps entre les deux doit etre plus que 1 mois");
+                    }
+                    System.out.println(type+firstName+" "+lastName +" de "+ dose +"a"+ date+" "+time +" dose est ajouter avec succes !");
+                }
+                else {
+                    System.out.println("SVP faite la première dose d‘abord !");
+                }
+            }
         }
-        System.out.println(type+firstName+" "+lastName +" de "+ dose +"a"+ date+" "+time +" dose est ajouter avec succes !");
+
     }
 
 //    public void addVisitAvecRDV(String firstName,String lastName,String dose){

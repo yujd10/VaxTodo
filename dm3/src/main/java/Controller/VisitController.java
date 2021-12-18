@@ -36,7 +36,7 @@ public class VisitController extends Controller{
         }
         return date;
     }
-    //File ///////////////////////////////////////////////
+
     public void addNewVisit(boolean withRDV,String firstName, String lastName, String dose,String date,String time){
         List<Visit> currentVisits = read();
         Visit visit = new Visit(withRDV,firstName,lastName,dose,date,time);
@@ -53,11 +53,34 @@ public class VisitController extends Controller{
         }
     }
 
+    public Visit findVisit(String firstName,String lastName){
+        List<Visit> visits=read();
+        Visit visit1 = new Visit();
+        for(Visit visit:visits){
+            if(visit.getFirstName().equals(firstName)
+                    &&visit.getLastName().equals(lastName)){
+                visit1 = visit;
+            }
+        }
+        return visit1;
+    }
+
+    public Visit findVisitByNumber(Integer number){
+        List<Visit> visits=read();
+        Visit visit1 = null;
+        for(Visit visit:visits){
+            if(visit.getReservationNumber()!=null && visit.getReservationNumber().equals(number)){
+                visit1 = visit;
+            }
+        }
+        return visit1;
+    }
+
     public void confirmerVisitSpontane(String firstName,String lastName){
         List<Visit> visits=read();
         Integer index = null;
         for(Visit visit:visits){
-            if(!visit.isWithRDV()
+            if(!visit.isConfirmed()&&!visit.isWithRDV()
                     &&visit.getFirstName().equals(firstName)
                     &&visit.getLastName().equals(lastName)){
                 index =visits.indexOf(visit);
@@ -74,7 +97,7 @@ public class VisitController extends Controller{
         List<Visit> visits=read();
         Integer index = null;
         for(Visit visit:visits){
-            if(visit.isWithRDV()
+            if(visit.getReservationNumber()!=null&&!visit.isConfirmed()&&visit.isWithRDV()
                     &&visit.getReservationNumber() == reserverNumber){
                 index =visits.indexOf(visit);
                 visits.set(index,visit.confirm());
@@ -90,7 +113,7 @@ public class VisitController extends Controller{
 
     public void getUpComingVisits(DateTime from, DateTime to){
     }
-
+    //File ///////////////////////////////////////////////
     public List<Visit> read(){
         List<Visit> results = new ArrayList<>();
         try {
