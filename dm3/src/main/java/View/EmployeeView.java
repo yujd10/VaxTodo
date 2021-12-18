@@ -70,7 +70,7 @@ public class EmployeeView extends View{
             router.managePerson(router,role);
         } else if (input.trim().equals("2")) {
             System.out.println("Entrer les informations du " + role + " en format de \n" +
-                    "numéro de compte; nom de famille; prénom; courriel; date de naissance YYYY-MM-DD;numéro de téléphone;");
+                    "numéro de compte; nom de famille; prénom; date de naissance YYYY-MM-DD;courriel; numéro de téléphone;");
 
             try {
                 input = reader.readLine();
@@ -248,7 +248,7 @@ public class EmployeeView extends View{
             }
             String dose = input.trim();
 
-            period.addVisitAvecRDV(firstName,lastName,dose);
+            period.addVisit(firstName,lastName,dose,true);
         }
         else if (input.trim().equals("2")){
             String date = null;
@@ -265,7 +265,6 @@ public class EmployeeView extends View{
                     System.out.println("Entrez svp une date valide");
                 }
             }
-            System.out.println("Periods available for " + date +" are ");
             System.out.println("Les temps disponibles pour ce date :");
             List<Integer> days =Calendar.periodsAvailable(date);
             System.out.println(days.toString());
@@ -300,7 +299,7 @@ public class EmployeeView extends View{
                 e.printStackTrace();
             }
             String dose = input.trim();
-            period.addVisitSpontane(firstName,lastName,dose);
+            period.addVisit(firstName,lastName,dose,false);
 
             calendarOptionMenu(router);
         }
@@ -352,6 +351,9 @@ public class EmployeeView extends View{
             String info = input.trim();
             Person person = new Person();
             person = person.search(info);
+            if(person==null){
+                calendarOptionMenu(router);
+            }
             System.out.println("Vous traitez maintenan "+person.getFirstName()+" "+
                     person.getLastName() +"\n"
                     +"la date naissance est " + person.getBirthDate() +"\n"
@@ -435,40 +437,26 @@ public class EmployeeView extends View{
                     e.printStackTrace();
                 }
                 if(input.trim().equals("Y")||input.trim().equals("y")){
-                    System.out.println("Entrer un date : yyyy-MM-dd");
+                    List<String> datesAvailable = calendar.consultationOfCalendar(30);
+                    System.out.println("Choisir index d'un jour:");
                     try {
                         input = reader.readLine();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    String nextDate = input.trim();
-                    SimpleDateFormat dtf =new SimpleDateFormat("yyyy-MM-dd");
-                    Date oldDate = null;
+                    String date = datesAvailable.get(Integer.parseInt(input.trim()));
+
+                    System.out.println("Les temps disponibles pour ce date :");
+                    List<Integer> days =Calendar.periodsAvailable(date);
+                    System.out.println(days);
                     try {
-                        oldDate = dtf.parse(today);
-                    } catch (ParseException e) {
+                        input = reader.readLine();
+                    } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    Date newDate = null;
-                    try {
-                        newDate = dtf.parse(nextDate);
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
-                    if((newDate.getTime() - oldDate.getTime())/ (1000*60*60*24)>30){
-                        System.out.println("Entrer un temps(Entre 8 et 17): ");
-                        try {
-                            input = reader.readLine();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        int temp = Integer.parseInt(input.trim());
-                        Period period = new Period(nextDate,temp);
-                        period.addVisitAvecRDV(person.getFirstName(), person.getLastName(), "2");
-                    }
-                    else {
-                        System.out.println("Date non-valide svp choisir un valide date ");
-                    }
+                    Integer time = days.get(Integer.parseInt(input.trim()));
+                    Period secondPeriod = new Period(date,time);
+                    secondPeriod.addVisit(person.getFirstName(), person.getLastName(),"2",true);
                 }
             }
             System.out.println(form.toString());
@@ -501,7 +489,7 @@ public class EmployeeView extends View{
             }
             while(true){
                 if((input.trim().equals("Y")||input.trim().equals("y"))){
-                    next5days = calendar.consultationOfCalendar(count+=5);
+                    next5days = calendar.consultationOfCalendar(count+=7);
                     System.out.println("Voulez-vous consulter les 5 prochaines jours ? Y/N");
                     try {
                         input = reader.readLine();

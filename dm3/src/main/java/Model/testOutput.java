@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
+import java.util.*;
+import java.util.Calendar;
 
 public class testOutput {
     public static void main(String[] args) throws ParseException {
@@ -33,7 +33,8 @@ public class testOutput {
 //        System.out.println(Calendar.periodsAvailable("2020-09-10").toString());;
 //        VisitController vc = new VisitController();
 //        vc.confirmerVisitSpontane("Jiadi","Yu");
-//        Calendar cal = new Calendar();
+//        Calendar cal = Calendar.getInstance();
+//        cal.add(java.util.Calendar.DATE,0);
 //        cal.consultationOfCalendar(5);
 //        String date = "2021-12-17";
 //        String nextDate = "2021-12-19";
@@ -43,4 +44,6 @@ public class testOutput {
 //        long diff = newDate.getTime() - oldDate.getTime();
 ////        System.out.println(diff/ (1000*60*60*24));
 //        Calendar.getDate1();
+//        Model.Calendar.nextNDays(5,30);
+//        System.out.println(cal.get(Calendar.DAY_OF_WEEK));
 }}

@@ -56,21 +56,29 @@ public class Period {
         return visit;
     }
 
-    public void addVisitSpontane(String firstName,String lastName,String dose){
+    public void addVisit(String firstName,String lastName,String dose,boolean spontanee){
         VisitController vc = new VisitController();
         String date = this.date;
         String time = Integer.toString(this.start);
-        vc.addNewVisit(false, firstName, lastName, dose, date, time);
-        System.out.println("Visite sans rendez-vous pour "+firstName+" "+lastName +" de "+ dose +" dose est ajouter avec succes !");
+        String type = null;
+        if(!spontanee) {
+               vc.addNewVisit(false, firstName, lastName, dose, date, time);
+               type = "Visite spontanee ";
+        }
+        else {
+            vc.addNewVisit(true, firstName, lastName, dose, date, time);
+            type = "Rendez-vous ";
+        }
+        System.out.println(type+firstName+" "+lastName +" de "+ dose +"a"+ date+" "+time +" dose est ajouter avec succes !");
     }
 
-    public void addVisitAvecRDV(String firstName,String lastName,String dose){
-        VisitController vc = new VisitController();
-        String date = this.date;
-        String time = Integer.toString(this.start);
-        vc.addNewVisit(true, firstName, lastName, dose, date, time);
-        System.out.println("Rendez-vous pour "+firstName+" "+lastName +" de "+ dose +" dose est ajouter avec succes !");
-    }
+//    public void addVisitAvecRDV(String firstName,String lastName,String dose){
+//        VisitController vc = new VisitController();
+//        String date = this.date;
+//        String time = Integer.toString(this.start);
+//        vc.addNewVisit(true, firstName, lastName, dose, date, time);
+//        System.out.println("Rendez-vous pour "+firstName+" "+lastName +" de "+ dose +" dose est ajouter avec succes !");
+//    }
 
 
 

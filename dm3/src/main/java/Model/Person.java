@@ -26,7 +26,7 @@ public class Person {
     public Person(){
 
     }
-    public Person(String id, String firstName, String lastName, String phoneNumber, String emailAddress, String birthDate, boolean isVolunteer){
+    public Person(String id,  String lastName,String firstName, String birthDate, String emailAddress, String phoneNumber, boolean isVolunteer){
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -86,6 +86,9 @@ public class Person {
                     found = p;
                 }
                 else if (p.id.equals(info)) {
+                    found = p;
+                }
+                else if(p.getBirthDate().equals(info)){
                     found = p;
                 }
             }

@@ -59,27 +59,24 @@ public class Calendar {
     }
 
     public static List<String> nextNDays(int n,int next){
-        GregorianCalendar cal = new GregorianCalendar();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         List<String> dates = new ArrayList<>();
-
-        int day = cal.get(GregorianCalendar.DAY_OF_MONTH)+next;
+        java.util.Calendar cal = java.util.Calendar.getInstance();
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
         int counter = 0;
-
-        while(counter<n){
-            cal.set(GregorianCalendar.DAY_OF_MONTH, day);
-            if(cal.get(GregorianCalendar.DAY_OF_WEEK)!=GregorianCalendar.SATURDAY
-                    &&cal.get(GregorianCalendar.DAY_OF_WEEK)!=GregorianCalendar.SUNDAY){
-                Date date = cal.getTime();
-                if(!isDayFull(sdf.format(date)))
+        cal.add(java.util.Calendar.DATE, next-1);
+        while(counter < 7){
+            cal.add(java.util.Calendar.DATE, 1);
+            String date = format1.format(cal.getTime());
+            if(!isDayFull(date)){
+                if(cal.get(java.util.Calendar.DAY_OF_WEEK)!=7
+                        &&cal.get(java.util.Calendar.DAY_OF_WEEK)!=1)
                 {
-                    System.out.println((counter+1)+". "+sdf.format(date));
-                    dates.add(sdf.format(date));
+                dates.add(date);
                 }
-                counter++;
+            counter++;
             }
-            day++;
         }
+        System.out.println(dates);
         return dates;
     }
 

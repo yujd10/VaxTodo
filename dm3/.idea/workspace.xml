@@ -6,11 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e8f0cfb4-7b82-4c82-b9ae-be06c4dcf2c6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form.json" beforeDir="false" afterPath="$PROJECT_DIR$/form.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/person.json" beforeDir="false" afterPath="$PROJECT_DIR$/person.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Calendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Calendar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Period.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Period.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/testOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/testOutput.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/EmployeeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/EmployeeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visits.json" beforeDir="false" afterPath="$PROJECT_DIR$/visits.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
