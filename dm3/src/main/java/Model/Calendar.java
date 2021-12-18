@@ -2,6 +2,7 @@ package Model;
 
 import Controller.VisitController;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -21,12 +22,6 @@ public class Calendar {
 
     public List<Period> getAvailablePeriods(DateTime from,DateTime to){return null;}
 
-    public List<Period> getNextFiveDays(){
-        //TODO:check https://stackoverflow.com/questions/428918/how-can-i-increment-a-date-by-one-day-in-java for Calendar
-        //TODO:check https://stackoverflow.com/questions/5270272/how-to-determine-day-of-week-by-passing-specific-date for Working day
-        return null;
-    }
-
     public void sendNotification(DateTime dateTime){
         VisitController vc = new VisitController();
         Person person = null;
@@ -40,7 +35,6 @@ public class Calendar {
         }
     }
 
-    public Period nextPeriod(DateTime from){return null;}
 
     public static boolean isDayFull(String date){
         boolean filled = true;
@@ -67,20 +61,39 @@ public class Calendar {
     public static List<String> nextNDays(int n,int next){
         GregorianCalendar cal = new GregorianCalendar();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        List<String> dates = new ArrayList<>();
+
         int day = cal.get(GregorianCalendar.DAY_OF_MONTH)+next;
         int counter = 0;
-        List<String> dates = new ArrayList<>();
+
         while(counter<n){
             cal.set(GregorianCalendar.DAY_OF_MONTH, day);
             if(cal.get(GregorianCalendar.DAY_OF_WEEK)!=GregorianCalendar.SATURDAY
                     &&cal.get(GregorianCalendar.DAY_OF_WEEK)!=GregorianCalendar.SUNDAY){
                 Date date = cal.getTime();
-                if(!isDayFull(sdf.format(date))){
+                if(!isDayFull(sdf.format(date)))
+                {
                     System.out.println((counter+1)+". "+sdf.format(date));
-                    dates.add(sdf.format(date));}
-                counter++;}
-            day++;}
+                    dates.add(sdf.format(date));
+                }
+                counter++;
+            }
+            day++;
+        }
         return dates;
     }
 
+
+    final static String DATE_FORMAT = "yyyy-MM-dd";
+    public static boolean isDateValid(String date)
+    {
+        try {
+            DateFormat df = new SimpleDateFormat(DATE_FORMAT);
+            df.setLenient(false);
+            df.parse(date);
+            return true;
+        } catch (ParseException e) {
+            return false;
+        }
+    }
 }

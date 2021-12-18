@@ -21,12 +21,25 @@ public class VisitController extends Controller{
         }
     }
 
-
+    public String lookForFirstDose(String firstName,String lastName){
+        Visit visit = null;
+        String date = null;
+        List<Visit> visits = read();
+        for(Visit visit1:visits){
+            if(visit1.getFirstName().equals(firstName)
+                    &&visit1.getLastName().equals(lastName)){
+                visit = visit1;
+            }
+        }
+        if(visit != null){
+            date=visit.getDatetime().getDate();
+        }
+        return date;
+    }
     //File ///////////////////////////////////////////////
     public void addNewVisit(boolean withRDV,String firstName, String lastName, String dose,String date,String time){
         List<Visit> currentVisits = read();
         Visit visit = new Visit(withRDV,firstName,lastName,dose,date,time);
-        System.out.println(visit.getDatetime().getDate());
         currentVisits.add(visit);
         saveData(currentVisits);
     }

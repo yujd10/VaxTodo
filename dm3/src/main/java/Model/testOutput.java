@@ -2,13 +2,17 @@ package Model;
 
 import Controller.VisitController;
 
+import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
 public class testOutput {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
 //        Person person = new Person("123456789012","GG","QQ","1234567890","jjjjjjjj@jj.com","1999-09-09",false);
 //
 //        Form form = new Form(person,"2000-09-09",new Vaccine("Pfizer","123","123"),true,true,true,true,true,true);
@@ -29,7 +33,14 @@ public class testOutput {
 //        System.out.println(Calendar.periodsAvailable("2020-09-10").toString());;
 //        VisitController vc = new VisitController();
 //        vc.confirmerVisitSpontane("Jiadi","Yu");
-        Calendar cal = new Calendar();
-        cal.consultationOfCalendar(5);
-
+//        Calendar cal = new Calendar();
+//        cal.consultationOfCalendar(5);
+//        String date = "2021-12-17";
+//        String nextDate = "2021-12-19";
+//        SimpleDateFormat dtf =new SimpleDateFormat("yyyy-MM-dd");
+//        Date oldDate = dtf.parse(date);
+//        Date newDate = dtf.parse(nextDate);
+//        long diff = newDate.getTime() - oldDate.getTime();
+//        System.out.println(diff/ (1000*60*60*24));
+        Calendar.getDate1();
 }}

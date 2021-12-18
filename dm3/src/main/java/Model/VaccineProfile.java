@@ -3,7 +3,7 @@ package Model;
 import java.util.List;
 
 public class VaccineProfile {
-    private String id;
+    private Person person;
     private DateTime receivedDate;
     private Vaccine vaccine;
     private String codeQR;
@@ -11,8 +11,8 @@ public class VaccineProfile {
     public VaccineProfile() {
     }
 
-    public VaccineProfile(String id, DateTime receivedDate, Vaccine vaccine) {
-        this.id = id;
+    public VaccineProfile(Person person, DateTime receivedDate, Vaccine vaccine) {
+        this.person = person;
         this.receivedDate = receivedDate;
         this.vaccine = vaccine;
         this.codeQR = this.generateQR();
@@ -27,27 +27,16 @@ public class VaccineProfile {
     }
 
     public void sendProfil(){
-        Person person = null;
-//        List<Person> personList= person.readData();
-        person = person.search(this.id);
         System.out.println("- Name : "+ person.getFirstName() + " " + person.getLastName() + "\n" +
                             "- Date : " + this.receivedDate.getDate() + "\n" +
-                            "- Vaccinns reçu " + "\n" +
+                            "- Vaccinns received " + "\n" +
                             "--------to add things----------" +
-                            "- Code QR :" + this.codeQR);
+                            "- Code QR :" + this.codeQR +
+                            "is sent to "+person.getEmailAddress() +" ! ");
     }
 
     public String getCodeQR() {
         return codeQR;
-    }
-
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public DateTime getReceivedDate() {

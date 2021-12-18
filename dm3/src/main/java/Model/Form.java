@@ -15,18 +15,18 @@ public class Form{
     private Person visitor;
     private String visitDate;
     private Vaccine preferredVaccine;
+    private String numeroDeAssurance;
     private boolean isFirstDose;
     private boolean hasCovid;
     private boolean hasSymptom;
     private boolean hasAllergies;
-    private boolean hasCompleted;
     private boolean otherVaxTook;
 
     public String Form(Form form) {
         return form.toString();
     }
 
-    public Form(Person visitor, String visitDate, Vaccine preferredVaccine, boolean isFirstDose, boolean hasCovid, boolean hasSymptom, boolean hasAllergies, boolean hasCompleted, boolean otherVaxTook) {
+    public Form(Person visitor, String visitDate, Vaccine preferredVaccine,String numeroDeAssurance, boolean isFirstDose, boolean hasCovid, boolean hasSymptom, boolean hasAllergies, boolean otherVaxTook) {
         this.visitor = visitor;
         this.visitDate = visitDate;
         this.preferredVaccine = preferredVaccine;
@@ -34,8 +34,8 @@ public class Form{
         this.hasCovid = hasCovid;
         this.hasSymptom = hasSymptom;
         this.hasAllergies = hasAllergies;
-        this.hasCompleted = hasCompleted;
         this.otherVaxTook = otherVaxTook;
+        this.numeroDeAssurance = numeroDeAssurance;
     }
 
     public Form recoverForm(){return null;}
@@ -45,8 +45,6 @@ public class Form{
         currentForms.add(form);
         saveData(currentForms);
     }
-
-
     //File//////////////////////////////////////////////////
     public List<Form> read(){
         List<Form> results = new ArrayList<>();
@@ -83,7 +81,6 @@ public class Form{
                 ", hasCovid=" + hasCovid +
                 ", hasSymptom=" + hasSymptom +
                 ", hasAllergies=" + hasAllergies +
-                ", hasCompleted=" + hasCompleted +
                 ", otherVaxTook=" + otherVaxTook +
                 '}';
     }
@@ -138,15 +135,6 @@ public class Form{
     public void setHasAllergies(boolean hasAllergies) {
         this.hasAllergies = hasAllergies;
     }
-
-    public boolean isHasCompleted() {
-        return hasCompleted;
-    }
-
-    public void setHasCompleted(boolean hasCompleted) {
-        this.hasCompleted = hasCompleted;
-    }
-
 
     public boolean isOtherVaxTook() {
         return otherVaxTook;
