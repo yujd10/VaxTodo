@@ -1,6 +1,5 @@
 package Controller;
 
-import Model.Data;
 import Model.User;
 
 public class Controller {

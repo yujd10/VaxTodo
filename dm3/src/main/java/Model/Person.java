@@ -1,3 +1,6 @@
+/**
+ * @author Xiang Long Gao
+ */
 package Model;
 
 import org.json.simple.JSONArray;
@@ -26,7 +29,7 @@ public class Person {
     public Person(){
 
     }
-    public Person(String id, String firstName, String lastName, String phoneNumber, String emailAddress, String birthDate, boolean isVolunteer){
+    public Person(String id, String lastName, String firstName, String birthDate, String emailAddress, String phoneNumber, boolean isVolunteer){
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -71,6 +74,14 @@ public class Person {
                 '}';
     }
 
+    /**
+     * Cette function permet de trouver une personne qui soit bénévole ou visiteur par ses informations personnelles.
+     * L'information entré peut-être son nom complet, son courriel ou son numéro d'identification.
+     *
+     * @param info l'information de la personne cherchée. Peut-être son nom complet, son courriel ou son
+     *             numéro d'identification.
+     * @return  Retourne l'instance de la personne trouvé
+     */
     public Person search(String info){
         List<Person> currentPerson = readData();
         Person found = null;
@@ -98,6 +109,11 @@ public class Person {
         return found;
     }
 
+    /**
+     * Cette fonction permet de supprimer une personne de la base de donné en entrant son numéro de compte.
+     * @param id numéro de compte de la personne
+     * @throws ConcurrentModificationException
+     */
     public void delete(String id) throws ConcurrentModificationException {
         List<Person> currentPerson = readData();
         boolean found = false;
@@ -116,6 +132,13 @@ public class Person {
         }
     }
 
+    /**
+     * Cette fonction permet de modifier les donnés d'une personne dans la base de donnée.
+     * Le
+     * @param person
+     * @param choice
+     * @param info
+     */
     public void update(Person person, String choice, String info){
         String old;
         List<Person> currentPerson = readData();

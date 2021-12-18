@@ -19,7 +19,6 @@ public class EmployeeView extends View{
                         "- [3] Envoi courriel de suivi: Envoyez un courriel de suivi à un visiteur pour lui rappeler\n" +
                         "- [4] Calendrier: Consultation du calendrier et ajouter les visits/rendez-vous\n" +
                         "- [5] Traitement des visits: Confirmer les visits et Remplir les formulaire\n" +
-                        "- [6] Remplir questionnaire: Remplir le questionnaire pour avoir les informations personnelles du visiteur\n" +
                         "- [0] Quitter l'application");
         try {
             input = reader.readLine();
