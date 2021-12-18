@@ -35,6 +35,7 @@ public class VaccineProfile {
         return qrNumber;
     }
 
+
     public void sendProfil(){
         System.out.println("- Name : "+ person.getFirstName() + " " + person.getLastName() + "\n" +
                             "- Date : " + this.date + "\n" +
@@ -87,21 +88,33 @@ public class VaccineProfile {
     }
 
     public void addVaccine(Vaccine vaccine){
-        this.vaccines.add(vaccine);
+        List<VaccineProfile> vaccineProfiles = read();
+        Integer index = findProfile(this.person);
+        if(index.equals(null)){
+            System.out.println("Profile pas trouvé !");
+        }else {
+            this.vaccines.add(vaccine);
+            vaccineProfiles.set(index,this );
+            System.out.println("La deuxième dose de "+ vaccine.getName() + " pour "+person.getFirstName()+" "+person.getLastName() +" est ajouter dans le profile !");
+        }
+        saveData(vaccineProfiles);
     }
 
-    public static VaccineProfile findProfile(Person person){
+    public static Integer findProfile(Person person){
         List<VaccineProfile> currentProfils = read();
         VaccineProfile profile = null;
+        Integer index = null;
         for(VaccineProfile vaccineProfile:currentProfils){
-            if(vaccineProfile.getPerson().equals(person)){
+            if(vaccineProfile.getPerson().getFirstName().equals(person.getFirstName())
+                    &&vaccineProfile.getPerson().getLastName().equals(person.getLastName())){
                 profile=vaccineProfile;
+                index = currentProfils.indexOf(vaccineProfile);
             }
         }
-        if(profile==null){
+        if(index.equals(null)){
             System.out.println("profile not found");
         }
-        return profile;
+        return index;
     }
 
     public static void addProfile(VaccineProfile profile){

@@ -16,7 +16,7 @@ public class Calendar {
     private int endTime = 17;
 
     public List<String> consultationOfCalendar(int next){
-        List<String> periods =nextNDays(5,next);
+        List<String> periods =nextNDays(next);
         return periods;
     }
 
@@ -59,7 +59,7 @@ public class Calendar {
     }
 
 
-    public static List<String> nextNDays(int n,int next){
+    public static List<String> nextNDays(int next){
         List<String> dates = new ArrayList<>();
         java.util.Calendar cal = java.util.Calendar.getInstance();
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");

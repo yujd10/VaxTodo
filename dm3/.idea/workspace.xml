@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e8f0cfb4-7b82-4c82-b9ae-be06c4dcf2c6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form.json" beforeDir="false" afterPath="$PROJECT_DIR$/form.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Form.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Form.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/testOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/testOutput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Calendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Calendar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/VaccineProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/VaccineProfile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/EmployeeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/EmployeeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/survey.json" beforeDir="false" afterPath="$PROJECT_DIR$/survey.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +42,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="Application.App">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="testprototype2" />
@@ -58,19 +71,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -125,7 +125,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Model/Period.java</url>
-          <line>75</line>
+          <line>125</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -134,14 +134,14 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Model/testOutput.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="12" />
+          <url>file://$PROJECT_DIR$/src/main/java/Model/VaccineProfile.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/View/EmployeeView.java</url>
-          <line>301</line>
-          <option name="timeStamp" value="13" />
+          <url>file://$PROJECT_DIR$/src/main/java/Model/VaccineProfile.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Model/Period.java</url>
@@ -153,16 +153,16 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Controller/VisitController.java</url>
-          <line>39</line>
-          <properties class="Controller.VisitController" method="addNewVisit">
+          <line>74</line>
+          <properties class="Controller.VisitController">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Controller/VisitController.java</url>
-          <line>67</line>
-          <properties class="Controller.VisitController" method="findVisitByNumber">
+          <line>103</line>
+          <properties class="Controller.VisitController">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="11" />
