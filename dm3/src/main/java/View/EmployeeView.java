@@ -7,7 +7,6 @@ import Model.*;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -40,9 +39,6 @@ public class EmployeeView extends View{
         else if (input.trim().equals("4")){
             router.calendarPage(router);
         }
-//        else if (input.trim().equals("5")){
-//            router.visitPage(router);
-//        }
         else if (input.trim().equals("6")){
             router.surveyPage();
         }
@@ -74,7 +70,7 @@ public class EmployeeView extends View{
             router.managePerson(router,role);
         } else if (input.trim().equals("2")) {
             System.out.println("Entrer les informations du " + role + " en format de \n" +
-                    "numéro de compte; nom de famille; prénom; courriel; numéro de téléphone; date de naissance YYYY-MM-DD");
+                    "numéro de compte; nom de famille; prénom; courriel; date de naissance YYYY-MM-DD;numéro de téléphone;");
 
             try {
                 input = reader.readLine();
@@ -188,7 +184,6 @@ public class EmployeeView extends View{
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date todayDate = cal.getTime();
         String today = sdf.format(todayDate);
-//        System.out.println("Vous avez choisi : " + date +"\n"+" Choisir ce que vous voulez faire :");
         System.out.println( "- [1] Ajouter une rendez-vous(Visite non-spontané)\n"+
                 "- [2] Ajouter une visite\n"+
                 "- [3] Confirmer un rendez-vous(Visite non-spontané)\n"+

@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8f0cfb4-7b82-4c82-b9ae-be06c4dcf2c6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form.json" beforeDir="false" afterPath="$PROJECT_DIR$/form.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/person.json" beforeDir="false" afterPath="$PROJECT_DIR$/person.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/testOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/testOutput.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/EmployeeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/EmployeeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visits.json" beforeDir="false" afterPath="$PROJECT_DIR$/visits.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +39,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
-  <component name="RunManager" selected="Application.testOutput">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="testprototype2" />
@@ -70,8 +75,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.testOutput" />
         <item itemvalue="Application.App" />
+        <item itemvalue="Application.testOutput" />
       </list>
     </recent_temporary>
   </component>
@@ -87,7 +92,7 @@
       <workItem from="1639279370383" duration="3928000" />
       <workItem from="1639438926461" duration="11685000" />
       <workItem from="1639760277160" duration="3453000" />
-      <workItem from="1639774394044" duration="11269000" />
+      <workItem from="1639774394044" duration="12206000" />
     </task>
     <servers />
   </component>

@@ -41,6 +41,6 @@ public class testOutput {
 //        Date oldDate = dtf.parse(date);
 //        Date newDate = dtf.parse(nextDate);
 //        long diff = newDate.getTime() - oldDate.getTime();
-//        System.out.println(diff/ (1000*60*60*24));
-        Calendar.getDate1();
+////        System.out.println(diff/ (1000*60*60*24));
+//        Calendar.getDate1();
 }}
