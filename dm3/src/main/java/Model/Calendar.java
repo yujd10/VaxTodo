@@ -58,6 +58,7 @@ public class Calendar {
         return list;
     }
 
+
     public static List<String> nextNDays(int n,int next){
         List<String> dates = new ArrayList<>();
         java.util.Calendar cal = java.util.Calendar.getInstance();
@@ -79,7 +80,6 @@ public class Calendar {
         System.out.println(dates);
         return dates;
     }
-
 
     final static String DATE_FORMAT = "yyyy-MM-dd";
     public static boolean isDateValid(String date)

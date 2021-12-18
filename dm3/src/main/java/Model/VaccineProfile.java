@@ -1,21 +1,30 @@
 package Model;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 public class VaccineProfile {
     private Person person;
-    private DateTime receivedDate;
-    private Vaccine vaccine;
+    private String date;
+    private List<Vaccine> vaccines;
     private String codeQR;
 
     public VaccineProfile() {
     }
 
-    public VaccineProfile(Person person, DateTime receivedDate, Vaccine vaccine) {
+    public VaccineProfile(Person person, String date, List<Vaccine> vaccine) {
         this.person = person;
-        this.receivedDate = receivedDate;
-        this.vaccine = vaccine;
-        this.codeQR = this.generateQR();
+        this.date = date;
+        this.vaccines = vaccine;
+        this.codeQR = generateQR();
     }
 
     public String generateQR(){
@@ -28,30 +37,100 @@ public class VaccineProfile {
 
     public void sendProfil(){
         System.out.println("- Name : "+ person.getFirstName() + " " + person.getLastName() + "\n" +
-                            "- Date : " + this.receivedDate.getDate() + "\n" +
+                            "- Date : " + this.date + "\n" +
                             "- Vaccinns received " + "\n" +
-                            "--------to add things----------" +
-                            "- Code QR :" + this.codeQR +
+                            vaccines.toString() +
+                            "- Code QR :" + this.codeQR +"\n"+
                             "is sent to "+person.getEmailAddress() +" ! ");
     }
+
+
 
     public String getCodeQR() {
         return codeQR;
     }
 
-    public DateTime getReceivedDate() {
-        return receivedDate;
+    public String getDate() {
+        return date;
     }
 
-    public void setReceivedDate(DateTime receivedDate) {
-        this.receivedDate = receivedDate;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public Vaccine getVaccine() {
-        return vaccine;
+    public List<Vaccine> getVaccines() {
+        return vaccines;
     }
 
-    public void setVaccine(Vaccine vaccine) {
-        this.vaccine = vaccine;
+    public void setVaccines(List<Vaccine> vaccines) {
+        this.vaccines = vaccines;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public List<Vaccine> getVaccine() {
+        return vaccines;
+    }
+
+    public void setVaccine(List<Vaccine> vaccine) {
+        this.vaccines = vaccine;
+    }
+
+    public void setCodeQR(String codeQR) {
+        this.codeQR = codeQR;
+    }
+
+    public void addVaccine(Vaccine vaccine){
+        this.vaccines.add(vaccine);
+    }
+
+    public static VaccineProfile findProfile(Person person){
+        List<VaccineProfile> currentProfils = read();
+        VaccineProfile profile = null;
+        for(VaccineProfile vaccineProfile:currentProfils){
+            if(vaccineProfile.getPerson().equals(person)){
+                profile=vaccineProfile;
+            }
+        }
+        if(profile==null){
+            System.out.println("profile not found");
+        }
+        return profile;
+    }
+
+    public static void addProfile(VaccineProfile profile){
+        List<VaccineProfile> currentProfils = read();
+        currentProfils.add(profile);
+        saveData(currentProfils);
+    }
+
+    public static List<VaccineProfile> read(){
+        List<VaccineProfile> results = new ArrayList<>();
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get("survey.json"));
+            results = new Gson().fromJson(reader,new TypeToken<List<VaccineProfile>>() {}.getType());
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return results;
+    }
+
+    public static void saveData(List<VaccineProfile> currentlist){
+        Gson gson = new Gson();
+        try {
+            Writer writer = Files.newBufferedWriter(Paths.get("survey.json"));
+            writer.write(gson.toJson(currentlist));
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

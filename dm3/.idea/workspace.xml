@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8f0cfb4-7b82-4c82-b9ae-be06c4dcf2c6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/survey.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/person.json" beforeDir="false" afterPath="$PROJECT_DIR$/person.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Calendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Calendar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Period.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Period.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/testOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/testOutput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Form.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Form.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Router.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Vaccine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Vaccine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/VaccineProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/VaccineProfile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/EmployeeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/EmployeeView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +31,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -61,15 +63,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -94,6 +94,7 @@
       <workItem from="1639438926461" duration="11685000" />
       <workItem from="1639760277160" duration="3453000" />
       <workItem from="1639774394044" duration="12206000" />
+      <workItem from="1639795323640" duration="3853000" />
     </task>
     <servers />
   </component>
@@ -111,5 +112,8 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

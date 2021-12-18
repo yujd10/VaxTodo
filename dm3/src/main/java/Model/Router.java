@@ -43,13 +43,9 @@ public class Router {
         employeeView.showManagePersonMenu(router, choice);
     }
 
-    public void followUpPage(){
-
-    }
-
+    public void followUpPage(Router router){ employeeView.showSuiviMenu(router);}
     public void calendarPage(Router router){ employeeView.calendarOptionMenu(router);}
 
-//    public void visitPage(Router router){ employeeView.showVisitMenu(router);}
 
     public void makeAppointment(){
 

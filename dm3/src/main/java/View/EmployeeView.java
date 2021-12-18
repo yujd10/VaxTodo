@@ -7,6 +7,7 @@ import Model.*;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -18,10 +19,9 @@ public class EmployeeView extends View{
         System.out.println(
                 "- [1] Gestion des visiteurs: Accédez à la liste des visiteurs et ajouter, modifier ou supprimer un visiteur.\n" +
                 "- [2] Gestion des bénévoles: Accédez à la liste des bénévoles et ajouter, modifier ou supprimer un bénévole.\n" +
-                        "- [3] Envoi courriel de suivi: Envoyez un courriel de suivi à un visiteur pour lui rappeler\n" +
+                        "- [3] Suivi: Créer,Envoyer les profils de vaccination\n" +
                         "- [4] Calendrier: Consultation du calendrier et ajouter les visits/rendez-vous\n" +
-                        "- [5] Traitement des visits: Confirmer les visits et Remplir les formulaire\n" +
-                        "- [6] Remplir questionnaire: Remplir le questionnaire pour avoir les informations personnelles du visiteur\n" +
+//                        "- [5] Traitement des visits: Confirmer les visits et Remplir les formulaire\n" +
                         "- [0] Quitter l'application");
         try {
             input = reader.readLine();
@@ -34,13 +34,10 @@ public class EmployeeView extends View{
             router.managePerson(router, role);
         }
         else if (input.trim().equals("3")){
-            router.followUpPage();
+            router.followUpPage(router);
         }
         else if (input.trim().equals("4")){
             router.calendarPage(router);
-        }
-        else if (input.trim().equals("6")){
-            router.surveyPage();
         }
         else if(input.trim().equals(("0"))){
             exit();
@@ -425,7 +422,7 @@ public class EmployeeView extends View{
             if(input.trim().equals("Y") ||input.trim().equals("y") ){ proccededAutre= true;}
             else {proccededAutre = false;}
 
-            Vaccine vaccine = new Vaccine(vax,"123456","123456");
+            Vaccine vaccine = new Vaccine(vax);
             Form form = new Form(person,today,vaccine,numeroDeAssurance,ifFirst,covided,symptom,allergies,proccededAutre);
             form.addNewForm(form);
 
@@ -507,6 +504,73 @@ public class EmployeeView extends View{
                     break;
                 }
             }
+        }
+    }
+
+    public void showSuiviMenu(Router router){
+        System.out.println( "- [1] Ajouter une Profil de vaccine(et la premier dose)\n"+
+                "- [2] Ajouter la deuxieme dose\n"+
+                "- [3] Envoyer le rapport de vaccination\n"+
+                "- [0] Retourner au menu principale\n");
+        try {
+            input = reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if(input.trim().equals("1")){
+            Form form = new Form();
+            System.out.println("Entrer la date que vous souhaitez de chercher yyyy-MM-dd");
+            try {
+                input = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String date = input.trim();
+            List<Form> forms = form.formOfADay(date);
+            if(forms.isEmpty()){showSuiviMenu(router);}
+            System.out.println("Chosir le forme a qui vous voulez ajouter un profil");
+            try {
+                input = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            int index = Integer.parseInt(input.trim());
+            form = forms.get(index);
+            Person person = form.getVisitor();
+            Vaccine vaccine = form.getPreferredVaccine();
+            List<Vaccine> vaccines = new ArrayList<>();
+            vaccines.add(vaccine);
+            VaccineProfile vaccineProfile = new VaccineProfile(person,date,vaccines);
+            vaccineProfile.addProfile(vaccineProfile);
+            System.out.println("Le profile de vaccine pour "+person.getFirstName()+person.getLastName()+" est genere! ");
+            showSuiviMenu(router);
+        }
+        else if(input.trim().equals("2")){}
+        else if(input.trim().equals("3")){
+            Form form = new Form();
+            System.out.println("Entrer la date que vous souhaitez de chercher yyyy-MM-dd");
+            try {
+                input = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String date = input.trim();
+
+            List<VaccineProfile> profiles = VaccineProfile.read();
+            if(profiles.isEmpty()){showSuiviMenu(router);}
+            System.out.println("Chosir la personne a qui vous voulez envoyer le profile");
+            System.out.println(profiles);
+            try {
+                input = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            int index = Integer.parseInt(input.trim());
+            VaccineProfile profile = profiles.get(index);
+            profile.sendProfil();
+        }
+        else if(input.trim().equals("0")){
+            showEmployeeMenu(router);
         }
     }
 

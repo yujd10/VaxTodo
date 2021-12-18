@@ -26,7 +26,10 @@ public class Form{
         return form.toString();
     }
 
-    public Form(Person visitor, String visitDate, Vaccine preferredVaccine,String numeroDeAssurance, boolean isFirstDose, boolean hasCovid, boolean hasSymptom, boolean hasAllergies, boolean otherVaxTook) {
+    public Form() {
+    }
+
+    public Form(Person visitor, String visitDate, Vaccine preferredVaccine, String numeroDeAssurance, boolean isFirstDose, boolean hasCovid, boolean hasSymptom, boolean hasAllergies, boolean otherVaxTook) {
         this.visitor = visitor;
         this.visitDate = visitDate;
         this.preferredVaccine = preferredVaccine;
@@ -39,6 +42,22 @@ public class Form{
     }
 
     public Form recoverForm(){return null;}
+
+    public List<Form> formOfADay(String date){
+        List<Form> currentForms=read();
+        List<Form> formsTargeted = new ArrayList<>();
+        for(Form form:currentForms){
+            if(form.getVisitDate().equals(date)){
+                formsTargeted.add(form);
+                System.out.println(form.toString()+"\n");
+            }
+        }
+        if(formsTargeted.isEmpty()){
+            System.out.println("Pas de formes pour ce date !");
+        }
+
+        return formsTargeted;
+    }
 
     public void addNewForm(Form form){
         List<Form> currentForms = read();

@@ -8,10 +8,27 @@ public class Vaccine {
     public Vaccine() {
     }
 
-    public Vaccine(String name, String code, String lot) {
+    public Vaccine(String name) {
         this.name = name;
-        this.code = code;
-        this.lot = lot;
+        this.code = generateQR();
+        this.lot = "FD3982";
+    }
+
+    public String generateQR(){
+        String qrNumber = "";
+        for(int i = 0; i < 24; i++) {
+            qrNumber += Integer.toString((int) Math.floor(Math.random() * 10));
+        }
+        return qrNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Vaccine{" +
+                "Vaccine :" + name + '\'' +
+                ", code='" + code + '\'' +
+                ", lot='" + lot + '\'' +
+                '}';
     }
 
     public String getName() {
