@@ -2,6 +2,7 @@ package View;
 import Controller.PersonController;
 import Controller.VisitController;
 import Model.*;
+import com.sun.xml.internal.bind.v2.TODO;
 
 
 import java.io.IOException;
@@ -21,7 +22,6 @@ public class EmployeeView extends View{
                 "- [2] Gestion des bénévoles: Accédez à la liste des bénévoles et ajouter, modifier ou supprimer un bénévole.\n" +
                         "- [3] Suivi: Créer,Envoyer les profils de vaccination\n" +
                         "- [4] Calendrier: Consultation du calendrier et ajouter les visits/rendez-vous\n" +
-//                        "- [5] Traitement des visits: Confirmer les visits et Remplir les formulaire\n" +
                         "- [0] Quitter l'application");
         try {
             input = reader.readLine();
@@ -167,11 +167,6 @@ public class EmployeeView extends View{
         else {
             router.employeeMain(router);
         }
-    }
-
-    public void showCalendarMenu(Router router){
-
-//        calendarOptionMenu(router, date);
     }
 
     public void calendarOptionMenu(Router router)  {
@@ -467,7 +462,7 @@ public class EmployeeView extends View{
             calendarOptionMenu(router);
         }
         else if (input.trim().equals("4")){
-
+            //TODO Récupérer et imprimer un formulaire d'identification
         }
         else if (input.trim().equals("5")){
             System.out.println("Entrez une date sous format yyyy-MM-dd ");
@@ -515,6 +510,9 @@ public class EmployeeView extends View{
                 }
             }
             calendarOptionMenu(router);
+        }
+        else if(input.trim().equals("7")){
+            //TODO Envoyer les　notifications de rappel aux patients
         }
         else if(input.trim().equals("0")){
             showEmployeeMenu(router);
@@ -601,9 +599,9 @@ public class EmployeeView extends View{
             List<VaccineProfile> profiles = VaccineProfile.read();
             if(profiles.isEmpty()){showSuiviMenu(router);}
             System.out.println("Chosir la personne a qui vous voulez envoyer le profile");
-            for(VaccineProfile vaccineProfile:profiles){
-                System.out.println(vaccineProfile.getPerson().getFirstName()+" "+
-                        vaccineProfile.getPerson().getLastName()+" "+ vaccineProfile.getPerson().getEmailAddress() +"\n");
+            for(int i = 0; i < profiles.size(); i++){
+                System.out.println(i+1 +". "+ profiles.get(i).getPerson().getFirstName()+" "+
+                        profiles.get(i).getPerson().getLastName()+" "+ profiles.get(i).getPerson().getEmailAddress() +"\n");
             }
             try {
                 input = reader.readLine();
@@ -611,7 +609,7 @@ public class EmployeeView extends View{
                 e.printStackTrace();
             }
             int index = Integer.parseInt(input.trim());
-            VaccineProfile profile = profiles.get(index);
+            VaccineProfile profile = profiles.get(index-1);
             profile.sendProfil();
             showSuiviMenu(router);
         }
