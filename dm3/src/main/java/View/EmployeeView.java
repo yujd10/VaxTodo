@@ -252,12 +252,8 @@ public class EmployeeView extends View{
                 e.printStackTrace();
             }
             String dose = input.trim();
-            if(dose.equals("1")){
-            period.addVisitAvecRDV(firstName,lastName,dose);}
-            else {
-                String firstDose =vc.lookForFirstDose(firstName,lastName);
 
-            }
+            period.addVisitAvecRDV(firstName,lastName,dose);
         }
         else if (input.trim().equals("2")){
             String date = null;
