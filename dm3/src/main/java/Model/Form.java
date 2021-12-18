@@ -120,6 +120,18 @@ public class Form{
                 '}';
     }
 
+    public void change(boolean isFirstDose,String visitDate){
+        List<Form> forms = read();
+        for(Form form:forms){
+            if(form.getVisitor().getFirstName().equals(visitor.getFirstName())
+                    &&form.getVisitor().getLastName().equals(visitor.getLastName())){
+                form.setVisitDate(visitDate);
+                form.setFirstDose(isFirstDose);
+                forms.set(forms.indexOf(form), form);
+            }
+        }
+        saveData(forms);
+    }
 
     //Getters and Setters
 
@@ -136,15 +148,12 @@ public class Form{
     }
 
     public void setVisitDate(String visitDate) {
-        
+        this.visitDate = visitDate;
     }
 
-    public boolean isFirstDose() {
-        return isFirstDose;
-    }
 
     public void setFirstDose(boolean firstDose) {
-
+        isFirstDose = firstDose;
     }
 
     public boolean isHasCovid() {

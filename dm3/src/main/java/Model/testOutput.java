@@ -45,7 +45,11 @@ public class testOutput {
 //        Calendar.getDate1();
 //        Model.Calendar.nextNDays(5,30);
 //        System.out.println(cal.get(Calendar.DAY_OF_WEEK));
-        VisitController vc = new VisitController();
-        Visit visit = new Visit();
-        visit = vc.findVisitByNumber(316640);
+//        VisitController vc = new VisitController();
+//        Visit visit = new Visit();
+//        visit = vc.findVisitByNumber(316640);
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        System.out.println(list.get(0));
+        list.get(0);
 }}

@@ -303,8 +303,7 @@ public class EmployeeView extends View{
                     Form form = new Form();
                     form = form.findForm(visit.getFirstName(), visit.getLastName());
                     if (form != null) {
-                        form.setFirstDose(false);
-                        form.setVisitDate(visit.getDatetime().getDate());
+                        form.change(false,visit.getDatetime().getDate());
                     }
                 }
             }else {
@@ -328,8 +327,7 @@ public class EmployeeView extends View{
                     Form form = new Form();
                     form = form.findForm(visit.getFirstName(), visit.getLastName());
                     if (form != null) {
-                        form.setFirstDose(false);
-                        form.setVisitDate(visit.getDatetime().getDate());
+                        form.change(false,visit.getDatetime().getDate());
                     }
                 }
                 calendarOptionMenu(router);
