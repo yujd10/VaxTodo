@@ -62,13 +62,13 @@ public class Period {
         String time = Integer.toString(this.start);
         String type = null;
         if(dose.equals("1")){
-            if(!spontanee) {
-                   vc.addNewVisit(false, firstName, lastName, dose, date, time);
-                   type = "Visite spontanee ";
+            if(spontanee) {
+                   vc.addNewVisit(true, firstName, lastName, dose, date, time);
+                   type = "Rendez-vous ";
             }
             else {
-                vc.addNewVisit(true, firstName, lastName, dose, date, time);
-                type = "Rendez-vous ";
+                vc.addNewVisit(false, firstName, lastName, dose, date, time);
+                type = "Visite spontanée ";
             }
             System.out.println(type+firstName+" "+lastName +" de "+ dose +"a"+ date+" "+time +" dose est ajouter avec succes !");
         }
@@ -91,7 +91,7 @@ public class Period {
                     System.out.println("SVP faite la première dose d‘abord !");
                 }
             }
-            else if(!spontanee) {
+            else if(spontanee) {
                 Visit firstVisit = vc.findVisit(firstName,lastName);
                 String oldDate = firstVisit.getDatetime().getDate();
                 if(firstVisit!=null) {

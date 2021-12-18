@@ -22,15 +22,15 @@ public class Calendar {
 
     public List<Period> getAvailablePeriods(DateTime from,DateTime to){return null;}
 
-    public void sendNotification(DateTime dateTime){
+    public void sendNotification(String date){
         VisitController vc = new VisitController();
-        Person person = null;
+        Person person = new Person();
         List<Visit> visits = vc.read();
         for(Visit visit:visits){
-            if(visit.isWithRDV() && visit.getDatetime().getDate().equals(dateTime.getDate())){
+            if(visit.isWithRDV() && visit.getDatetime().getDate().equals(date)){
                 person = person.search(visit.getFirstName()+":"+visit.getLastName());
                 String email = person.getEmailAddress();
-                System.out.println("Rappel for "+visit.getFirstName()+" "+visit.getLastName() + " at " +dateTime.getDate() + " is send to email address :" + email +" ! ");
+                System.out.println("Rappel for "+visit.getFirstName()+" "+visit.getLastName() + " at " +date + " is send to email address :" + email +" ! ");
             }
         }
     }

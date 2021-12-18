@@ -9,6 +9,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.Calendar;
 
 public class testOutput {
     public static void main(String[] args) throws ParseException {
@@ -37,7 +38,13 @@ public class testOutput {
 //        cal.consultationOfCalendar(5);
 //        String date = "2021-12-17";
 //        String nextDate = "2021-12-19";
-//        SimpleDateFormat dtf =new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dtf =new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+        String today = dtf.format(calendar.getTime());
+        System.out.println(today);
+        calendar.add(Calendar.DATE,1);
+        String today1 = dtf.format(calendar.getTime());
+        System.out.println(today1);
 //        Date oldDate = dtf.parse(date);
 //        Date newDate = dtf.parse(nextDate);
 //        long diff = newDate.getTime() - oldDate.getTime();
@@ -48,8 +55,8 @@ public class testOutput {
 //        VisitController vc = new VisitController();
 //        Visit visit = new Visit();
 //        visit = vc.findVisitByNumber(316640);
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        System.out.println(list.get(0));
-        list.get(0);
+//        List<Integer> list = new ArrayList<>();
+//        list.add(1);
+//        System.out.println(list.get(0));
+//        list.get(0);
 }}

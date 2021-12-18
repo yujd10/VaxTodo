@@ -181,11 +181,15 @@ public class EmployeeView extends View{
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date todayDate = cal.getTime();
         String today = sdf.format(todayDate);
+        cal.add(java.util.Calendar.DATE,1);
+        String tommorow = sdf.format(cal.getTime());
+        cal.add(java.util.Calendar.DATE,1);
+        String afterTommorow = sdf.format(cal.getTime());
         System.out.println(
                 "- [1] Ajouter une visite\n"+
                 "- [2] Confirmer une visite\n"+
                 "- [3] Remplir une formulaire\n"+
-                "- [4] Récupérer et imprimer un formulaire d'identification-\n"+
+                "- [4] Récupérer et imprimer un formulaire\n"+
                 "- [5] Consulter les Periods libres\n"+
                 "- [6] Consulter les cinq prochaines jours disponible\n"+
                 "- [7] Envoyer les　notifications de rappel aux patients\n"+
@@ -332,8 +336,8 @@ public class EmployeeView extends View{
                         form.change(false,visit.getDatetime().getDate());
                     }
                 }
-                calendarOptionMenu(router);
             }
+            calendarOptionMenu(router);
         }
         else if (input.trim().equals("3")){
             System.out.println("Est-ce que vous avez le numéro de compte ? Y/N");
@@ -460,14 +464,30 @@ public class EmployeeView extends View{
                     }
                     Integer time = days.get(days.indexOf(Integer.parseInt(input.trim())));
                     Period secondPeriod = new Period(date,time);
-                    secondPeriod.addVisit(person.getFirstName(), person.getLastName(),"2",true);
+                    secondPeriod.addVisit(person.getFirstName(), person.getLastName(),"2",false);
                 }
             }
             System.out.println(form.toString());
             calendarOptionMenu(router);
         }
         else if (input.trim().equals("4")){
+            String date1 = today;
 
+            Form form = new Form();
+            List<Form> forms1 = form.formOfADay(date1);
+
+            for(Form form1:forms1){
+                System.out.println(form1.toString()+"\n");
+            }
+            System.out.println("Choisir une forme pour envoyer le notification :");
+            try {
+                input = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            int choix = Integer.parseInt(input.trim());
+            form = forms1.get(choix);
+            System.out.println(form.toString());
         }
         else if (input.trim().equals("5")){
             System.out.println("Entrez une date sous format yyyy-MM-dd ");
@@ -515,6 +535,10 @@ public class EmployeeView extends View{
                 }
             }
             calendarOptionMenu(router);
+        }
+        else if(input.trim().equals("7")){
+            calendar.sendNotification(tommorow);
+            calendar.sendNotification(afterTommorow);
         }
         else if(input.trim().equals("0")){
             showEmployeeMenu(router);

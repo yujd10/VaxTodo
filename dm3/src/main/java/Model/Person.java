@@ -26,7 +26,7 @@ public class Person {
     public Person(){
 
     }
-    public Person(String id,  String lastName,String firstName, String birthDate, String emailAddress, String phoneNumber, boolean isVolunteer){
+    public Person(String id, String lastName, String firstName, String birthDate, String emailAddress, String phoneNumber, boolean isVolunteer){
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -96,7 +96,7 @@ public class Person {
         if (found == null) {
             System.out.println("Visitor not found");
         } else {
-            System.out.println("name " + found.lastName+" "+found.firstName+"\n");
+//            System.out.println("name " + found.lastName+" "+found.firstName+"\n");
         }
         return found;
     }
