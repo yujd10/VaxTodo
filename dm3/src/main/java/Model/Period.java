@@ -1,19 +1,6 @@
 package Model;
 
 import Controller.VisitController;
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.reflect.TypeToken;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Reader;
-import java.io.Writer;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Period {
@@ -28,6 +15,10 @@ public class Period {
         this.start = start;
     }
 
+    /**
+     * Fonction permet de vérifier si ce period lui-même est rempli
+     * @return le boolean si ce period est rempli
+     */
     public boolean isFull(){
         int counter = 0;
        Boolean filled = false;
@@ -39,11 +30,15 @@ public class Period {
                counter ++;
            }
        }
-
        if(counter >=15) { filled = true; }
        return filled;
     }
 
+    /**
+     * Supprimer une particule visite qui existe déjà dans le database
+     * @param visit la visite que vous voulez
+     * @return La visite qui est supprimée
+     */
     public Visit removeVisit(Visit visit){
         VisitController vc = new VisitController();
         List<Visit> visits = vc.read();
@@ -56,23 +51,30 @@ public class Period {
         return visit;
     }
 
+    /**
+     * Fonction permet d'ajouter une visite vers le database(json) en précisant son prénom, son nom, son dose et
+     * si cela est une visite spontanée, puis si cela est pour la deuxième dose, on vérifie si la date est plus
+     * que 30 jours plus tard que la première visite.
+     * @param firstName prénom
+     * @param lastName nom
+     * @param dose dose
+     * @param spontanee si elle est une visite spontanée
+     */
     public void addVisit(String firstName,String lastName,String dose,boolean spontanee){
         VisitController vc = new VisitController();
         String date = this.date;
         String time = Integer.toString(this.start);
         String type = null;
-        Visit visit = null;
         if(dose.equals("1")){
-            if(spontanee) {
-                  visit =  vc.addNewVisit(true, firstName, lastName, dose, date, time);
+            if(!spontanee) {
+                   vc.addNewVisit(true, firstName, lastName, dose, date, time);
                    type = "Rendez-vous ";
             }
             else {
-               visit =  vc.addNewVisit(false, firstName, lastName, dose, date, time);
+                vc.addNewVisit(false, firstName, lastName, dose, date, time);
                 type = "Visite spontanée ";
             }
-            System.out.println(type+"pour "+firstName+" "+lastName +" du dose "+dose+" le "+ date+" à "+time +"heure est ajouter avec succès !");
-            System.out.println("Le numéro de réservation est " + visit.getReservationNumber() );
+            System.out.println(type+firstName+" "+lastName +" de "+ dose +"a"+ date+" "+time +" dose est ajouter avec succes !");
         }
 
         else if(dose.equals("2")){
@@ -81,31 +83,29 @@ public class Period {
                 String oldDate = firstVisit.getDatetime().getDate();
                 if(firstVisit!=null){
                     if(Calendar.getDayCount(oldDate,date)>=30) {
-                        visit = vc.addNewVisit(true, firstName, lastName, dose, date, time);
+                        vc.addNewVisit(true, firstName, lastName, dose, date, time);
                         type = "Rendez-vous ";
-                        System.out.println(type+"pour "+firstName+" "+lastName +" de "+ dose +" dose le"+ date+" à "+time +"heure est ajouter avec succès !");
-                        System.out.println("Le numéro de réservation est " + visit.getReservationNumber() );
                     }
                     else {
                         System.out.println("Le temps entre les deux doit etre plus que 1 mois");
                     }
+                    System.out.println(type+firstName+" "+lastName +" de "+ dose +"a"+ date+" "+time +" dose est ajouter avec succes !");
                 }
                 else {
                     System.out.println("SVP faite la première dose d‘abord !");
                 }
             }
-            else if(spontanee) {
+            else {
                 Visit firstVisit = vc.findVisit(firstName,lastName);
                 String oldDate = firstVisit.getDatetime().getDate();
                 if(firstVisit!=null) {
                     if (Calendar.getDayCount(oldDate, date) >= 30) {
-                        visit = vc.addNewVisit(false, firstName, lastName, dose, date, time);
+                        vc.addNewVisit(false, firstName, lastName, dose, date, time);
                         type = "Visite spontanee ";
                     } else {
                         System.out.println("Le temps entre les deux doit etre plus que 1 mois");
                     }
-                    System.out.println(type+"pour "+firstName+" "+lastName +" de "+ dose +" dose le"+ date+" à "+time +"heure est ajouter avec succès !");
-                    System.out.println("Le numéro de réservation est " + visit.getReservationNumber() );
+                    System.out.println(type+firstName+" "+lastName +" de "+ dose +"a"+ date+" "+time +" dose est ajouter avec succes !");
                 }
                 else {
                     System.out.println("SVP faite la première dose d‘abord !");
@@ -115,6 +115,8 @@ public class Period {
 
     }
 
+
+    //Getters and Setters
     public String getDate() {
         return date;
     }
