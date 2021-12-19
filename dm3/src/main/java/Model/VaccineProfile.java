@@ -24,9 +24,14 @@ public class VaccineProfile {
         this.person = person;
         this.date = date;
         this.vaccines = vaccine;
+        //code QR est généré automatiquement en créant l'Objet de Profile
         this.codeQR = generateQR();
     }
 
+    /**
+     * Génerer une code QR pour le Vaccine Profile sous forme de 26 digits
+     * @return Le code QR généré
+     */
     public String generateQR(){
         String qrNumber = "";
         for(int i = 0; i < 26; i++) {
@@ -35,7 +40,10 @@ public class VaccineProfile {
         return qrNumber;
     }
 
-
+    /**
+     * Fonction permet de simuler l'action d'envoyer un profil de Vaccination au visiteur
+     * en imprimant les informations du profil
+     */
     public void sendProfil(){
         System.out.println("- Name : "+ person.getFirstName() + " " + person.getLastName() + "\n" +
                             "- Date : " + this.date + "\n" +
@@ -45,48 +53,10 @@ public class VaccineProfile {
                             "is sent to "+person.getEmailAddress() +" ! ");
     }
 
-
-
-    public String getCodeQR() {
-        return codeQR;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public List<Vaccine> getVaccines() {
-        return vaccines;
-    }
-
-    public void setVaccines(List<Vaccine> vaccines) {
-        this.vaccines = vaccines;
-    }
-
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
-
-    public List<Vaccine> getVaccine() {
-        return vaccines;
-    }
-
-    public void setVaccine(List<Vaccine> vaccine) {
-        this.vaccines = vaccine;
-    }
-
-    public void setCodeQR(String codeQR) {
-        this.codeQR = codeQR;
-    }
-
+    /**
+     *
+     * @param vaccine
+     */
     public void addVaccine(Vaccine vaccine){
         List<VaccineProfile> vaccineProfiles = read();
         Integer index = findProfile(this.person);
@@ -145,5 +115,45 @@ public class VaccineProfile {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getCodeQR() {
+        return codeQR;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public List<Vaccine> getVaccines() {
+        return vaccines;
+    }
+
+    public void setVaccines(List<Vaccine> vaccines) {
+        this.vaccines = vaccines;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public List<Vaccine> getVaccine() {
+        return vaccines;
+    }
+
+    public void setVaccine(List<Vaccine> vaccine) {
+        this.vaccines = vaccine;
+    }
+
+    public void setCodeQR(String codeQR) {
+        this.codeQR = codeQR;
     }
 }

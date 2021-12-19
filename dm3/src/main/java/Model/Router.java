@@ -54,6 +54,7 @@ public class Router {
     public void showVisitorList(Router router){
         volunteerView.showVisitorList(router);
     }
+
     public void makeAppointment(Router router){volunteerView.volunteerMakeAppointment(router);}
 
 
