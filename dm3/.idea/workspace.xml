@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8f0cfb4-7b82-4c82-b9ae-be06c4dcf2c6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/Model/PersonTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Router.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/EmployeeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/EmployeeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LoginView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/VolunteerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/VolunteerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testprototype2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/testprototype2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/person.json" beforeDir="false" afterPath="$PROJECT_DIR$/person.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Person.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -74,7 +70,7 @@
       <recent name="Model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="JUnit.PersonTest.testCreatePersonFail">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -123,8 +119,42 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PersonTest.testCreatePerson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="testprototype2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.PersonTest" />
+      <option name="METHOD_NAME" value="testCreatePerson" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonTest.testCreatePersonFail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="testprototype2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.PersonTest" />
+      <option name="METHOD_NAME" value="testCreatePersonFail" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PersonTest.testCreatePersonFail" />
+        <item itemvalue="JUnit.PersonTest.testCreatePerson" />
         <item itemvalue="Application.App" />
         <item itemvalue="JUnit.CalendarTest" />
         <item itemvalue="Application.testOutput" />
@@ -150,7 +180,7 @@
       <workItem from="1639802405596" duration="6296000" />
       <workItem from="1639879894968" duration="7019000" />
       <workItem from="1639890301236" duration="1818000" />
-      <workItem from="1639899735743" duration="1534000" />
+      <workItem from="1639899735743" duration="5231000" />
     </task>
     <servers />
   </component>

@@ -193,7 +193,7 @@ public class Person {
      * @param isVolunteer Si la personne est un bénévole ou une visiteur.
      * @param address l'adresse de la personne
      */
-    public void createPerson(String[] personInfo, boolean isVolunteer, String address){
+    public boolean createPerson(String[] personInfo, boolean isVolunteer, String address){
         List<Person> currentPerson = readData();
         Person person = new Person(personInfo[0], personInfo[1], personInfo[2], personInfo[3],personInfo[4],personInfo[5],isVolunteer);
         String[] address_Split = address.split(";");
@@ -201,6 +201,7 @@ public class Person {
         currentPerson.add(person);
         save(currentPerson);
         System.out.println((person.isVolunteer ? "Volunteer ":"Visitor ")+ person.firstName+" "+person.lastName + " added");
+        return true;
     }
 
     /**
