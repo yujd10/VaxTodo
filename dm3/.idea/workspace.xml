@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8f0cfb4-7b82-4c82-b9ae-be06c4dcf2c6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Visit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Visit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/person.json" beforeDir="false" afterPath="$PROJECT_DIR$/person.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/VisitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/VisitController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Model/PersonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Model/PersonTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +70,7 @@
       <recent name="Model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="JUnit.PersonTest.testCreatePersonFail">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -101,19 +104,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testOutput" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Model.testOutput" />
-      <module name="testprototype2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CalendarTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="testprototype2" />
       <extension name="coverage">
@@ -129,12 +119,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PersonTest.testCreatePerson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="testprototype2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.PersonTest" />
+      <option name="METHOD_NAME" value="testCreatePerson" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonTest.testCreatePersonFail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="testprototype2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.PersonTest" />
+      <option name="METHOD_NAME" value="testCreatePersonFail" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PersonTest.testCreatePersonFail" />
+        <item itemvalue="JUnit.PersonTest.testCreatePerson" />
         <item itemvalue="Application.App" />
         <item itemvalue="Application.test" />
         <item itemvalue="JUnit.CalendarTest" />
-        <item itemvalue="Application.testOutput" />
       </list>
     </recent_temporary>
   </component>

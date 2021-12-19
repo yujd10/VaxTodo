@@ -136,9 +136,13 @@ public class VisitController extends Controller{
                 index =visits.indexOf(visit);
                 visits.set(index,visit.confirm());
             }
+            if(visit.getReservationNumber()!=null&&visit.getReservationNumber() == reserverNumber&&visit.isConfirmed()){
+                System.out.println("La visite est déjà confirmée.");
+                index = -1;
+            }
         }
         if(index == null){
-            System.out.println("Visit n'existe pas ! ");
+            System.out.println("La visite n'existe pas ! ");
         }
         saveData(visits);
     }
