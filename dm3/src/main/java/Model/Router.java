@@ -1,3 +1,6 @@
+/**
+ * @author Xiang Long Gao
+ */
 package Model;
 
 import View.LoginView;
@@ -16,6 +19,10 @@ public class Router {
     public void init(){
         loginPage();
     }
+
+    /**
+     *
+     */
 
     public void loginPage(){
         User user = loginView.loginPage();

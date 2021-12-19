@@ -1,3 +1,6 @@
+/**
+ * @author Xiang Long Gao
+ */
 package Model;
 
 import org.json.simple.JSONArray;

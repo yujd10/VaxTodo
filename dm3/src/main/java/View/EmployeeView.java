@@ -448,17 +448,17 @@ public class EmployeeView extends View{
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    String date = datesAvailable.get(Integer.parseInt(input.trim()));
+                    String date = datesAvailable.get(Integer.parseInt(input.trim())-1);
 
                     System.out.println("Les temps disponibles pour ce date :");
-                    List<Integer> days =Calendar.periodsAvailable(date);
-                    System.out.println(days);
+                    List<Integer> periodsAvailable = Calendar.periodsAvailable(date);
+                    System.out.println(periodsAvailable);
                     try {
                         input = reader.readLine();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    Integer time = days.get(days.indexOf(Integer.parseInt(input.trim())));
+                    Integer time = periodsAvailable.get(periodsAvailable.indexOf(input.trim()));
                     Period secondPeriod = new Period(date,time);
                     secondPeriod.addVisit(person.getFirstName(), person.getLastName(),"2",false);
                 }
@@ -471,18 +471,20 @@ public class EmployeeView extends View{
 
             Form form = new Form();
             List<Form> forms1 = form.formOfADay(date1);
-
-            for(Form form1:forms1){
-                System.out.println(form1.toString()+"\n");
+            if(forms1.isEmpty()){
+                router.calendarPage(router);
             }
-            System.out.println("Choisir une forme pour envoyer le notification :");
+            for(int i = 0; i < forms1.size(); i++){
+                System.out.println(i+1 + ". "+forms1.get(i).toString()+"\n");
+            }
+            System.out.println("Choisir une forme pour imprimer :");
             try {
                 input = reader.readLine();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             int choix = Integer.parseInt(input.trim());
-            form = forms1.get(choix);
+            form = forms1.get(choix-1);
             System.out.println(form.toString());
         }
         else if (input.trim().equals("5")){
@@ -521,12 +523,6 @@ public class EmployeeView extends View{
                     }
                 }
                 else if((input.trim().equals("N")||input.trim().equals("n"))){
-                    System.out.printf("Chosir un jour que vous voulez traiter : ");
-                    try {
-                        input = reader.readLine();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
                     break;
                 }
             }
@@ -535,6 +531,7 @@ public class EmployeeView extends View{
         else if(input.trim().equals("7")){
             adminController.sendReminder(tommorow);
             adminController.sendReminder(afterTommorow);
+            router.calendarPage(router);
         }
         else if(input.trim().equals("0")){
             router.employeeMain(router);

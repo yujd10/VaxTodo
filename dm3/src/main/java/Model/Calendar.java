@@ -26,11 +26,17 @@ public class Calendar {
         VisitController vc = new VisitController();
         Person person = new Person();
         List<Visit> visits = vc.read();
+        if(visits.size() == 0){
+            System.out.println("Pas de visite trouvée.");
+            return;
+        }
         for(Visit visit:visits){
             if(visit.isWithRDV() && visit.getDatetime().getDate().equals(date)){
                 person = person.search(visit.getFirstName()+":"+visit.getLastName());
-                String email = person.getEmailAddress();
-                System.out.println("Rappel for "+visit.getFirstName()+" "+visit.getLastName() + " at " +date + " is send to email address :" + email +" ! ");
+                if(person != null){
+                    String email = person.getEmailAddress();
+                    System.out.println("Rappel for "+visit.getFirstName()+" "+visit.getLastName() + " at " +date + " is send to email address :" + email +" ! ");
+                }
             }
         }
     }
@@ -77,7 +83,9 @@ public class Calendar {
             counter++;
             }
         }
-        System.out.println(dates);
+        for(int i = 0; i < dates.size(); i++){
+            System.out.println(i+1 + ". " +dates.get(i).toString());
+        }
         return dates;
     }
 
