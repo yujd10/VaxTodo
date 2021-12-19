@@ -122,7 +122,7 @@ public class VolunteerView extends View{
                 break;
             }
         }
-        periodeController.addVisit(time,firstName,lastName,dose,visitePlanifiee);
+        periodeController.addVisit(date,time,firstName,lastName,dose,visitePlanifiee);
         router.volunteerMain(router);
     }
 }

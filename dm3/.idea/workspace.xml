@@ -8,14 +8,13 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/form.json" beforeDir="false" afterPath="$PROJECT_DIR$/form.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/person.json" beforeDir="false" afterPath="$PROJECT_DIR$/person.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/PeriodeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/PeriodeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/VisitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/VisitController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Calendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Calendar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Data.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Router.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Period.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Period.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/EmployeeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/EmployeeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/VolunteerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/VolunteerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visits.json" beforeDir="false" afterPath="$PROJECT_DIR$/visits.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +137,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Model/Period.java</url>
-          <line>125</line>
+          <line>117</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -157,24 +156,19 @@
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Model/Period.java</url>
-          <line>77</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/View/EmployeeView.java</url>
           <line>306</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/View/EmployeeView.java</url>
-          <line>531</line>
+          <line>523</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/View/EmployeeView.java</url>
-          <line>337</line>
-          <option name="timeStamp" value="29" />
+          <line>266</line>
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Model/Period.java</url>
@@ -186,7 +180,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Controller/VisitController.java</url>
-          <line>74</line>
+          <line>75</line>
           <properties class="Controller.VisitController">
             <option name="EMULATED" value="true" />
           </properties>
@@ -194,7 +188,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Controller/VisitController.java</url>
-          <line>103</line>
+          <line>104</line>
           <properties class="Controller.VisitController">
             <option name="EMULATED" value="true" />
           </properties>

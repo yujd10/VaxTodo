@@ -37,11 +37,12 @@ public class VisitController extends Controller{
         return date;
     }
 
-    public void addNewVisit(boolean withRDV,String firstName, String lastName, String dose,String date,String time){
+    public Visit addNewVisit(boolean withRDV,String firstName, String lastName, String dose,String date,String time){
         List<Visit> currentVisits = read();
         Visit visit = new Visit(withRDV,firstName,lastName,dose,date,time);
         currentVisits.add(visit);
         saveData(currentVisits);
+        return visit;
     }
 
     public void CancelVisit(int reservNumber){
@@ -55,7 +56,7 @@ public class VisitController extends Controller{
 
     public Visit findVisit(String firstName,String lastName){
         List<Visit> visits=read();
-        Visit visit1 = new Visit();
+        Visit visit1 = null;
         for(Visit visit:visits){
             if(visit.getFirstName().equals(firstName)
                     &&visit.getLastName().equals(lastName)){

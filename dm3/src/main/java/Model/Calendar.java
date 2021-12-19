@@ -60,6 +60,9 @@ public class Calendar {
             period.setDate(date);
             period.setStart(i);
             if(!period.isFull()){list.add(i);}
+            else {
+                System.out.println("Cette période est plein. Veuillez choisir un autre.");
+            }
         }
         return list;
     }

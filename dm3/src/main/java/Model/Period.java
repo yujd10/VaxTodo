@@ -61,16 +61,18 @@ public class Period {
         String date = this.date;
         String time = Integer.toString(this.start);
         String type = null;
+        Visit visit = null;
         if(dose.equals("1")){
             if(spontanee) {
-                   vc.addNewVisit(true, firstName, lastName, dose, date, time);
+                  visit =  vc.addNewVisit(true, firstName, lastName, dose, date, time);
                    type = "Rendez-vous ";
             }
             else {
-                vc.addNewVisit(false, firstName, lastName, dose, date, time);
+               visit =  vc.addNewVisit(false, firstName, lastName, dose, date, time);
                 type = "Visite spontanée ";
             }
-            System.out.println(type+firstName+" "+lastName +" de "+ dose +"a"+ date+" "+time +" dose est ajouter avec succes !");
+            System.out.println(type+"pour "+firstName+" "+lastName +" du dose "+dose+" le "+ date+" à "+time +"heure est ajouter avec succès !");
+            System.out.println("Le numéro de réservation est " + visit.getReservationNumber() );
         }
 
         else if(dose.equals("2")){
@@ -79,13 +81,14 @@ public class Period {
                 String oldDate = firstVisit.getDatetime().getDate();
                 if(firstVisit!=null){
                     if(Calendar.getDayCount(oldDate,date)>=30) {
-                        vc.addNewVisit(true, firstName, lastName, dose, date, time);
+                        visit = vc.addNewVisit(true, firstName, lastName, dose, date, time);
                         type = "Rendez-vous ";
+                        System.out.println(type+"pour "+firstName+" "+lastName +" de "+ dose +" dose le"+ date+" à "+time +"heure est ajouter avec succès !");
+                        System.out.println("Le numéro de réservation est " + visit.getReservationNumber() );
                     }
                     else {
                         System.out.println("Le temps entre les deux doit etre plus que 1 mois");
                     }
-                    System.out.println(type+firstName+" "+lastName +" de "+ dose +"a"+ date+" "+time +" dose est ajouter avec succes !");
                 }
                 else {
                     System.out.println("SVP faite la première dose d‘abord !");
@@ -96,12 +99,13 @@ public class Period {
                 String oldDate = firstVisit.getDatetime().getDate();
                 if(firstVisit!=null) {
                     if (Calendar.getDayCount(oldDate, date) >= 30) {
-                        vc.addNewVisit(false, firstName, lastName, dose, date, time);
+                        visit = vc.addNewVisit(false, firstName, lastName, dose, date, time);
                         type = "Visite spontanee ";
                     } else {
                         System.out.println("Le temps entre les deux doit etre plus que 1 mois");
                     }
-                    System.out.println(type+firstName+" "+lastName +" de "+ dose +"a"+ date+" "+time +" dose est ajouter avec succes !");
+                    System.out.println(type+"pour "+firstName+" "+lastName +" de "+ dose +" dose le"+ date+" à "+time +"heure est ajouter avec succès !");
+                    System.out.println("Le numéro de réservation est " + visit.getReservationNumber() );
                 }
                 else {
                     System.out.println("SVP faite la première dose d‘abord !");
@@ -110,18 +114,6 @@ public class Period {
         }
 
     }
-
-//    public void addVisitAvecRDV(String firstName,String lastName,String dose){
-//        VisitController vc = new VisitController();
-//        String date = this.date;
-//        String time = Integer.toString(this.start);
-//        vc.addNewVisit(true, firstName, lastName, dose, date, time);
-//        System.out.println("Rendez-vous pour "+firstName+" "+lastName +" de "+ dose +" dose est ajouter avec succes !");
-//    }
-
-
-
-
 
     public String getDate() {
         return date;

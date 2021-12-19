@@ -264,14 +264,14 @@ public class EmployeeView extends View{
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                if(input!= "1" || input!="2"){
-                    System.out.println("Entrer invalide, veuillez choisir 1 ou 2.");
-                }else{
+                if((input.equals("1")) || (input.equals("2"))){
                     dose = input.trim();
                     break;
+                }else{
+                    System.out.println("Entrer invalide, veuillez choisir 1 ou 2.");
                 }
             }
-            periodeController.addVisit(time,firstName,lastName,dose,visitePlanifiee);
+            periodeController.addVisit(date,time,firstName,lastName,dose,visitePlanifiee);
             router.calendarPage(router);
         }
         else if (input.trim().equals("2")){
@@ -336,33 +336,25 @@ public class EmployeeView extends View{
             router.calendarPage(router);
         }
         else if (input.trim().equals("3")){
-            System.out.println("Est-ce que vous avez le numéro de compte ? Y/N");
+            System.out.println("Entrer le numéro de réservation");
             try {
                 input = reader.readLine();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            if((input.trim().equals("Y")||input.trim().equals("y"))){
-                System.out.println("Entrer le numéro de compte");
-            }else {
-                System.out.println("Entrer le email ou la date de naissance");
-            }
-            try {
-                input = reader.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            String info = input.trim();
+            VisitController visitController = new VisitController();
+            Visit visit = visitController.findVisitByNumber(Integer.parseInt(input));
             PersonController personController = new PersonController();
+            String info = visit.getFirstName()+":"+visit.getLastName();
             Person person = personController.search(info);
             if(person == null){
                 router.calendarPage(router);
             }
-            System.out.println("Vous traitez maintenan "+person.getFirstName()+" "+
+            System.out.println("Vous traitez maintenant "+person.getFirstName()+" "+
                     person.getLastName() +"\n"
                     +"la date naissance est " + person.getBirthDate() +"\n"
                     +"le numero de compte est " + person.getId());
-            System.out.println("Entrer votre vaccine Prefere :");
+            System.out.println("Entrer votre vaccine Prefere (Pfizer, Moderna, AstraZeneca, Janssen) :");
             try {
                 input = reader.readLine();
             } catch (IOException e) {
@@ -458,7 +450,7 @@ public class EmployeeView extends View{
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    Integer time = periodsAvailable.get(periodsAvailable.indexOf(input.trim()));
+                    Integer time = Integer.parseInt(input);
                     Period secondPeriod = new Period(date,time);
                     secondPeriod.addVisit(person.getFirstName(), person.getLastName(),"2",false);
                 }
