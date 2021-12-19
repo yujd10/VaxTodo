@@ -57,22 +57,32 @@ public class Visit implements Serializable {
      * @return  La visite qui viens d'être confirmé
      */
     public Visit confirm(){
-        if(!Calendar.ifLate(Integer.parseInt(this.datetime.getTime()))){
-            this.isConfirmed = true;
-            System.out.println("This visit for " +
-                    this.firstName +" "+
-                    this.lastName +" at " +
-                    this.datetime.getDate()+ " "+
-                    this.datetime.getTime()  +" "+
-                    "is confirmed successfully !");
+        if(dose.equals("2")) {
+            if (!Calendar.ifLate(Integer.parseInt(this.datetime.getTime()))) {
+                this.isConfirmed = true;
+                System.out.println("This visit for " +
+                        this.firstName + " " +
+                        this.lastName + " at " +
+                        this.datetime.getDate() + " " +
+                        this.datetime.getTime() + " " +
+                        "is confirmed successfully !");
+            } else {
+                this.setWithRDV(false);
+                this.reservationNumber = null;
+                String time = this.getDatetime().getTime();
+                String newTime = Integer.toString(Integer.parseInt(time) + 1);
+                this.datetime.setTime(newTime);
+                System.out.println("Vous êtes en retard, votre visite est spontanée maintenant !");
+            }
         }
         else {
-            this.setWithRDV(false);
-            this.reservationNumber =null;
-            String time = this.getDatetime().getTime();
-            String newTime = Integer.toString(Integer.parseInt(time)+1);
-            this.datetime.setTime(newTime);
-            System.out.println("Vous êtes en retard, votre visite est spontanée maintenant !");
+            this.isConfirmed = true;
+            System.out.println("This visit for " +
+                    this.firstName + " " +
+                    this.lastName + " at " +
+                    this.datetime.getDate() + " " +
+                    this.datetime.getTime() + " " +
+                    "is confirmed successfully !");
         }
         return this;
     }
