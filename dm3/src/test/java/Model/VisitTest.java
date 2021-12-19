@@ -129,6 +129,22 @@ class VisitTest {
 
     @Test
     void testConfirmRDVFail() {
-
+        boolean[] success = new boolean[5];
+        boolean pass = true;
+        Period period = new Period("2022-02-23",15);
+        period.addVisit("Ming","YAO","1",false);
+        Visit visit1=visitController.findVisit("Ming","YAO");
+        success[0]= visit1.getFirstName().equals("Ming");
+        success[1]= visit1.getLastName().equals("YAO");
+        success[2]= visit1.isWithRDV();
+        success[3]= !visit1.isConfirmed();
+        visit1.confirm();
+        success[4]= !visit1.isConfirmed();
+        for(boolean b : success){
+            if (b == false){
+                pass = false;
+            }
+        }
+        assertTrue(pass);
     }
 }
