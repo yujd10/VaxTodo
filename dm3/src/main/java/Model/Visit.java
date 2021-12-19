@@ -57,13 +57,23 @@ public class Visit implements Serializable {
      * @return  La visite qui viens d'être confirmé
      */
     public Visit confirm(){
-        this.isConfirmed = true;
-        System.out.println("This visit for " +
-                this.firstName +" "+
-                this.lastName +" at " +
-                this.datetime.getDate()+ " "+
-                this.datetime.getTime()  +" "+
-                "is confirmed successfully !");
+        if(!Calendar.ifLate(Integer.parseInt(this.datetime.getTime()))){
+            this.isConfirmed = true;
+            System.out.println("This visit for " +
+                    this.firstName +" "+
+                    this.lastName +" at " +
+                    this.datetime.getDate()+ " "+
+                    this.datetime.getTime()  +" "+
+                    "is confirmed successfully !");
+        }
+        else {
+            this.setWithRDV(false);
+            this.reservationNumber =null;
+            String time = this.getDatetime().getTime();
+            String newTime = Integer.toString(Integer.parseInt(time)+1);
+            this.datetime.setTime(newTime);
+            System.out.println("Vous êtes en retard, votre visite est spontanée maintenant !");
+        }
         return this;
     }
 

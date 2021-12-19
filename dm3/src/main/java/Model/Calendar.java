@@ -153,4 +153,14 @@ public class Calendar {
             return false;
         }
     }
+
+    public static boolean ifLate(int start){
+        boolean late = false;
+        int currentTime = (int)((System.currentTimeMillis()/1000)%3600);
+        int difference = ((3600 + currentTime - start)%3600)/60;
+        if(difference>15){
+            late = true;
+        }
+        return late;
+    }
 }
