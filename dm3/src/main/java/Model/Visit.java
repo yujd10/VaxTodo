@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
+/**
+ * Classe pour les visites y inclut les informations du visiteur et vaccine à prendre
+ */
 public class Visit implements Serializable {
     private String firstName;
     private String lastName;

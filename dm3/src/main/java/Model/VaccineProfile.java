@@ -11,6 +11,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe pour les profils de vaccination, sa personne, date, les vaccines pris et un code QR
+ */
 public class VaccineProfile {
     private Person person;
     private String date;

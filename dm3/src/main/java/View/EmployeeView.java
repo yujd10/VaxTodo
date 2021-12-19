@@ -188,7 +188,7 @@ public class EmployeeView extends View{
                 "- [4] Récupérer et imprimer un formulaire\n"+
                 "- [5] Consulter les Periods libres\n"+
                 "- [6] Consulter les cinq prochaines jours disponible\n"+
-                "- [7] Envoyer les　notifications de rappel aux patients\n"+
+                "- [7] Envoyer les notifications de rappel aux patients\n"+
                 "- [0] Retourner au menu principale\n");
 
         try {
