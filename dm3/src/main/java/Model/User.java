@@ -1,5 +1,6 @@
 /**
  * @author Xiang Long Gao
+ * Une classe pour utiliser les utilisateurs du logiciel dans la base de donnée.
  */
 package Model;
 

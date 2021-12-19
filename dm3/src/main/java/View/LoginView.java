@@ -7,6 +7,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * Une classe pour la partie View du Login.
+ */
 public class LoginView extends View{
     LoginController loginController = new LoginController();
     public User loginPage(){

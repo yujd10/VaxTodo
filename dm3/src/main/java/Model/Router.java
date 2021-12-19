@@ -1,5 +1,7 @@
 /**
  * @author Xiang Long Gao
+ *
+ * Classe pour controller la page de vue.
  */
 package Model;
 
@@ -20,7 +22,9 @@ public class Router {
         loginPage();
     }
 
-
+    /**
+     * Fonction pour la page de login et afficher le menu principal selon le role d'utilisateur connecté.
+     */
     public void loginPage(){
         User user = loginView.loginPage();
         if(user == null){

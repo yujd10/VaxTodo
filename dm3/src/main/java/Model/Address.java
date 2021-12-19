@@ -1,7 +1,7 @@
 package Model;
 
 /**
- * Classe pour les détail de l'addresse
+ * Classe pour les détails de l'addresse
  */
 public class Address{
     private String streetNumber;

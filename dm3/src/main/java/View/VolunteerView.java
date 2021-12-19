@@ -8,11 +8,18 @@ import Model.Router;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Une classe pour la partie View d'un bénévole.
+ */
 public class VolunteerView extends View{
     private PersonController personController = new PersonController();
     private PeriodeController periodeController = new PeriodeController();
     private CalendarController calendarController = new CalendarController();
 
+    /**
+     * Cette fonction permet d'afficher le menu principal pour un bénévole.
+     * @param router
+     */
     public void showVolunteerMenu(Router router){
         System.out.println(
                 "- [1] Consultation du calendrier: Accédez au calendrier et cherchez les rendez-vous à venir\n" +
@@ -38,11 +45,20 @@ public class VolunteerView extends View{
             router.volunteerMain(router);
         }
     }
+
+    /**
+     * Cette fonction permet d'afficher la liste de tous les visiteurs enregistrés dans la base de données
+     * @param router
+     */
     public void showVisitorList(Router router){
         personController.printPersonList(false);
         router.volunteerMain(router);
     }
 
+    /**
+     * Cette fonction permet un bénévole de prendre un rendez-vous pour un visiteur.
+     * @param router
+     */
     public void volunteerMakeAppointment(Router router){
         String date = null;
         boolean visitePlanifiee;

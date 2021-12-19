@@ -11,9 +11,16 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+/**
+ * Une classe pour la partie View d'un employée.
+ */
 
 public class EmployeeView extends View{
 
+    /**
+     * Cette fonction permet d'afficher le menu principal du employé.
+     * @param router l'instance de router qui permet de change à des pages de View différentes.
+     */
     public void showEmployeeMenu(Router router){
         System.out.println(
                 "- [1] Gestion des visiteurs: Accédez à la liste des visiteurs et ajouter, modifier ou supprimer un visiteur.\n" +
@@ -46,6 +53,11 @@ public class EmployeeView extends View{
         }
     }
 
+    /**
+     * Cette fonction permet d'afficher le menu pour la gesion des personnes qui soit un visiteur ou un bénévole
+     * @param router
+     * @param role le role de la personne. Bénévole ou visiteur.
+     */
     public void showManagePersonMenu(Router router, String role) {
         boolean isVolunteer = (role.equals("bénévoles")) ? true : false;
         System.out.println(
@@ -167,6 +179,10 @@ public class EmployeeView extends View{
         }
     }
 
+    /**
+     * Cette fonction permet d'afficher le menu pour les options reliées au calendrier
+     * @param router
+     */
     public void calendarOptionMenu(Router router)  {
         CalendarController calendarController = new CalendarController();
         PeriodeController periodeController = new PeriodeController();
@@ -534,6 +550,10 @@ public class EmployeeView extends View{
         }
     }
 
+    /**
+     * Cette fonction permet d'afficher le menu pour les options reliées au suivi d'une visite.
+     * @param router
+     */
     public void showSuiviMenu(Router router){
         System.out.println( "- [1] Ajouter une Profil de vaccine(et la premier dose)\n"+
                 "- [2] Ajouter la deuxieme dose\n"+
