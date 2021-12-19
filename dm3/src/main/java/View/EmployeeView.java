@@ -291,16 +291,16 @@ public class EmployeeView extends View{
             router.calendarPage(router);
         }
         else if (input.trim().equals("2")){
-            boolean visitePlanifiee;
+            boolean visiteSpontanee;
             System.out.println("Confirmer une visite spontanée (1) ou une visite planifiée(2)?");
             while (true){
                 try {
                     input = reader.readLine();
                     if(input.equals("1")){
-                        visitePlanifiee = true;
+                        visiteSpontanee = true;
                         break;
                     }else if(input.equals("2")){
-                        visitePlanifiee = false;
+                        visiteSpontanee = false;
                         break;
                     }else {
                         System.out.println("Entrée invalide, choisir 1 ou 2.");
@@ -309,7 +309,7 @@ public class EmployeeView extends View{
                     e.printStackTrace();
                 }
             }
-            if(!visitePlanifiee){
+            if(!visiteSpontanee){
                 System.out.println("Numéro de réservation :");
                 try {
                     input = reader.readLine();
