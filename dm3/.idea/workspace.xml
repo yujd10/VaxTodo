@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e8f0cfb4-7b82-4c82-b9ae-be06c4dcf2c6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/VisitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/VisitController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/VaccineProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/VaccineProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Visit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Visit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/VolunteerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/VolunteerView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +112,7 @@
       <workItem from="1639801573169" duration="710000" />
       <workItem from="1639802308356" duration="71000" />
       <workItem from="1639802405596" duration="6296000" />
-      <workItem from="1639879894968" duration="5064000" />
+      <workItem from="1639879894968" duration="6815000" />
     </task>
     <servers />
   </component>
@@ -136,7 +139,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Model/Visit.java</url>
-          <line>86</line>
+          <line>91</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -146,7 +149,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Model/VaccineProfile.java</url>
-          <line>78</line>
+          <line>79</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -163,30 +166,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/View/EmployeeView.java</url>
           <line>337</line>
           <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/Controller/VisitController.java</url>
-          <line>74</line>
-          <properties class="Controller.VisitController">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/Controller/VisitController.java</url>
-          <line>103</line>
-          <properties class="Controller.VisitController">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/Controller/VisitController.java</url>
-          <line>23</line>
-          <properties class="Controller.VisitController" method="lookForFirstDose">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -28,6 +28,7 @@ public class Visit implements Serializable {
         this.datetime.setTime(time);
         this.isConfirmed = false;
         this.withRDV = withRDV;
+        //Si la Visite est avec rendez-vous le numéro de reservation va être généré automatiquement et aléatoirement
         if(withRDV){
             Random rnd = new Random();
             int number = rnd.nextInt(999999);
@@ -48,6 +49,10 @@ public class Visit implements Serializable {
                 '}';
     }
 
+    /**
+     * Confirmer une liste va changer son attribut isConfirmed à "true"
+     * @return  La visite qui viens d'être confirmé
+     */
     public Visit confirm(){
         this.isConfirmed = true;
         System.out.println("This visit for " +

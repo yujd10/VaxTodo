@@ -14,29 +14,39 @@ public class VisitController extends Controller{
     private Visit visit = new Visit();
 
 
-    public void showCurrentVisits(){
-        List<Visit> visits = read();
-        for (Visit visit:visits){
-            System.out.println(visit.toString());
-        }
-    }
+//    public void showCurrentVisits(){
+//        List<Visit> visits = read();
+//        for (Visit visit:visits){
+//            System.out.println(visit.toString());
+//        }
+//    }
 
-    public String lookForFirstDose(String firstName,String lastName){
-        Visit visit = null;
-        String date = null;
-        List<Visit> visits = read();
-        for(Visit visit1:visits){
-            if(visit1.getFirstName().equals(firstName)
-                    &&visit1.getLastName().equals(lastName)){
-                visit = visit1;
-            }
-        }
-        if(visit != null){
-            date=visit.getDatetime().getDate();
-        }
-        return date;
-    }
 
+//    public String lookForFirstDose(String firstName,String lastName){
+//        Visit visit = null;
+//        String date = null;
+//        List<Visit> visits = read();
+//        for(Visit visit1:visits){
+//            if(visit1.getFirstName().equals(firstName)
+//                    &&visit1.getLastName().equals(lastName)){
+//                visit = visit1;
+//            }
+//        }
+//        if(visit != null){
+//            date=visit.getDatetime().getDate();
+//        }
+//        return date;
+//    }
+
+    /**
+     * Ajouter une visite en précisant son status de rendez-vous, prénom, nom, dose, date de visite et son temps de visite
+     * @param withRDV status de rendez-vous
+     * @param firstName prénom
+     * @param lastName nom
+     * @param dose
+     * @param date date de visite
+     * @param time temps de visite
+     */
     public void addNewVisit(boolean withRDV,String firstName, String lastName, String dose,String date,String time){
         List<Visit> currentVisits = read();
         Visit visit = new Visit(withRDV,firstName,lastName,dose,date,time);
@@ -53,6 +63,12 @@ public class VisitController extends Controller{
         }
     }
 
+    /**
+     * Fonction permet de chercher une visite spontanée en précisant le nom de la personne de cette visite
+     * @param firstName prénom
+     * @param lastName nom
+     * @return la visite trouvé
+     */
     public Visit findVisit(String firstName,String lastName){
         List<Visit> visits=read();
         Visit visit1 = new Visit();
@@ -65,6 +81,11 @@ public class VisitController extends Controller{
         return visit1;
     }
 
+    /**
+     * Fonction permet de chercher une rendez-vous en précisant son numéro de reservation
+     * @param number numéro de reservation
+     * @return la visite trouvé
+     */
     public Visit findVisitByNumber(Integer number){
         List<Visit> visits=read();
         Visit visit1 = null;
@@ -76,6 +97,13 @@ public class VisitController extends Controller{
         return visit1;
     }
 
+
+    /**
+     * Fonction permet de confirmer une visite spontanée en précisant le prénom et le nom de la personne de
+     * cette visite, si la visite avec cette personne n'existe pas, imprimer un error message
+     * @param firstName prénom
+     * @param lastName nom
+     */
     public void confirmerVisitSpontane(String firstName,String lastName){
         List<Visit> visits=read();
         Integer index = null;
@@ -93,6 +121,11 @@ public class VisitController extends Controller{
         saveData(visits);
     }
 
+    /**
+     * Fonction permet de confirmer une rendez-vous en précisant son numéro de reservation
+     * et si la visite avec cette numéro de compte n'existe pas, imprimer un error message
+     * @param reserverNumber la numéro de reservation de la visite à être confirmée
+     */
     public void confirmerVisitRDV(int reserverNumber){
         List<Visit> visits=read();
         Integer index = null;

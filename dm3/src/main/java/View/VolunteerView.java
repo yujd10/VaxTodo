@@ -5,11 +5,7 @@ import Controller.PeriodeController;
 import Controller.PersonController;
 import Model.Period;
 import Model.Router;
-import Model.User;
-
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.List;
 
 public class VolunteerView extends View{
