@@ -11,17 +11,21 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 public class Calendar {
-    private int periodLenght = 1;
-    private int startTime = 8;
-    private int endTime = 17;
 
+    /**
+     * Consulter les prochaines 5 jours et peut choisir avancer dans le calendrier.
+     * @param next Combien de jours a l'avance que vous voulez consuilter
+     * @return
+     */
     public List<String> consultationOfCalendar(int next){
         List<String> periods =nextNDays(next);
         return periods;
     }
 
-    public List<Period> getAvailablePeriods(DateTime from,DateTime to){return null;}
-
+    /**
+     * La simulation de envoyer un rappel pour les rendez-vous dans le prochain 48 heures
+     * @param date le date des rendez-vous que vous voulez rappeler
+     */
     public void sendNotification(String date){
         VisitController vc = new VisitController();
         Person person = new Person();
@@ -41,7 +45,11 @@ public class Calendar {
         }
     }
 
-
+    /**
+     * Fonction permet de verifier si un jour choisi est rempli ( Pas disponible )
+     * @param date le jour que vous voulez checker
+     * @return Si le jour que vous avez choisi est rempli
+     */
     public static boolean isDayFull(String date){
         boolean filled = true;
         for(int i = 8;i<=17;i++){
@@ -53,6 +61,12 @@ public class Calendar {
         return filled;
     }
 
+    /**
+     * Fonction permet de trouver les period disponible dans un jour, cela est une liste de Integer qui est le type
+     * de l'attribut "start" de la classe de Period.
+     * @param date Date de period
+     * @return List de periods qui sont encore disponible
+     */
     public static List<Integer> periodsAvailable(String date){
         List<Integer> list = new ArrayList<>();
         for(int i = 8;i<=17;i++){
@@ -64,7 +78,11 @@ public class Calendar {
         return list;
     }
 
-
+    /**
+     *
+     * @param next  Combien de jours a l'avance que vous voulez consulter
+     * @return Une liste de date (String) des prochains 5 jours
+     */
     public static List<String> nextNDays(int next){
         List<String> dates = new ArrayList<>();
         java.util.Calendar cal = java.util.Calendar.getInstance();
@@ -89,9 +107,16 @@ public class Calendar {
         return dates;
     }
 
-
+    //Date Formatter
     final static String DATE_FORMAT = "yyyy-MM-dd";
 
+    /**
+     * Fonction permet de calculer le nombre de jours entre deux dates en utilisant les String de date
+     * Principalement pour calculer le temps entre deux doses
+     * @param start startDate
+     * @param end endDate
+     * @return Le nombre de jours entre les deux dates
+     */
     public static long getDayCount(String start, String end) {
         DateFormat df = new SimpleDateFormat(DATE_FORMAT);
         long diff = -1;
@@ -104,6 +129,13 @@ public class Calendar {
         return diff;
     }
 
+    /**
+     * Fonction permet de verifier si un String de date est valide:
+     * 1. Sous forme de yyyy-MM-dd
+     * 2. Le jour existe dans la vraie vie ( d'eviter les date comme 2022-02-29 )
+     * @param date
+     * @return
+     */
     public static boolean isDateValid(String date)
     {
         try {
