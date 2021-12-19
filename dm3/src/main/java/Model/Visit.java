@@ -7,7 +7,6 @@ import java.util.Locale;
 import java.util.Random;
 
 public class Visit implements Serializable {
-//    private String reservationNumber;
     private String firstName;
     private String lastName;
     private String dose;
@@ -15,8 +14,6 @@ public class Visit implements Serializable {
     private boolean isConfirmed;
     private boolean withRDV;
     private Integer reservationNumber;
-
-
 
 
     public Visit() {
@@ -37,8 +34,6 @@ public class Visit implements Serializable {
             this.reservationNumber = number;
         }
     }
-
-
 
     @Override
     public String toString() {
@@ -62,16 +57,6 @@ public class Visit implements Serializable {
                 this.datetime.getTime()  +" "+
                 "is confirmed successfully !");
         return this;
-    }
-
-    public void Cancel(){
-        //TODO:delete the visit
-    }
-
-    public boolean isValide(){
-        boolean isValide = false;
-        //TODO:check if valide
-        return isValide;
     }
 
     public String getFirstName() {

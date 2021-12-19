@@ -10,6 +10,9 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+/**
+ * Ce classe Calendrier sert a traiter les actions concernant au date et au temps.
+ */
 public class Calendar {
 
     /**
