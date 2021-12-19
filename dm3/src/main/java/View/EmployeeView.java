@@ -220,10 +220,10 @@ public class EmployeeView extends View{
                 try {
                     input = reader.readLine();
                     if(input.equals("1")){
-                        visitePlanifiee = false;
+                        visitePlanifiee = true;
                         break;
                     }else if(input.equals("2")){
-                        visitePlanifiee = true;
+                        visitePlanifiee = false;
                         break;
                     }else {
                         System.out.println("Entrée invalide, choisir 1 ou 2.");
@@ -297,10 +297,10 @@ public class EmployeeView extends View{
                 try {
                     input = reader.readLine();
                     if(input.equals("1")){
-                        visitePlanifiee = false;
+                        visitePlanifiee = true;
                         break;
                     }else if(input.equals("2")){
-                        visitePlanifiee = true;
+                        visitePlanifiee = false;
                         break;
                     }else {
                         System.out.println("Entrée invalide, choisir 1 ou 2.");
@@ -309,7 +309,7 @@ public class EmployeeView extends View{
                     e.printStackTrace();
                 }
             }
-            if(visitePlanifiee){
+            if(!visitePlanifiee){
                 System.out.println("Numéro de réservation :");
                 try {
                     input = reader.readLine();
@@ -319,6 +319,9 @@ public class EmployeeView extends View{
                 int number = Integer.parseInt(input.trim());
                 vc.confirmerVisitRDV(number);
                 Visit visit = vc.findVisitByNumber(number);
+                if(visit == null){
+                    calendarOptionMenu(router);
+                }
                 if(visit.getDose().equals("2")) {
                     Form form = adminController.getForm(visit.getFirstName(), visit.getLastName());
                     if (form != null) {
