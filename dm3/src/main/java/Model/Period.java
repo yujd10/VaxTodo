@@ -3,6 +3,9 @@ package Model;
 import Controller.VisitController;
 import java.util.List;
 
+/**
+ * Classe pour les périods
+ */
 public class Period {
     private String date;
     private int start;

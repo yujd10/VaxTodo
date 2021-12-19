@@ -11,6 +11,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe pour les formulaires des visiteur
+ */
 public class Form{
     private Person visitor;
     private String visitDate;
@@ -42,9 +45,9 @@ public class Form{
     }
 
     /**
-     * Fonction permet de consulter les formes d'un jour choisi en sortant une liste de forms.
-     * @param date La date des formes que vous voulez consulter
-     * @return Liste de formes de ce date
+     * Fonction permet de consulter les formulaires d'un jour choisi en sortant une liste de forms.
+     * @param date La date des formulaires que vous voulez consulter
+     * @return Liste de formulaires de ce date
      */
     public List<Form> formOfADay(String date){
         List<Form> currentForms=read();
@@ -56,7 +59,7 @@ public class Form{
             }
         }
         if(formsTargeted.isEmpty()){
-            System.out.println("Pas de formes pour ce date !");
+            System.out.println("Pas de formulaires pour ce date !");
         }
         return formsTargeted;
     }
@@ -65,7 +68,7 @@ public class Form{
      * Fonction permet de trouver le formulaire en entrant le prénom et le nom de la personne à laquelle il se rapporte.
      * @param firstName prénom de la personne
      * @param lastName nom de la personne
-     * @return La forme de ce personne
+     * @return La formulaires de ce personne
      */
     public Form findForm(String firstName,String lastName){
         List<Form> currentForms=read();
@@ -83,8 +86,8 @@ public class Form{
     }
 
     /**
-     * Ajouter une forme dans le json file pour les formes.
-     * @param form La forme que vous voulez ajouter
+     * Ajouter une formulaires dans le json file pour les formulaires.
+     * @param form La formulaires que vous voulez ajouter
      */
     public void addNewForm(Form form){
         List<Form> currentForms = read();
@@ -93,10 +96,10 @@ public class Form{
     }
 
     /**
-     * Fontion permet de lire les form dans le json file pour les formes et donner les formes
+     * Fontion permet de lire les form dans le json file pour les formulaires et donner les formulaires
      * dans le json file dans une liste afin de les traiter, fonction utilise le library Gson
      * pour faciliter tranformer un object à un JsonObject qu'on peut sauvegarder dans le database.
-     * @return La liste de tous les formes dans le json file
+     * @return La liste de tous les formulaires dans le json file
      */
     public List<Form> read(){
         List<Form> results = new ArrayList<>();
@@ -112,7 +115,7 @@ public class Form{
     }
 
     /**
-     * En utilisant library GSON, cette fonction permet de sauvegarder une liste de formes dans le
+     * En utilisant library GSON, cette fonction permet de sauvegarder une liste de formulaires dans le
      * json file en transformant cette liste à JSONList
      * @param currentlist La liste que vous voulez sauvegarder
      */
@@ -128,7 +131,7 @@ public class Form{
     }
 
     /**
-     * Fonction permet de renouveler la forme après que un visiteur s'est fait son deuxième dose,
+     * Fonction permet de renouveler la formulaire après que un visiteur s'est fait son deuxième dose,
      * le status de dose et la visteDate seront mis à jour avec cette fonction
      * @param isFirstDose le status de dose
      * @param visitDate le dernier date de visite

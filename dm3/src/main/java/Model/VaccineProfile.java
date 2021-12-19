@@ -11,6 +11,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe pour les profils de vaccination, sa personne, date, les vaccines pris et un code QR
+ */
 public class VaccineProfile {
     private Person person;
     private String date;
@@ -54,8 +57,8 @@ public class VaccineProfile {
     }
 
     /**
-     *
-     * @param vaccine
+     * Fonction permet d'ajouter une deuxième dose à cette profil de vaccination et sauvegarder le profil de vaccination
+     * @param vaccine la deuxième dose à ajouter
      */
     public void addVaccine(Vaccine vaccine){
         List<VaccineProfile> vaccineProfiles = read();
@@ -70,6 +73,12 @@ public class VaccineProfile {
         saveData(vaccineProfiles);
     }
 
+    /**
+     * Fonction permet de chercher un profil de vaccination en utilisant les information de la personne
+     * et puis rentrer l'index du profil dans le database (généré à une liste de profils)
+     * @param person La personne de ce profil
+     * @return l'index du profil
+     */
     public static Integer findProfile(Person person){
         List<VaccineProfile> currentProfils = read();
         VaccineProfile profile = null;
@@ -87,12 +96,20 @@ public class VaccineProfile {
         return index;
     }
 
+    /**
+     *Ajouter un profil dans le database des profils
+     * @param profile profil à ajouter
+     */
     public static void addProfile(VaccineProfile profile){
         List<VaccineProfile> currentProfils = read();
         currentProfils.add(profile);
         saveData(currentProfils);
     }
 
+    /**
+     *Lire les Profils du fichier json(database) et les sortir dans une liste des profils
+     * @return liste des profils dans le database
+     */
     public static List<VaccineProfile> read(){
         List<VaccineProfile> results = new ArrayList<>();
         try {
@@ -106,6 +123,12 @@ public class VaccineProfile {
         return results;
     }
 
+    /**
+     * Sauvegarder une liste de Profils dans le fichier json pour les profils
+     * en utilisant le library GSON qui peut transformer un java object(list)
+     * à JSON Object(List)
+     * @param currentlist
+     */
     public static void saveData(List<VaccineProfile> currentlist){
         Gson gson = new Gson();
         try {
@@ -117,6 +140,8 @@ public class VaccineProfile {
         }
     }
 
+
+    //Getters and Setters
     public String getCodeQR() {
         return codeQR;
     }

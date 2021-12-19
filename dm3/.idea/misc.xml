@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="JavadocGenerationManager">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../JAVADOC2" />
+    <option name="OTHER_OPTIONS" value="-J-Duser.language=fr" />
+    <option name="LOCALE" value="javadoc -locale fr ...." />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>

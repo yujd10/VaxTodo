@@ -51,6 +51,10 @@ public class User {
         this.role = role;
     }
 
+    /**
+     * Lire le data base et retourner tous les users existant dans une liste de users
+     * @return Liste de users
+     */
     public static List<User> readData() {
         //JSON parser object to parse read file
         JSONParser jsonParser = new JSONParser();
@@ -72,6 +76,13 @@ public class User {
 
         return results;
     }
+
+    /**
+     * Fonction permet de transformer un user à un JSON object afin qu'on puisse la sauvegarder et lire dans
+     * le JSON file
+     * @param employee
+     * @return
+     */
     private static User parseUserObject(JSONObject employee) {
         User user = new User();
         //Get employee object within list

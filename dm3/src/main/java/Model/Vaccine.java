@@ -1,5 +1,8 @@
 package Model;
 
+/**
+ * La classe pour les vaccines
+ */
 public class Vaccine {
     private String name;
     private String code;
@@ -10,10 +13,15 @@ public class Vaccine {
 
     public Vaccine(String name) {
         this.name = name;
+        //code QR est généré automatiquement
         this.code = generateQR();
         this.lot = "FD3982";
     }
 
+    /**
+     * Fonction permet de générer un code de 24 digits pour le vaccine de façon aléatoire
+     * @return un code QR
+     */
     public String generateQR(){
         String qrNumber = "";
         for(int i = 0; i < 24; i++) {
@@ -33,25 +41,5 @@ public class Vaccine {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getLot() {
-        return lot;
-    }
-
-    public void setLot(String lot) {
-        this.lot = lot;
     }
 }

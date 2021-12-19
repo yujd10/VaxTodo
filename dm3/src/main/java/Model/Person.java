@@ -16,6 +16,9 @@ import java.util.ConcurrentModificationException;
 import java.util.List;
 import java.util.regex.Pattern;
 
+/**
+ * Classe pour les personnes y compris visiteurs et bénévoles ainsi que leurs informations
+ */
 public class Person {
     private String id;
     private String firstName;
