@@ -54,8 +54,8 @@ public class VaccineProfile {
     }
 
     /**
-     *
-     * @param vaccine
+     * Fonction permet d'ajouter une deuxième dose à cette profil de vaccination et sauvegarder le profil de vaccination
+     * @param vaccine la deuxième dose à ajouter
      */
     public void addVaccine(Vaccine vaccine){
         List<VaccineProfile> vaccineProfiles = read();
@@ -70,6 +70,11 @@ public class VaccineProfile {
         saveData(vaccineProfiles);
     }
 
+    /**
+     * Fonction permet de chercher une
+     * @param person
+     * @return
+     */
     public static Integer findProfile(Person person){
         List<VaccineProfile> currentProfils = read();
         VaccineProfile profile = null;
