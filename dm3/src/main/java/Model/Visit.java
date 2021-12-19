@@ -57,7 +57,7 @@ public class Visit implements Serializable {
      * @return  La visite qui viens d'être confirmé
      */
     public Visit confirm(){
-        if(dose.equals("2")) {
+        if(isWithRDV()) {
             if (!Calendar.ifLate(Integer.parseInt(this.datetime.getTime()))) {
                 this.isConfirmed = true;
                 System.out.println("This visit for " +

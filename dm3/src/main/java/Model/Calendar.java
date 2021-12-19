@@ -2,9 +2,11 @@ package Model;
 
 import Controller.VisitController;
 
+import java.sql.Time;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -154,10 +156,17 @@ public class Calendar {
         }
     }
 
+    /**
+     * Fonction permet de checker si un visiteur est en retard pendant confirmer son rendez-vous
+     * en calculant le temps entre deux temps(currentTime et startTime pour le rendez-vous)
+     * @param start le temps pour rendez-vous
+     * @return si un visiteur est en retard
+     */
     public static boolean ifLate(int start){
         boolean late = false;
-        int currentTime = (int)((System.currentTimeMillis()/1000)%3600);
-        int difference = ((3600 + currentTime - start)%3600)/60;
+        DateTime dt = new DateTime();
+        double currentTime = LocalDateTime.now().getHour()+(LocalDateTime.now().getHour())*0.017;;;
+        double difference = (currentTime-(double) start)*60;
         if(difference>15){
             late = true;
         }
