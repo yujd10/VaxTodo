@@ -1,1 +1,1 @@
-[]
+[{"visitor":{"id":"102938475656","firstName":"Jiadi","lastName":"YU","phoneNumber":"4382216025","emailAddress":"yujd10@outlook.com","birthDate":"2000-09-10","isVolunteer":false,"address":{"streetNumber":"123","streetName":"King","city":"MTL","postalCode":"J2K9DL","province":"QC"}},"visitDate":"2022-01-21","preferredVaccine":{"name":"Pfizer","code":"136149640846481739893514","lot":"FD3982"},"numeroDeAssurance":"123124","isFirstDose":false,"hasCovid":false,"hasSymptom":false,"hasAllergies":false,"otherVaxTook":false}]

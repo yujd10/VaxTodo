@@ -325,7 +325,7 @@ public class EmployeeView extends View{
                 if(visit.getDose().equals("2")) {
                     Form form = adminController.getForm(visit.getFirstName(), visit.getLastName());
                     if (form != null) {
-                        adminController.updateForm(false,visit.getDatetime().getDate());
+                        form.change(false,visit.getDatetime().getDate());
                     }
                 }
             }else {
@@ -355,16 +355,27 @@ public class EmployeeView extends View{
             router.calendarPage(router);
         }
         else if (input.trim().equals("3")){
-            System.out.println("Entrer le numéro de réservation");
+            System.out.println("Est-ce que vous avez le numéro de compte ? Y/N");
             try {
                 input = reader.readLine();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            VisitController visitController = new VisitController();
-            Visit visit = visitController.findVisitByNumber(Integer.parseInt(input));
+            if((input.trim().equals("Y")||input.trim().equals("y"))){
+                System.out.println("Entrer le numéro de compte");
+            }else {
+                System.out.println("Entrer le email ou la date de naissance");
+            }
+            try {
+                input = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String info = input.trim();
+//            VisitController visitController = new VisitController();
+//            Visit visit = visitController.findVisitByNumber(Integer.parseInt(input));
             PersonController personController = new PersonController();
-            String info = visit.getFirstName()+":"+visit.getLastName();
+//            String info = visit.getFirstName()+":"+visit.getLastName();
             Person person = personController.search(info);
             if(person == null){
                 router.calendarPage(router);
