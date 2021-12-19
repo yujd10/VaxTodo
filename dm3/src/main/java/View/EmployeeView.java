@@ -1,6 +1,5 @@
 package View;
-import Controller.PersonController;
-import Controller.VisitController;
+import Controller.*;
 import Model.*;
 
 
@@ -21,7 +20,6 @@ public class EmployeeView extends View{
                 "- [2] Gestion des bénévoles: Accédez à la liste des bénévoles et ajouter, modifier ou supprimer un bénévole.\n" +
                         "- [3] Suivi: Créer,Envoyer les profils de vaccination\n" +
                         "- [4] Calendrier: Consultation du calendrier et ajouter les visits/rendez-vous\n" +
-//                        "- [5] Traitement des visits: Confirmer les visits et Remplir les formulaire\n" +
                         "- [0] Quitter l'application");
         try {
             input = reader.readLine();
@@ -169,12 +167,10 @@ public class EmployeeView extends View{
         }
     }
 
-    public void showCalendarMenu(Router router){
-
-//        calendarOptionMenu(router, date);
-    }
-
     public void calendarOptionMenu(Router router)  {
+        CalendarController calendarController = new CalendarController();
+        PeriodeController periodeController = new PeriodeController();
+        AdminController adminController = new AdminController();
         Calendar calendar = new Calendar();
         GregorianCalendar cal = new GregorianCalendar();
         VisitController vc =new VisitController();
@@ -201,7 +197,7 @@ public class EmployeeView extends View{
             e.printStackTrace();
         }
         if (input.trim().equals("1")){
-            String date =null;
+            String date = null;
             boolean visitePlanifiee;
             System.out.println("Veuillez choisir: Visite spontanée (1) ou Rendez-vous planifié (2)?");
             while (true){
@@ -228,13 +224,13 @@ public class EmployeeView extends View{
                         e.printStackTrace();
                     }
                     date = input.trim();
-                    if(Calendar.isDateValid(date)){break;}
+                    if(calendarController.isValidDate(date)){break;}
                     else {
                         System.out.println("Entrez svp une date valide");
                     }
             }
             System.out.println("Les temps disponibles pour ce date :");
-            List<Integer> days =Calendar.periodsAvailable(date);
+            List<Integer> days = calendarController.getAvailablePeriod(date);
             System.out.println(days.toString());
             System.out.println("Choisir un temps :");
             try {
@@ -261,20 +257,22 @@ public class EmployeeView extends View{
             }
             String lastName = input.trim();
             System.out.println("Dose 1 ou 2:");
-            try {
-                input = reader.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
+            String dose;
+            while(true){
+                try {
+                    input = reader.readLine();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if(input!= "1" || input!="2"){
+                    System.out.println("Entrer invalide, veuillez choisir 1 ou 2.");
+                }else{
+                    dose = input.trim();
+                    break;
+                }
             }
-            String dose = input.trim();
-
-            if(dose.equals("1")){
-                period.addVisit(firstName,lastName,dose,visitePlanifiee);
-            }
-            else if(dose.equals("2")){
-                period.addVisit(firstName,lastName,dose,visitePlanifiee);
-            }
-            calendarOptionMenu(router);
+            periodeController.addVisit(time,firstName,lastName,dose,visitePlanifiee);
+            router.calendarPage(router);
         }
         else if (input.trim().equals("2")){
             boolean visitePlanifiee;
@@ -306,10 +304,9 @@ public class EmployeeView extends View{
                 vc.confirmerVisitRDV(number);
                 Visit visit = vc.findVisitByNumber(number);
                 if(visit.getDose().equals("2")) {
-                    Form form = new Form();
-                    form = form.findForm(visit.getFirstName(), visit.getLastName());
+                    Form form = adminController.getForm(visit.getFirstName(), visit.getLastName());
                     if (form != null) {
-                        form.change(false,visit.getDatetime().getDate());
+                        adminController.updateForm(false,visit.getDatetime().getDate());
                     }
                 }
             }else {
@@ -330,14 +327,13 @@ public class EmployeeView extends View{
                 vc.confirmerVisitSpontane(firstName,lastName);
                 Visit visit = vc.findVisit(firstName,lastName);
                 if(visit.getDose().equals("2")) {
-                    Form form = new Form();
-                    form = form.findForm(visit.getFirstName(), visit.getLastName());
+                    Form form = adminController.getForm(visit.getFirstName(), visit.getLastName());
                     if (form != null) {
-                        form.change(false,visit.getDatetime().getDate());
+                        adminController.updateForm(false,visit.getDatetime().getDate());
                     }
                 }
             }
-            calendarOptionMenu(router);
+            router.calendarPage(router);
         }
         else if (input.trim().equals("3")){
             System.out.println("Est-ce que vous avez le numéro de compte ? Y/N");
@@ -357,10 +353,10 @@ public class EmployeeView extends View{
                 e.printStackTrace();
             }
             String info = input.trim();
-            Person person = new Person();
-            person = person.search(info);
-            if(person==null){
-                calendarOptionMenu(router);
+            PersonController personController = new PersonController();
+            Person person = personController.search(info);
+            if(person == null){
+                router.calendarPage(router);
             }
             System.out.println("Vous traitez maintenan "+person.getFirstName()+" "+
                     person.getLastName() +"\n"
@@ -434,8 +430,8 @@ public class EmployeeView extends View{
             else {proccededAutre = false;}
 
             Vaccine vaccine = new Vaccine(vax);
-            Form form = new Form(person,today,vaccine,numeroDeAssurance,ifFirst,covided,symptom,allergies,proccededAutre);
-            form.addNewForm(form);
+            Form form = adminController.createForm(person,today,vaccine,numeroDeAssurance,ifFirst,covided,symptom,allergies,proccededAutre);
+            adminController.addFormToJSON(form);
 
             if(ifFirst==true){
                 System.out.println("Voulez-vous faire rendez-vous pour la deuxieme dose ? Y/N");
@@ -501,7 +497,7 @@ public class EmployeeView extends View{
             System.out.println("Periods available for " + date +" are ");
             List<Integer> days =Calendar.periodsAvailable(date);
             System.out.println(days.toString()+"\n");
-            calendarOptionMenu(router);
+            router.calendarPage(router);
         }
         else if (input.trim().equals("6")){
             List<String> next5days=null;
@@ -537,11 +533,11 @@ public class EmployeeView extends View{
             calendarOptionMenu(router);
         }
         else if(input.trim().equals("7")){
-            calendar.sendNotification(tommorow);
-            calendar.sendNotification(afterTommorow);
+            adminController.sendReminder(tommorow);
+            adminController.sendReminder(afterTommorow);
         }
         else if(input.trim().equals("0")){
-            showEmployeeMenu(router);
+            router.employeeMain(router);
         }
         else {
             System.out.println("Choix non-valide !");
@@ -625,9 +621,9 @@ public class EmployeeView extends View{
             List<VaccineProfile> profiles = VaccineProfile.read();
             if(profiles.isEmpty()){showSuiviMenu(router);}
             System.out.println("Chosir la personne a qui vous voulez envoyer le profile");
-            for(VaccineProfile vaccineProfile:profiles){
-                System.out.println(vaccineProfile.getPerson().getFirstName()+" "+
-                        vaccineProfile.getPerson().getLastName()+" "+ vaccineProfile.getPerson().getEmailAddress() +"\n");
+            for(int i = 0; i < profiles.size(); i++){
+                System.out.println(i+1 + ". " + profiles.get(i).getPerson().getFirstName()+" "+
+                        profiles.get(i).getPerson().getLastName()+" "+ profiles.get(i).getPerson().getEmailAddress() +"\n");
             }
             try {
                 input = reader.readLine();
@@ -635,7 +631,7 @@ public class EmployeeView extends View{
                 e.printStackTrace();
             }
             int index = Integer.parseInt(input.trim());
-            VaccineProfile profile = profiles.get(index);
+            VaccineProfile profile = profiles.get(index - 1);
             profile.sendProfil();
             showSuiviMenu(router);
         }

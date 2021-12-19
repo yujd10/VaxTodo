@@ -138,8 +138,4 @@ public class VisitController extends Controller{
         }
     }
     //ENF OF FILE/////////////////////////////
-
-    public void getUpComingVisits(int limit){
-
-    }
 }

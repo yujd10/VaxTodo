@@ -44,19 +44,13 @@ public class Router {
     }
 
     public void followUpPage(Router router){ employeeView.showSuiviMenu(router);}
+
     public void calendarPage(Router router){ employeeView.calendarOptionMenu(router);}
 
-
-    public void makeAppointment(){
-
-    }
-
-    public void surveyPage(){
-
-    }
     public void showVisitorList(Router router){
         volunteerView.showVisitorList(router);
     }
+    public void makeAppointment(Router router){volunteerView.volunteerMakeAppointment(router);}
 
 
 }
