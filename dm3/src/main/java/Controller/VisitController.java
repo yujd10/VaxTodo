@@ -109,7 +109,7 @@ public class VisitController extends Controller{
         List<Visit> visits=read();
         Integer index = null;
         for(Visit visit:visits){
-            if(!visit.isConfirmed()&&!visit.isWithRDV()
+            if(!visit.isConfirmed()
                     &&visit.getFirstName().equals(firstName)
                     &&visit.getLastName().equals(lastName)){
                 index =visits.indexOf(visit);
