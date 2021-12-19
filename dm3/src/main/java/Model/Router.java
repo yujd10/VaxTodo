@@ -20,9 +20,6 @@ public class Router {
         loginPage();
     }
 
-    /**
-     *
-     */
 
     public void loginPage(){
         User user = loginView.loginPage();

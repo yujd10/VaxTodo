@@ -1,9 +1,8 @@
 package Model;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-
+/**
+ * La classe pour une composition de date et temps, utilisé comme un attribut des visites.
+ */
 public class DateTime {
     private String date;
     private String time;
@@ -12,25 +11,13 @@ public class DateTime {
     }
 
     public DateTime(String date, String time) {
-        if(isDateValid(date)){
+        //De voir si la date est valide
+        if(Calendar.isDateValid(date)){
         this.date = date;
         this.time = time;}
     }
 
-    final static String DATE_FORMAT = "YYYY-MM-DD";
-
-    public static boolean isDateValid(String date)
-    {
-        try {
-            DateFormat df = new SimpleDateFormat(DATE_FORMAT);
-            df.setLenient(false);
-            df.parse(date);
-            return true;
-        } catch (ParseException e) {
-            return false;
-        }
-    }
-
+    //Getters and Setters
     public String getDate() {
         return date;
     }

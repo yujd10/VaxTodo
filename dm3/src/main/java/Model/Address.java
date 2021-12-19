@@ -18,6 +18,9 @@ public class Address{
         this.postalCode = postalCode;
     }
 
+    /**
+     * Getters et setters
+     * */
     public String getStreetNumber() {
         return streetNumber;
     }
