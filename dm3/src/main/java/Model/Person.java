@@ -71,6 +71,13 @@ public class Person {
                 '}';
     }
 
+    /**
+     * Cette fonction permet de retrouver une personne qui soit un bénévole ou une visiteur dans notre base de donnéee
+     * par ses informations personnelles.
+     * Les informations peuvent être son nom au complet, son adresse couriel, son numéro de compte ou sa date d'anniversaire.
+     * @param info les informations personnelles de la personne.
+     * @return retourne l'instance de la personne trouvé sinon null.
+     */
     public Person search(String info){
         List<Person> currentPerson = readData();
         Person found = null;
@@ -101,6 +108,11 @@ public class Person {
         return found;
     }
 
+    /**
+     * Cette fonction permet de supprimer une personne qui soit un bénévole ou une visiteur dans notre base de donnée.
+     * @param id le numéro de compte de la personne qu'on désire de supprimer.
+     * @throws ConcurrentModificationException
+     */
     public void delete(String id) throws ConcurrentModificationException {
         List<Person> currentPerson = readData();
         boolean found = false;
@@ -119,6 +131,14 @@ public class Person {
         }
     }
 
+    /**
+     * Cette fonction permet de modifier les données personnelles d'une personne qui soit un bénévole ou une visiteur dans
+     * notre base de donnée.
+     * @param person L'instance de la personne ciblée.
+     * @param choice Une choix entre les options fournis: numéro de compte, prénom, nom de famille, date de naissance, addresse courriel,
+     *               numéro de téléphone.
+     * @param info
+     */
     public void update(Person person, String choice, String info){
         String old;
         List<Person> currentPerson = readData();
@@ -162,10 +182,10 @@ public class Person {
     }
 
     /**
-     *
-     * @param personInfo
-     * @param isVolunteer
-     * @param address
+     * Cette fonction permet d'ajouter une personne avec ses informations personnelles détaillées dans notre base de donnée.
+     * @param personInfo Liste des informations personnelles.
+     * @param isVolunteer Si la personne est un bénévole ou une visiteur.
+     * @param address l'adresse de la personne
      */
     public void createPerson(String[] personInfo, boolean isVolunteer, String address){
         List<Person> currentPerson = readData();
@@ -176,6 +196,13 @@ public class Person {
         save(currentPerson);
         System.out.println((person.isVolunteer ? "Volunteer ":"Visitor ")+ person.firstName+" "+person.lastName + " added");
     }
+
+    /**
+     * Cette fonction permet de vérifier les données entré par l'utilisateur lors de l'ajout d'une personne dans la base de donnée
+     * @param info l'information à vérifier
+     * @param index l'option correspondant au type d'information.
+     * @return retourne un String pour les informaitons qui ne sont pas conformes à la contrainte.
+     */
     public String verifyInfo(String info, int index){
         String result = "";
             switch (index) {
@@ -221,6 +248,10 @@ public class Person {
         return result;
     }
 
+    /**
+     * Cette fonction permet de d'ajouter les informations d'une instance dans un fichier JSON.
+     * @param currentPerson L'instance de la personne dans une liste de personne.
+     */
     private void save(List<Person> currentPerson) {
         JSONArray personList = new JSONArray();
         for(Person p : currentPerson){
@@ -239,7 +270,9 @@ public class Person {
             personDetails.put("postal code",p.address.getPostalCode());
             personList.add(personDetails);
         }
-
+/**
+ * Cette fonction permet d'enregistrer les données dans le fichier JSON.
+ */
         //Write JSON file
         try (FileWriter file = new FileWriter("person.json")){
             file.write((personList.toJSONString()));
@@ -249,6 +282,10 @@ public class Person {
         }
     }
 
+    /**
+     * Cette fonction permet de sortir les informations d'un fichier JSON en une instance Java.
+     * @return retourner une liste de personne.
+     */
     public List<Person> readData() {
         //JSON parser object to parse read file
         JSONParser jsonParser = new JSONParser();
@@ -274,6 +311,12 @@ public class Person {
 
         return results;
     }
+
+    /**
+     * Cette fonction permet de transformer les données de JSON en attribut d'une instance.
+     * @param person1 une instance de personne dans le fichier JSON.
+     * @return retourne une instance de Persone.
+     */
     private static Person parsePersonObject(JSONObject person1) {
         Person person = new Person();
         person.address = new Address();
@@ -293,6 +336,10 @@ public class Person {
         return person;
     }
 
+    /**
+     * Cette fonction permet de voir tous les personnes dans la base de donnée.
+     * @param isVolunteer Choisir la liste des visiteurs ou la liste des bénévoles.
+     */
     public void printPersonList(boolean isVolunteer) {
         List<Person> personList = readData();
         for(Person p : personList){
